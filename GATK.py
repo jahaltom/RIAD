@@ -84,10 +84,11 @@ for s in SRR:
     # RemoveDup.run(**param)
     
     
-    #Make a Runnable object that calls variants file via GATK.
-    VarCall=Runnable(command='gatk')   
-    param={'--java-options':'-Xmx4g', 'HaplotypeCaller':'', '-I': s+'.Clean.bam','-O': s+'.vcf.gz' ,'-R': gen}
+   #Make a Runnable object that calls variants file via GATK.
+    VarCall=Runnable(command='gatk')
+    param={'--java-options':'-Xmx4g', 'HaplotypeCaller':'', '-I': 'Cleaner.bam','-O': 'SRR12850399.vcf.gz' ,'-R': gen,'-L':'chr1.vcf','-ERC':'GVCF'}
     VarCall.run(**param)
+
     
 
     
