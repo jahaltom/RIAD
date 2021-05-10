@@ -1,0 +1,35 @@
+#plink --vcf  raw  --pca 10 --within file --pca-clusters train --out qcvcf
+
+
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import metrics
+
+metadata = pd.read_csv('samplesAll',sep='\t')
+vardata= pd.read_csv('qcvcf.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10'])
+vardata=vardata.drop(['Drop'], axis=1)
+
+
+data=pd.merge(metadata,vardata,on=['Sample name'])
+data=data.drop_duplicates()
+
+X=data[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+y=data['Population name']  # Labels
+
+# Split dataset into training set and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3) # 70% training and 30% test
+
+
+
+#Create a Gaussian Classifier
+clf=RandomForestClassifier(n_estimators=100)
+
+#Train the model using the training sets y_pred=clf.predict(X_test)
+clf.fit(X_train,y_train)
+
+y_pred=clf.predict(X_test)
+
+# Model Accuracy, how often is the classifier correct?
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
