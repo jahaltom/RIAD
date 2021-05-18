@@ -5,7 +5,7 @@ from pyrpipe.runnable import Runnable
 
 
 #Create output directory
-working_dir='example_output'
+output_dir='output'
 
 #Set path to human genome
 gen='/work/LAS/xgu-lab/Haplo/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
@@ -27,19 +27,19 @@ trim_galore=qc.Trimgalore()
 
 
 
-#Pull SRR Ids from txt file. 
+#Read in run accession IDs from txt file. 
 with open ("SRRids.txt") as f:
 	SRR=f.read().splitlines()
  
-#Take in 1 SRR ID at a time.     
+#Take in 1 run accession ID at a time.     
 for s in SRR:   
-    #Download fastq(s) for SRR ID 
-    srr_object=sra.SRA(s,directory=working_dir)
+    #Download fastq(s) for run accession ID 
+    srr_object=sra.SRA(s,directory=output_dir)
     #Run through trim_galore and STAR
     srr_object.trim(trim_galore).align(star)
     
     #Change working directory to output directory for the SRR ID. 
-    os.chdir('/work/LAS/xgu-lab/Haplo/example_output/'+s)
+    os.chdir('/work/LAS/xgu-lab/Haplo/output/'+s)
     
     
     
@@ -57,7 +57,7 @@ for s in SRR:
     
     #Make a Runnable object that adds read group info to BAM file and sorts it via picard.
     Group=Runnable(command='picard')  
-    param={'AddOrReplaceReadGroups':'','INPUT=': s+'.DupRem.Sorted.bam','OUTPUT=': s+'.DupRem.Sorted.Grouped.bam' ,'SORT_ORDER=':'coordinate','RGSM=': s,'RGID=':'4','RGLB=':'lib1','RGPL=':'illumina','RGPU=':'unit1'}
+    param={'AddOrReplaceReadGroups':'','INPUT=': s+'.DupRem.bam','OUTPUT=': s+'.DupRem.Sorted.Grouped.bam' ,'SORT_ORDER=':'coordinate','RGSM=': s,'RGID=':'4','RGLB=':'lib1','RGPL=':'illumina','RGPU=':'unit1'}
     Group.run(**param)
     
     
@@ -71,23 +71,22 @@ for s in SRR:
     
     
     #Base Recalibration 
-    # #create a Runnable object
-    # RemoveDup=Runnable(command='gatk')
-    # #specify orfipy options; these can be specified into orfipy.yaml too
-    # param={'BaseRecalibrator':'','-I': '','-O': 'recal_data.table' ,'-R':'GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'}
+    ##create a Runnable object
+    #RemoveDup=Runnable(command='gatk')    
+    #param={'BaseRecalibrator':'','-I': '','-O': 'recal_data.table' ,'-R':'GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'}
     # RemoveDup.run(**param)
     
-    # #create a Runnable object
-    # RemoveDup=Runnable(command='gatk')
-    # #specify orfipy options; these can be specified into orfipy.yaml too
-    # param={'SplitNCigarReads':'','-I': 'Sorted.bam','-O': 'Split.bam' ,'-R':'GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'}
-    # RemoveDup.run(**param)
+   
     
     
    #Make a Runnable object that calls variants file via GATK.
     VarCall=Runnable(command='gatk')
     param={'--java-options':'-Xmx4g', 'HaplotypeCaller':'', '-I': 'Cleaner.bam','-O': 'SRR12850399.vcf.gz' ,'-R': gen,'-L':'chr1.vcf','-ERC':'GVCF'}
     VarCall.run(**param)
+	
+    GVCF=Runnable(command='gatk')
+    param={'--java-options':'-Xmx4g', 'GenotypeGVCFs':'', '-V': 'SRR12850399.vcf.gz','-O': 'SRR12850399.done.vcf.gz' ,'-R': gen, '-L':'chr1.vcf','--include-non-variant-sites': '' }
+    GVCF.run(**param)
 
     
 
