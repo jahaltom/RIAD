@@ -85,16 +85,17 @@ for s in SRR:
     VarCall.run(**param)
 	
     GVCF=Runnable(command='gatk')
-    param={'--java-options':'-Xmx4g', 'GenotypeGVCFs':'', '-V': 'SRR12850399.vcf.gz','-O': 'SRR12850399.done.vcf.gz' ,'-R': gen, '-L':'chr1.vcf','--include-non-variant-sites': '' }
+    param={'--java-options':'-Xmx4g', 'GenotypeGVCFs':'', '-V': 'SRR12850399.vcf.gz','-O': 'SRR12850399.done.vcf.gz' ,'-R': gen,'--include-non-variant-sites': '' }
     GVCF.run(**param)
 
 
-    VariantFiltration =Runnable(command='gatk')
-    param={'--java-options':'-Xmx4g', 'VariantFiltration':'', '-V': 'SRR12850399.done.vcf.gz','-O': 'SRR12850399.finshed.vcf.gz' ,'-R': gen,'--filter-name':'rawwww' ,'--filter-expression': 'ReadPosRankSum > -8 || QD > 5 || DP > 10 ||  FS < 60 || MQ > 40 || MQRankSum > -12.5' }
-    VariantFiltration .run(**param)
+    #VariantFiltration =Runnable(command='gatk')
+    #param={'--java-options':'-Xmx4g', 'VariantFiltration':'', '-V': 'SRR12850399.done.vcf.gz','-O': 'SRR12850399.finshed.vcf.gz' ,'-R': gen,'--filter-name':'rawwww' ,'--filter-expression': 'ReadPosRankSum > -8 || QD > 5 || DP > 10 ||  FS < 60 || MQ > 40 || MQRankSum > -12.5' }
+    #VariantFiltration .run(**param)
+	
+	
+    #VariantFiltration =Runnable(command='gatk')
+    #param={'--java-options':'-Xmx4g', 'VariantFiltration':'', '-V': 'SRR12850399.done.vcf.gz','-O': 'SRR12850399.finshed.vcf.gz' ,'-R': gen,'--filter-name':'rawwww' ,'--filter-expression': 'ReadPosRankSum > -8 || QD > 5 || DP > 10 ||  FS < 60 || MQ > 40 || MQRankSum > -12.5' }
+    #VariantFiltration .run(**param)
 
-
-
-    
-
-    
+	
