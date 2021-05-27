@@ -1,0 +1,16 @@
+import pandas as pd
+
+
+
+## Split up EB metadata by chr  
+df = pd.read_csv("EB_Gencode_gene_metadata_ordered_withPS.tsv",sep='\t')  
+#Autosomal chr 
+i=1
+while i < 23:
+  chr_temp = df[df["chr"] =="chr" + str(i) ]
+  chr_temp.to_csv('EB_chr'+str(i),sep='\t',index=False)                    
+  i=i+1           
+    
+#Sex chr   
+chr_temp = df[df["chr"] =="chrX" ]
+chr_temp.to_csv('EB_chrX',sep='\t',index=False) 
