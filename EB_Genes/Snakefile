@@ -1,7 +1,14 @@
 import pandas as pd
 from pandas import DataFrame
 
-chr_num=["11"]
+
+##Make list 1-22. Then add X. These will denote the Chrs
+chr_num=[]
+for x in range(23):
+   if x !=0:
+      chr_num.append(str(x))
+chr_num.append("X")      
+      
 
 
 rule all:
