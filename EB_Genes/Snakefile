@@ -32,7 +32,7 @@ rule search:
             chr_num=str(row1['chr'])
             loci=row1['loci']
             for index2,row2 in eb.iterrows():      
-                if loci >= row2['start'] & loci <= row2['end']:
+                if (loci >= row2['start']) & (loci <= row2['end']):
                     s=chr_num+" " +str(loci)+ " " + row2['Gene_name']           
                     eb_genes.append(s)
                     break
