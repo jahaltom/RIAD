@@ -1,0 +1,41 @@
+import pandas as pd
+
+
+chr_num=["11"]
+
+
+rule all:
+   input:
+         expand("{c}.out.tsv",c=chr_num)
+
+
+rule search:
+    input:
+        expand("chr{c}.loci", c=chr_num),
+        expand("EB_chr{c}", c=chr_num)
+    output:
+        "{c}.out.tsv"
+    run:
+        eb = pd.read_csv(input[1],sep='\t')
+        chr = pd.read_csv(input[0],sep='\s+',header=None)
+        chr.rename(columns={ chr.columns[0]: "chr" }, inplace = True)
+        chr.rename(columns={ chr.columns[1]: "loci" }, inplace = True)
+
+        eb = eb[['chr', 'start','end','Gene_name']]
+        eb['chr'] = eb.chr.str.replace('chr', '')
+
+
+        eb_genes=[]
+
+
+        for index1,row1 in chr.iterrows():
+            chr_num=str(row1['chr'])
+            loci=row1['loci']
+            for index2,row2 in eb.iterrows():      
+                if loci >= row2['start'] & loci <= row2['end']:
+                    s=chr_num+" " +str(loci)+ " " + row2['Gene_name']           
+                    eb_genes.append(s)
+                    break
+
+
+        eb_genes.to_csv("{c}.out.tsv",sep='\t',index=False)          
