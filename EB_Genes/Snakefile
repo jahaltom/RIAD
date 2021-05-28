@@ -1,5 +1,5 @@
 import pandas as pd
-
+from pandas import DataFrame
 
 chr_num=["11"]
 
@@ -37,5 +37,5 @@ rule search:
                     eb_genes.append(s)
                     break
 
-
+        eb_genes=DataFrame(eb_genes)
         eb_genes.to_csv(output[0],sep='\t',index=False)          
