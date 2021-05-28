@@ -38,4 +38,4 @@ rule search:
                     break
 
 
-        eb_genes.to_csv("{c}.out.tsv",sep='\t',index=False)          
+        eb_genes.to_csv(output[0],sep='\t',index=False)          
