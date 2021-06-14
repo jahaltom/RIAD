@@ -98,7 +98,10 @@ VariantFiltration .run(**param)
 SelectVariants  =Runnable(command='gatk')
 param={'--java-options':'-Xmx4g', 'SelectVariants':'', '-V': 'SRR12850399.finshed.vcf.gz','-O': 'SRR12850399.DONE4.vcf.gz' ,'-R': gen,'--exclude-filtered': 'true', '--select-type-to-exclude': 'INDEL' }
 SelectVariants  .run(**param)
-
+#gunzip -c SRR12850399.DONE4.vcf.gz | grep -v  '\./\.' > SRR12850399.filtered.vcf
+#bgzip SRR12850399.filtered.vcf
+#tabix -fp vcf SRR12850399.filtered.vcf.gz
+#bcftools merge --merge all chr1.vcf.gz SRR12850399.filtered.vcf.gz  > raw.vcf
 	
     #VariantFiltration =Runnable(command='gatk')
     #param={'--java-options':'-Xmx4g', 'VariantFiltration':'', '-V': 'SRR12850399.done.vcf.gz','-O': 'SRR12850399.finshed.vcf.gz' ,'-R': gen,'--filter-name':'rawwww' ,'--filter-expression': 'ReadPosRankSum > -8 || QD > 5 || DP > 10 ||  FS < 60 || MQ > 40 || MQRankSum > -12.5' }
