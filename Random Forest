@@ -1,66 +1,84 @@
-#plink --vcf  raw  --pca 10 --within file --pca-clusters train --out qcvcf
+#plink --vcf  0002.vcf  --mac 1 --pca 10 --within file --pca-clusters train --out qcvcf
 
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 import random
 from pyrpipe.runnable import Runnable
+from pandas import DataFrame
 
 #Gather ids for each person in 1KGP
-ids=pd.read_csv('samplesAll',sep='\t')
-ids=ids['Sample name']
+metadata=pd.read_csv('1KGP.metadata')
+samples=metadata['Sample name'].copy()
 #Randomly suffle
-random.shuffle(ids)
+random.shuffle(samples)
 #Devide ids up into 0.70 train and 0.30 test. 
-x=len(ids)
-train=x*0.70
-train = round(train, 0)
-test=x-train
-train=ids[0:train]
-test=ids[train-len(ids)-1]
-
+x=len(samples)
+tr=x*0.70
+tr = int(round(tr, 0))
+tst=x-tr
+train=samples[0:tr]
+test=samples[tr:len(samples)]
+test=test.to_frame()
+test.columns =['Sample name']
 
 #1KGP vcf all chr
-vcf='file'
+vcf='final.vcf'
 
-file=
+
+samples=samples.to_frame()
+file = pd.concat([samples, samples,samples], axis=1)
+file.to_csv("file", sep=" ",header=False,index=False)
+
+train=train.to_frame()
+train.to_csv("train", sep=" ",header=False,index=False)
+
 
 #Plink
 
 #PCA with plink
 plink=Runnable(command='plink')   
-param={'--vcf':vcf,'--pca':'10', '--within':file,'--pca-clusters':'train', '--out': 'qcvcf'}
+param={'--vcf':vcf,'--pca':'10', '--within':'file','--mac':'1','--pca-clusters':'train', '--out': 'qcvcf'}
 plink.run(**param)
 
 
 
 
-
-
-
-
-metadata = pd.read_csv('samplesAll',sep='\t')
 vardata= pd.read_csv('qcvcf.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10'])
 vardata=vardata.drop(['Drop'], axis=1)
 
 
+##Adding in UNK
+list=["UNK"]
+unk = DataFrame(list,columns=['Sample name'])
+list=[metadata,unk]
+metadata = pd.concat(list)
+
+
 data=pd.merge(metadata,vardata,on=['Sample name'])
-data=data.drop_duplicates()
 
-X=data[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
-y=data['Population name']  # Labels
 
-# Split dataset into training set and test set
+Train = pd.merge(data,train,on=['Sample name'])
+x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+y_train=Train['Superpopulation name']  # Labels
+
+Test = pd.merge(data,test,on=['Sample name'])
+x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+y_test=Test['Superpopulation name']  # Labels
 
 
 #Create a Gaussian Classifier
 clf=RandomForestClassifier(n_estimators=100)
 
 #Train the model using the training sets y_pred=clf.predict(X_test)
-clf.fit(X_train,y_train)
+clf.fit(x_train,y_train)
 
-y_pred=clf.predict(X_test)
+y_pred=clf.predict(x_test)
 
 # Model Accuracy, how often is the classifier correct?
 print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+unk_test = pd.merge(data,unk,on=['Sample name'])
+unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
+clf.predict(unk_test)
