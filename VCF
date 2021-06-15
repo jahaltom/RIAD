@@ -6,4 +6,4 @@ cat 0002.vcf | grep -v "##"  > left
 paste left unk > tail
 cat 0002.vcf | grep  "##"  > head
 cat head tail > final.vcf
-rm head rm left
+rm head left tail
