@@ -1,11 +1,44 @@
 #plink --vcf  raw  --pca 10 --within file --pca-clusters train --out qcvcf
 
-
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+import random
+from pyrpipe.runnable import Runnable
+
+#Gather ids for each person in 1KGP
+ids=pd.read_csv('samplesAll',sep='\t')
+ids=ids['Sample name']
+#Randomly suffle
+random.shuffle(ids)
+#Devide ids up into 0.70 train and 0.30 test. 
+x=len(ids)
+train=x*0.70
+train = round(train, 0)
+test=x-train
+train=ids[0:train]
+test=ids[train-len(ids)-1]
+
+
+#1KGP vcf all chr
+vcf='file'
+
+file=
+
+#Plink
+
+#PCA with plink
+plink=Runnable(command='plink')   
+param={'--vcf':vcf,'--pca':'10', '--within':file,'--pca-clusters':'train', '--out': 'qcvcf'}
+plink.run(**param)
+
+
+
+
+
+
+
 
 metadata = pd.read_csv('samplesAll',sep='\t')
 vardata= pd.read_csv('qcvcf.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10'])
@@ -19,8 +52,6 @@ X=data[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Featur
 y=data['Population name']  # Labels
 
 # Split dataset into training set and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3) # 70% training and 30% test
-
 
 
 #Create a Gaussian Classifier
