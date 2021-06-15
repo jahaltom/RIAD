@@ -101,7 +101,10 @@ SelectVariants  .run(**param)
 #gunzip -c SRR12850399.DONE4.vcf.gz | grep -v  '\./\.' > SRR12850399.filtered.vcf
 #bgzip SRR12850399.filtered.vcf
 #tabix -fp vcf SRR12850399.filtered.vcf.gz
-#bcftools merge --merge all chr1.vcf.gz SRR12850399.filtered.vcf.gz  > raw.vcf
+
+#Must remove indels from main chr rawww
+## bcftools isec -c all chr1.filtered.vcf.gz.recode.vcf.gz SRR12850399.filtered.vcf.gz -p dir
+	
 	
     #VariantFiltration =Runnable(command='gatk')
     #param={'--java-options':'-Xmx4g', 'VariantFiltration':'', '-V': 'SRR12850399.done.vcf.gz','-O': 'SRR12850399.finshed.vcf.gz' ,'-R': gen,'--filter-name':'rawwww' ,'--filter-expression': 'ReadPosRankSum > -8 || QD > 5 || DP > 10 ||  FS < 60 || MQ > 40 || MQRankSum > -12.5' }
