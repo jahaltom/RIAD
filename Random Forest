@@ -26,7 +26,9 @@ test.columns =['Sample name']
 vcf='final.vcf'
 
 
+
 samples=samples.to_frame()
+samples.loc[len(samples.index)] = ['UNK']
 file = pd.concat([samples, samples,samples], axis=1)
 file.to_csv("file", sep=" ",header=False,index=False)
 
@@ -49,10 +51,10 @@ vardata=vardata.drop(['Drop'], axis=1)
 
 
 ##Adding in UNK
-list=["UNK"]
-unk = DataFrame(list,columns=['Sample name'])
-list=[metadata,unk]
-metadata = pd.concat(list)
+#list=["UNK"]
+#unk = DataFrame(list,columns=['Sample name'])
+#list=[metadata,unk]
+#metadata = pd.concat(list)
 
 
 data=pd.merge(metadata,vardata,on=['Sample name'])
@@ -79,6 +81,6 @@ y_pred=clf.predict(x_test)
 print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 
 
-unk_test = pd.merge(data,unk,on=['Sample name'])
+unk_test = vardata[vardata['Sample name'] == "UNK" ]
 unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
 clf.predict(unk_test)
