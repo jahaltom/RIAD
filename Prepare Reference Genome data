@@ -13,7 +13,7 @@ rule all:
         "GCA_000001405.15_GRCh38_no_alt_analysis_set.fna"
 
 
-#Download reference genome, CreateSequenceDictionary, and index. 
+#Download reference genome, create sequence dictionary, and index. 
 rule refgenome:
     output:
         "GCA_000001405.15_GRCh38_no_alt_analysis_set.fna"
