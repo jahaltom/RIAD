@@ -1,5 +1,6 @@
 import pysam
 import os 
+from os import path
 
 #Make output directory
 if path.exists(key) is not True:
