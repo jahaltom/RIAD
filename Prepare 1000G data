@@ -9,7 +9,7 @@ chr_num.append("X")
 #chr_num.append("Y") 
 
 #Make output directory
-if path.exists(key) is not True:
+if path.exists("data") is not True:
         os.mkdir("data") 
  
 os.chdir("data")
