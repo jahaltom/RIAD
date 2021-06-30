@@ -33,8 +33,8 @@ rule concat:
         expand("filtered.ALL.chr{c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz", c=chr_num)
     output:
         "ChrAll.vcf.gz"
-    shell:
+    shell:        
         """
-        bcftools concat --output-type z -o ChrAll.vcf.gz {input}     
+        bcftools concat --output-type z -o ChrAll.vcf.gz {input}  
         gatk VcfToIntervalList I={output} O=ChrAllIntervals
         """
