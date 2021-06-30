@@ -3,7 +3,7 @@ import os
 from os import path
 
 #Make output directory
-if path.exists(key) is not True:
+if path.exists("data") is not True:
         os.mkdir("data") 
  
 
