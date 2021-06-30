@@ -36,5 +36,5 @@ rule concat:
     shell:        
         """
         bcftools concat --output-type z -o ChrAll.vcf.gz {input}  
-        gatk VcfToIntervalList I={output} O=ChrAllIntervals
+        gatk VcfToIntervalList I={output} O=ChrAll.intervals
         """
