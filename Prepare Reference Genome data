@@ -1,28 +1,11 @@
-import pysam
-import os 
-from os import path
-
-#Make output directory
-if path.exists("data") is not True:
-        os.mkdir("data") 
- 
-
-os.chdir("data")
-
-rule all: 
-    input:
-        "GCA_000001405.15_GRCh38_no_alt_analysis_set.fna"
+#!/bin/bash
 
 
-#Download reference genome, create sequence dictionary, and index. 
-rule refgenome:
-    output:
-        "GCA_000001405.15_GRCh38_no_alt_analysis_set.fna"
-    run:
-       
-        shell("wget -q ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/{output}.gz")
-        shell("gunzip {output}.gz")
-        shell("gatk CreateSequenceDictionary -R {output}")        
-        pysam.faidx({output})
-        
-      
+
+wget -q ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz
+gunzip GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz
+sed -i s'/chr//g' GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+samtools GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+
+
