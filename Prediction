@@ -1,0 +1,261 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import metrics
+import random
+from pyrpipe.runnable import Runnable
+from pandas import DataFrame
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import StandardScaler
+from matplotlib.colors import ListedColormap
+from mpl_toolkits.mplot3d import Axes3D
+# This code will suppress warnings.
+import warnings
+from sklearn.exceptions import ConvergenceWarning
+warnings.simplefilter("ignore", ConvergenceWarning)
+
+
+
+
+#To visualize the region for each class
+h = .02  # step size in the mesh (increase if code runs too slow)
+
+# Plot the decision boundary. For that, we will assign a color to each
+# point in the mesh [x_min, x_max]x[y_min, y_max].
+x1_min, x1_max = Xtrain[:, 0].min() - 1, Xtrain[:, 0].max() + 1
+x2_min, x2_max = Xtrain[:, 1].min() - 1, Xtrain[:, 1].max() + 1
+x1mesh, x2mesh = np.meshgrid(np.arange(x1_min, x1_max, h),
+                         np.arange(x2_min, x2_max, h))
+
+
+# Create color maps
+cmap_light = ListedColormap(['lightblue', 'lightcoral', 'grey'])
+cmap_bold = ListedColormap(['blue', 'red', 'black'])
+
+
+def neural_network(xtrain,ytrain,xtest,ytest,classification):
+    # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
+    
+    trainacc = []
+    testacc = []
+    bestlearnrate=[]
+    best_alpha=[]
+    noderange = range(1,11,1)
+    
+    alpharange = np.logspace(-6,0,5)
+    learnrate = np.logspace(-3,-1,3)
+    
+    for nodecnt in noderange:
+            
+        bestacc = 0
+        bestalpha = 0
+        bestrate = 0   
+        for alpha in alpharange:
+            for rate in learnrate:
+    
+    #             print(alpha,rate)
+    
+                clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
+                            activation='relu', solver='sgd', \
+                            learning_rate='adaptive', batch_size='auto',\
+                            shuffle=True,alpha=alpha, \
+                            nesterovs_momentum=True,verbose=False,\
+                            momentum=0.9,early_stopping=False,\
+                            max_iter=200, learning_rate_init=rate)
+        
+                clf.fit(xtrain, ytrain)
+    
+                if clf.score(xtest,ytest)> bestacc:
+                    bestacc = clf.score(xtest,ytest)
+                    bestalpha = alpha
+                    bestrate = rate
+    
+        clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
+                            activation='relu', solver='sgd', \
+                            learning_rate='adaptive', batch_size='auto',\
+                            shuffle=True,alpha=bestalpha, \
+                            nesterovs_momentum=True,verbose=False,\
+                            momentum=0.9,early_stopping=False,\
+                            max_iter=200, learning_rate_init=bestrate)
+        clf.fit(xtrain, ytrain)
+    
+        trainacc.append( clf.score(xtrain,ytrain) )
+        testacc.append( clf.score(xtest,ytest) )
+        
+        bestlearnrate.append(bestrate)
+        best_alpha.append(bestalpha)
+    #     print('\tThe training accuracy is %.4f'%(clf.score(Xtrain,ytrain)))
+    #     print('\tThe testing accuracy is %.4f'%(clf.score(Xtest,ytest)))
+    
+        
+    plt.figure()
+    
+    plt.plot(noderange,trainacc,color='black')
+    plt.title('Training accuracy as a function of # nodes')
+    plt.xlabel('# nodes')
+    plt.ylabel('accuracy')
+    
+    plt.figure()
+    
+    plt.plot(noderange,testacc,color='black')
+    plt.title('Testing accuracy as a function of # nodes')
+    plt.xlabel('# nodes')
+    plt.ylabel('accuracy')
+    
+    idx = testacc.index(max(testacc))
+    bestalpha=best_alpha[idx]
+    bestrate=bestlearnrate[idx]
+    clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
+                            activation='relu', solver='sgd', \
+                            learning_rate='adaptive', batch_size='auto',\
+                            shuffle=True,alpha=bestalpha, \
+                            nesterovs_momentum=True,verbose=False,\
+                            momentum=0.9,early_stopping=False,\
+                            max_iter=200, learning_rate_init=bestrate)
+    clf.fit(xtrain, ytrain)
+    
+    
+    
+    #Predict unk
+    unk_test = vardata[vardata['Sample name'] == "UNK" ]
+    unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
+    pred = clf.predict(unk_test)
+    pred = np.array(pred.tolist())
+    pred = DataFrame(pred)
+    pred.to_csv(classification+'NeuralNetworkResults',sep='\t',index=False) 
+
+
+
+def RandomForestClassifier(xtrain,ytrain,xtest,ytest,classification):
+    #Create a Gaussian Classifier
+    clf=RandomForestClassifier(n_estimators=100)
+    
+    #Train the model using the training sets y_pred=clf.predict(X_test)
+    clf.fit(x_train,y_train)
+    
+    y_pred=clf.predict(x_test)
+    
+    # Model Accuracy, how often is the classifier correct?
+    print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+    
+    #Predict unk
+    unk_test = vardata[vardata['Sample name'] == "UNK" ]
+    unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
+    pred = clf.predict(unk_test)
+    pred = np.array(pred.tolist())
+    pred = DataFrame(pred)
+    pred.to_csv(classification+'RandomForestResults',sep='\t',index=False) 
+
+
+
+
+
+rule all:
+    
+rule isec:
+    
+    run:
+        shell("gunzip -c  final.vcf.gz | grep -v  '\./\.' > final.filtered.vcf")
+        #add sed 
+        shell("bgzip final.filtered.vcf")
+        shell("tabix -fp vcf final.filtered.vcf.gz")
+
+
+
+
+#all sites with matching positions 
+bcftools isec -c all /work/LAS/xgu-lab/Haplo/data/ChrAll.vcf.gz final.filtered.vcf.gz -p dir
+#only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match.
+bcftools isec -c none 0002.vcf 0003.vcf -p dir
+#Remove alleles from all that got filtered out
+#Remove 00 then use list of postions leftover to filter output from all
+bcftools view -T ^list_snp_exclude.txt input.vcf > output.vf
+bcftools view -T ^list_snp_exclude.txt input.vcf > output.vf
+
+#Create output directory
+DIR='output'
+
+#Read in run accession IDs from txt file. 
+with open ("RAids.txt") as f:
+    ra=f.read().splitlines()
+
+
+
+rule PCA:
+    input: ["{wd}/{sample}/final.vcf.gz".format(sample=s,wd=DIR) for s in ra]
+    
+    output:
+        "{wd}/{sample}/qcvcf.eigenvec"
+    run:
+        srrid=str(output).split("/")[1]
+        os.chdir(DIR + "/" + srrid)
+        
+        #Import metadata and gather samples for each person in 1KGP."igsr-1000 genomes on grch38.tsv"
+        metadata=pd.read_csv('1KGP.metadata')
+        samples=metadata['Sample name'].copy()
+        #Randomly suffle samples
+        random.shuffle(samples)
+        #Devide samples up into 0.70 train and 0.30 test. 
+        x=len(samples)
+        tr=x*0.70
+        tr = int(round(tr, 0))
+        tst=x-tr
+        train=samples[0:tr]
+        test=samples[tr:len(samples)]
+       
+        test=test.to_frame()
+        test.columns =['Sample name']
+      
+        #Add unkown to 1KGP samples
+        samples=samples.to_frame()
+        samples.loc[len(samples.index)] = ['UNK']
+        #Specify all samples for PCA 
+        file = pd.concat([samples, samples,samples], axis=1)
+        file.to_csv("samples", sep=" ",header=False,index=False)
+        #Specify samples to train PCA with, all other samples will be projected. 
+        train=train.to_frame()
+        train.to_csv("train", sep=" ",header=False,index=False)
+        train.columns =['Sample name']
+        
+        #Run PLINK PCA
+        shell("plink --vcf {input} --pca 10 --within samples --mac 1 --pca-clusters train --out qcvcf")
+        
+        #PCA data from plink
+        vardata= pd.read_csv('qcvcf.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10'])
+        vardata=vardata.drop(['Drop'], axis=1)
+        
+        
+  
+        
+        #Merge sample metadata with PCA data
+        data=pd.merge(metadata,vardata,on=['Sample name'])
+        
+        #Make training and test sets same as PCA.       
+        Train = pd.merge(data,train,on=['Sample name'])
+        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+        y_train=Train['Superpopulation name']  # Labels
+        
+        Test = pd.merge(data,test,on=['Sample name'])
+        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+        y_test=Test['Superpopulation name']  # Labels
+        
+        
+        RandomForestClassifier(xtrain,ytrain,xtest,ytest,"SuperPopulation")
+        neural_network(xtrain,ytrain,xtest,ytest,"SuperPopulation")
+        
+        #Make training and test sets same as PCA.       
+        
+        y_train=Train['Population name']  # Labels
+            
+        y_test=Test['Population name']  # Labels
+        
+        
+        RandomForestClassifier(xtrain,ytrain,xtest,ytest,"SubPopulation")
+        neural_network(xtrain,ytrain,xtest,ytest,"SubPopulation")
+
+
+        
+        
+
+
