@@ -8,5 +8,6 @@ gunzip GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz
 sed -i s'/chr//g' GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 samtools faidx GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+STAR --runMode genomeGenerate --genomeDir data/star_index/HomoS --genomeFastaFiles /ocean/projects/mcb200036p/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 60
 
 
