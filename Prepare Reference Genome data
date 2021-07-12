@@ -16,6 +16,6 @@ sed -i s'/chr//g' GCA_000001405.15*
 gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 samtools faidx GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 
-STAR --runMode genomeGenerate --genomeDir star_index/HomoS --sjdbGTFfile: GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 60
+STAR --runMode genomeGenerate --genomeDir star_index/HomoS --sjdbGTFfile GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 60
 
 
