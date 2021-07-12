@@ -2,7 +2,7 @@
 
 #SBATCH --time=1:00:00   # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
-#SBATCH --ntasks-per-node=60   # 16 processor core(s) per node 
+#SBATCH --ntasks-per-node=16   # 16 processor core(s) per node 
 #SBATCH -p RM-shared
 
 mkdir data
