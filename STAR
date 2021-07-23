@@ -1,0 +1,157 @@
+# import os
+# import pysam
+# from pyrpipe import sra,qc,mapping
+# from pyrpipe.runnable import Runnable
+# import shutil
+
+
+# # snakemake -j 100 --cluster "sbatch -t 01:30:00 -c 30 -p RM-shared"
+
+
+# #Create output directory
+# DIR='output'
+
+# #Set path to human genome
+# gen='/ocean/projects/mcb200036p/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+
+
+
+
+# #Create STAR index direcotry. 
+# star_index='data/star_index/HomoS'
+# ##initialize objects
+# #creates a star object to use with threads.
+# star1stpass=mapping.Star(index=star_index,genome=gen,threads=30)
+
+
+# #creates a trim_galore object.
+# trim_galore=qc.Trimgalore(threads=4)
+
+# #Read in run accession IDs from txt file. 
+# with open ("RAids.txt") as f:
+#     ra=f.read().splitlines()
+
+ 	
+# rule all:
+#  	input: expand("{wd}/{sample}/second_pass_Aligned.sortedByCoord.out.bam".format(sample=s,wd=DIR) for s in ra)
+    
+# rule STAR1st_pass:
+#     output:
+#         "{wd}/{sample}/Log.out"
+#     run:  
+#         srrid=str({output}).split("/")[1]
+      
+#         #Download fastq(s) for run accession ID        
+#         #Run through trim_galore and STAR
+#         sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star1stpass)                
+#         shutil.move(DIR+"/"+srrid + "/"   + "SJ.out.tab", DIR + "/" + srrid+".SJ.out.tab")
+#         try:            
+#             shell("rm {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.fastq")
+#         except:
+#             shell("rm {wildcards.wd}/{wildcards.sample}/{wildcards.sample}_1.fastq")
+#             shell("rm {wildcards.wd}/{wildcards.sample}/{wildcards.sample}_2.fastq")
+#         shell("rm {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam")
+
+# rule filter:
+#     input: ["{wd}/{sample}/Log.out".format(wd=DIR,sample=s) for s in ra]
+#     output: "{wd}/all.SJ.out.tab"    
+#     shell:       
+#         "cat {wildcards.wd}/*.SJ.out.tab* | cut -f1-6 | sort | uniq > {wildcards.wd}/all.SJ.out.tab"
+        
+        
+        
+# rule STAR2nd_pass:  
+#     input: "{wd}/all.SJ.out.tab"
+#     output:
+#         "{wd}/{sample}/second_pass_Aligned.sortedByCoord.out.bam"
+#     shell:
+#         """
+#         STAR \
+#         --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
+#         --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/second_pass_ \
+#         --runThreadN 30 \
+#         --genomeDir data/star_index/HomoS \
+#         --outSAMtype BAM SortedByCoordinate \
+#         --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq 
+        
+#         ls -lhs >> load
+#         rm {wildcards.wd}/{wildcards.sample}/*fastq*
+        
+#         """
+        
+        
+        
+import os
+import pysam
+from pyrpipe import sra,qc,mapping
+from pyrpipe.runnable import Runnable
+import shutil
+
+
+# snakemake --resources load=6951 --cluster "sbatch -t 01:00:00 -c 30 -p RM-shared"
+
+#Create output directory
+DIR='output'
+
+#Set path to human genome
+gen='/ocean/projects/mcb200036p/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+
+
+
+
+#Create STAR index direcotry. 
+star_index='data/star_index/HomoS'
+##initialize objects
+#creates a star object to use with threads.
+star1stpass=mapping.Star(index=star_index,genome=gen,threads=20)
+star2ndpass=mapping.Star(index=star_index,genome=gen,threads=20,**{'--sjdbFileChrStartEnd':DIR+'/all.SJ.out.tab','--limitSjdbInsertNsj':'5041695'})
+
+
+#creates a trim_galore object.
+trim_galore=qc.Trimgalore(threads=4)
+
+#Read in run accession IDs from txt file. 
+with open ("ids") as f:
+    ra=f.read().splitlines()
+
+	
+rule all:
+	input: expand("{wd}/{sample}/Aligned.sortedByCoord.out_star.bam".format(sample=s,wd=DIR) for s in ra)
+    
+rule STAR1st_pass:
+    resources:
+        load=36
+    output:
+        "{wd}/{sample}/Log.out"
+    run:  
+        srrid=str({output}).split("/")[1]
+      
+        #Download fastq(s) for run accession ID        
+        #Run through trim_galore and STAR
+        sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star1stpass)                
+        shutil.move(DIR+"/"+srrid + "/"   + "SJ.out.tab", DIR + "/" + srrid+".SJ.out.tab")     
+         
+        shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
+        shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
+        shell("rm {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam")
+
+rule filter:
+    input: ["{wd}/{sample}/Log.out".format(wd=DIR,sample=s) for s in ra]
+    output: "{wd}/all.SJ.out.tab"    
+    shell:
+         #"cat {wildcards.wd}/*.SJ.out.tab* | cut -f1-6 | sort | uniq > {wildcards.wd}/all.SJ.out.tab"
+         "awk -f  {wildcards.wd}/sjCollapseSamples.awk  {wildcards.wd}/*SJ.out.tab | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab"
+        
+        
+rule STAR2nd_pass: 
+    resources:
+        load=154
+    input: "{wd}/all.SJ.out.tab"
+    output:
+        "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
+    run:
+        srrid=str({output}).split("/")[1]
+        sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star2ndpass)
+        shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
+        
+        
