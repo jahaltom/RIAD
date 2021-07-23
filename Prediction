@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
 from sklearn import metrics
 import random
 from pyrpipe.runnable import Runnable
@@ -17,26 +18,9 @@ warnings.simplefilter("ignore", ConvergenceWarning)
 
 
 
-
-#To visualize the region for each class
-h = .02  # step size in the mesh (increase if code runs too slow)
-
-# Plot the decision boundary. For that, we will assign a color to each
-# point in the mesh [x_min, x_max]x[y_min, y_max].
-x1_min, x1_max = Xtrain[:, 0].min() - 1, Xtrain[:, 0].max() + 1
-x2_min, x2_max = Xtrain[:, 1].min() - 1, Xtrain[:, 1].max() + 1
-x1mesh, x2mesh = np.meshgrid(np.arange(x1_min, x1_max, h),
-                         np.arange(x2_min, x2_max, h))
-
-
-# Create color maps
-cmap_light = ListedColormap(['lightblue', 'lightcoral', 'grey'])
-cmap_bold = ListedColormap(['blue', 'red', 'black'])
-
-
-def neural_network(xtrain,ytrain,xtest,ytest,classification):
+def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
     # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
-    
+    models=[]
     trainacc = []
     testacc = []
     bestlearnrate=[]
@@ -54,7 +38,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification):
         for alpha in alpharange:
             for rate in learnrate:
     
-    #             print(alpha,rate)
+  
     
                 clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
                             activation='relu', solver='sgd', \
@@ -70,130 +54,227 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification):
                     bestacc = clf.score(xtest,ytest)
                     bestalpha = alpha
                     bestrate = rate
+                    mod=clf
     
-        clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
-                            activation='relu', solver='sgd', \
-                            learning_rate='adaptive', batch_size='auto',\
-                            shuffle=True,alpha=bestalpha, \
-                            nesterovs_momentum=True,verbose=False,\
-                            momentum=0.9,early_stopping=False,\
-                            max_iter=200, learning_rate_init=bestrate)
-        clf.fit(xtrain, ytrain)
+      
+     
     
-        trainacc.append( clf.score(xtrain,ytrain) )
-        testacc.append( clf.score(xtest,ytest) )
+        trainacc.append( mod.score(xtrain,ytrain) )
+        testacc.append( mod.score(xtest,ytest) )
         
         bestlearnrate.append(bestrate)
         best_alpha.append(bestalpha)
-    #     print('\tThe training accuracy is %.4f'%(clf.score(Xtrain,ytrain)))
-    #     print('\tThe testing accuracy is %.4f'%(clf.score(Xtest,ytest)))
-    
+        models.append(mod)
         
-    plt.figure()
-    
+       
     plt.plot(noderange,trainacc,color='black')
     plt.title('Training accuracy as a function of # nodes')
     plt.xlabel('# nodes')
     plt.ylabel('accuracy')
+    plt.savefig('TrainingNN.png')
     
-    plt.figure()
-    
+       
     plt.plot(noderange,testacc,color='black')
     plt.title('Testing accuracy as a function of # nodes')
     plt.xlabel('# nodes')
     plt.ylabel('accuracy')
+    plt.savefig('TestingNN.png')
     
     idx = testacc.index(max(testacc))
-    bestalpha=best_alpha[idx]
-    bestrate=bestlearnrate[idx]
-    clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
-                            activation='relu', solver='sgd', \
-                            learning_rate='adaptive', batch_size='auto',\
-                            shuffle=True,alpha=bestalpha, \
-                            nesterovs_momentum=True,verbose=False,\
-                            momentum=0.9,early_stopping=False,\
-                            max_iter=200, learning_rate_init=bestrate)
-    clf.fit(xtrain, ytrain)
+  
+   
     
-    
-    
+    test_acc= models[idx].score(xtest,ytest)
     #Predict unk
-    unk_test = vardata[vardata['Sample name'] == "UNK" ]
-    unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
-    pred = clf.predict(unk_test)
-    pred = np.array(pred.tolist())
-    pred = DataFrame(pred)
-    pred.to_csv(classification+'NeuralNetworkResults',sep='\t',index=False) 
-
-
-
-def RandomForestClassifier(xtrain,ytrain,xtest,ytest,classification):
-    #Create a Gaussian Classifier
-    clf=RandomForestClassifier(n_estimators=100)
-    
-    #Train the model using the training sets y_pred=clf.predict(X_test)
-    clf.fit(x_train,y_train)
-    
-    y_pred=clf.predict(x_test)
-    
-    # Model Accuracy, how often is the classifier correct?
-    print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
-    
+    print(test_acc,max(testacc))
     #Predict unk
-    unk_test = vardata[vardata['Sample name'] == "UNK" ]
-    unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]
-    pred = clf.predict(unk_test)
-    pred = np.array(pred.tolist())
-    pred = DataFrame(pred)
-    pred.to_csv(classification+'RandomForestResults',sep='\t',index=False) 
-
-
-
-
-
-rule all:
-    
-rule isec:
-    
-    run:
-        shell("gunzip -c  final.vcf.gz | grep -v  '\./\.' > final.filtered.vcf")
-        #add sed 
-        shell("bgzip final.filtered.vcf")
-        shell("tabix -fp vcf final.filtered.vcf.gz")
-
-
-
-
-#all sites with matching positions 
-bcftools isec -c all /work/LAS/xgu-lab/Haplo/data/ChrAll.vcf.gz final.filtered.vcf.gz -p dir
-#only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match.
-bcftools isec -c none 0002.vcf 0003.vcf -p dir
-#Remove alleles from all that got filtered out
-#Remove 00 then use list of postions leftover to filter output from all
-bcftools view -T ^list_snp_exclude.txt input.vcf > output.vf
-bcftools view -T ^list_snp_exclude.txt input.vcf > output.vf
-
-#Create output directory
-DIR='output'
-
-#Read in run accession IDs from txt file. 
-with open ("RAids.txt") as f:
-    ra=f.read().splitlines()
-
-
-
-rule PCA:
-    input: ["{wd}/{sample}/final.vcf.gz".format(sample=s,wd=DIR) for s in ra]
-    
-    output:
-        "{wd}/{sample}/qcvcf.eigenvec"
-    run:
-        srrid=str(output).split("/")[1]
-        os.chdir(DIR + "/" + srrid)
+ 
+    pred = models[idx].predict(unktest)    
+    pred=pd.DataFrame(data=pred.flatten())
+    pred.columns =[classification]
+    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
+    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
         
+        
+
+
+def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
+     
+    models=[]
+    
+    
+    numtreerange = [1,5,10,25,50,100,200]
+    overalltestacc = []
+    overalltrainacc=[]
+    bestNumTrees=[]
+    depthrange = range(1,11)
+    for depth in depthrange:
+        
+        best_num_trees = 0
+        bestTest_acc = 0
+        bestTrain_acc=0
+       
+        for num_trees in numtreerange:
+            clf = RandomForestClassifier(bootstrap=True,n_estimators=num_trees,max_features='auto',criterion='gini',random_state=1,max_depth=depth)
+            clf.fit(xtrain, ytrain)
+           
+            testacc= clf.score(xtest,ytest)
+            trainacc=clf.score(xtrain,ytrain)
+            if testacc >= bestTest_acc:
+                bestTest_acc = testacc
+                best_num_trees = num_trees
+                bestTrain_acc=trainacc
+                mod=clf
+
+
+
+        models.append(mod)
+        overalltrainacc.append( bestTrain_acc )
+        overalltestacc.append(bestTest_acc) 
+        bestNumTrees.append(best_num_trees)
+        
+    idx = overalltestacc.index(max(overalltestacc))
+    #clf = RandomForestClassifier(bootstrap=True,n_estimators=bestNumTrees[idx],max_features=None,criterion='gini',max_depth=idx+1)
+    #models[idx].fit(xtrain, ytrain)   
+            
+    testacc= models[idx].score(xtest,ytest)
+    
+    #Predict unk
+    print(testacc,max(overalltestacc))
+    
+    
+    pred = models[idx].predict(unktest)    
+    pred=pd.DataFrame(data=pred.flatten())
+    pred.columns =[classification]
+    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
+    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'RandomForestResults',sep='\t',mode='a',index=False,header=None)     
+        
+   
+        
+   
+
+
+    plt.plot(depthrange,overalltrainacc,color='black')
+    plt.title('Training accuracy as a function of max_depth')
+    plt.xlabel('max_')
+    plt.ylabel('accuracy')
+    plt.savefig('TrainingRF.png')
+    
+    
+    plt.plot(depthrange,overalltestacc,color='black')
+    plt.title('Testing accuracy as a function of max_depth')
+    plt.xlabel('max_depth')
+    plt.ylabel('accuracy')            
+    plt.savefig('TestingRF.png')
+    
+
+
+#SVMs with Polynomial Kernels
+def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
+    models=[]
+    degree = 1
+    max_iter=1000
+    
+    Cvals = np.logspace(-4,2,25,base=10)
+    gamma_vals = [1] #np.logspace(-2,2,25,base=10)
+    
+    
+    bestg=[]
+    bestC=[]
+    bestTest=[]
+    bestTrain=[]
+    for degree in [1,2,3,4]:
+        bestc = 0
+        bestgamma = 0
+        besttrainacc = 0
+        besttestacc = 0
+        
+        
+   
+        for c in Cvals:
+            for gamma in gamma_vals:
+    
+                clf = SVC(C=c, kernel='poly', degree=degree, gamma=gamma, coef0=1.0, shrinking=True, probability=False,max_iter=max_iter)
+    
+                clf.fit(xtrain, ytrain)
+    
+                trainacc = clf.score(xtrain, ytrain)
+                testacc = clf.score(xtest, ytest)
+    
+
+    
+                if testacc > besttestacc:
+                    besttestacc = testacc
+                    besttrainacc = trainacc
+                    bestgamma = gamma
+                    bestc = c
+                    mod=clf
+        models.append(mod)          
+        bestg.append(bestgamma)
+        bestC.append(bestc)
+        bestTest.append(besttestacc)
+    
+    idx = bestTest.index(max(bestTest))    
+    
+
+    
+   
+    testacc= models[idx].score(xtest,ytest)
+    print(testacc,max(bestTest))
+    
+    #Predict unk
+ 
+    pred = models[idx].predict(unktest)    
+    pred=pd.DataFrame(data=pred.flatten())
+    pred.columns =[classification]
+    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
+    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'SVMResults',sep='\t',mode='a',index=False,header=None) 
+
+
+
+
+
+
+    
+        # Z = clf.predict(np.c_[x1mesh.ravel(), x2mesh.ravel()])
+    
+        # # Put the result into a color plot
+        # Z = Z.reshape(x1mesh.shape)
+    
+        # # Plot the training points with the mesh
+        # plt.figure()
+        # plt.pcolormesh(x1mesh, x2mesh, Z, cmap=cmap_light)
+        # ytrain_colors = [y-1 for y in ytrain]
+        # plt.scatter(Xtrain[:, 0], Xtrain[:, 1], c=ytrain_colors, cmap=cmap_bold, s=20)
+        # plt.xlim(x1_min, x1_max)
+        # plt.ylim(x2_min, x2_max)
+        # plt.title('SVM Poly %i -- Training Set'%(degree))
+        # plt.xlabel('Feature 1')
+        # plt.ylabel('Feature 2')
+    
+        # # Plot the testing points with the mesh
+        # plt.figure()
+        # plt.pcolormesh(x1mesh, x2mesh, Z, cmap=cmap_light)
+        # ytest_colors = [y-1 for y in ytest]
+        # plt.scatter(Xtest[:, 0], Xtest[:, 1], c=ytest_colors, cmap=cmap_bold, s=20)
+        # plt.xlim(x1_min, x1_max)
+        # plt.ylim(x2_min, x2_max)
+        # plt.title('SVM Poly %i -- Testing Set'%(degree))
+        # plt.xlabel('Feature 1')
+        # plt.ylabel('Feature 2')
+
+   
+    
+  
+    
+def PCA(vcf,srrid,metadata_path,run):
         #Import metadata and gather samples for each person in 1KGP."igsr-1000 genomes on grch38.tsv"
-        metadata=pd.read_csv('1KGP.metadata')
+        metadata=pd.read_csv(metadata_path,sep='\t')
         samples=metadata['Sample name'].copy()
+        
         #Randomly suffle samples
         random.shuffle(samples)
         #Devide samples up into 0.70 train and 0.30 test. 
@@ -209,7 +290,7 @@ rule PCA:
       
         #Add unkown to 1KGP samples
         samples=samples.to_frame()
-        samples.loc[len(samples.index)] = ['UNK']
+        samples.loc[len(samples.index)] = [srrid]
         #Specify all samples for PCA 
         file = pd.concat([samples, samples,samples], axis=1)
         file.to_csv("samples", sep=" ",header=False,index=False)
@@ -219,10 +300,10 @@ rule PCA:
         train.columns =['Sample name']
         
         #Run PLINK PCA
-        shell("plink --vcf {input} --pca 10 --within samples --mac 1 --pca-clusters train --out qcvcf")
+        shell("plink --vcf " + vcf + " --pca 16 --within samples --mac 1 --pca-clusters train --out " + run)
         
         #PCA data from plink
-        vardata= pd.read_csv('qcvcf.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10'])
+        vardata= pd.read_csv(run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16'])
         vardata=vardata.drop(['Drop'], axis=1)
         
         
@@ -233,26 +314,123 @@ rule PCA:
         
         #Make training and test sets same as PCA.       
         Train = pd.merge(data,train,on=['Sample name'])
-        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]  # Features
         y_train=Train['Superpopulation name']  # Labels
         
         Test = pd.merge(data,test,on=['Sample name'])
-        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10']]  # Features
+        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]  # Features
         y_test=Test['Superpopulation name']  # Labels
         
         
-        RandomForestClassifier(xtrain,ytrain,xtest,ytest,"SuperPopulation")
-        neural_network(xtrain,ytrain,xtest,ytest,"SuperPopulation")
         
-        #Make training and test sets same as PCA.       
+        unk_test = vardata[vardata['Sample name'] == srrid ]
+        unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]
+      
         
-        y_train=Train['Population name']  # Labels
+          
+        if run == "first":
+        
+            RandomForest_Classifier(x_train,y_train,x_test,y_test,"SuperPopulation",unk_test,srrid)
+            neural_network(x_train,y_train,x_test,y_test,"SuperPopulation",unk_test,srrid)
+            svm(x_train,y_train,x_test,y_test,"SuperPopulation",unk_test,srrid)
             
-        y_test=Test['Population name']  # Labels
+            #Make training and test sets same as PCA.       
+            
+            y_train=Train['Population name']  # Labels              
+            y_test=Test['Population name']  # Labels
+            
+            
+            RandomForest_Classifier(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+            neural_network(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+            svm(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+        else:
+            y_train=Train['Population name']  # Label               
+            y_test=Test['Population name']  # Labels
+            
+            RandomForest_Classifier(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+            neural_network(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+            svm(x_train,y_train,x_test,y_test,"SubPopulation",unk_test,srrid)
+
+
+#Read in run accession IDs from txt file. 
+with open ("IDs.txt") as f:
+    ra=f.read().splitlines()
+# output directory
+DIR='output'
+
+
+
+
+rule all:
+	input: ["{wd}/{sample}/SubPopulationNeuralNetworkResults".format(sample=s,wd=DIR) for s in ra]
+
+rule isec:
+    input: "{wd}/{sample}/final.vcf.gz"
+    
+    output: "{wd}/{sample}/merged.vcf.gz"
+            
+    shell:
+        """
+        cd {wildcards.wd}/{wildcards.sample}
+        
+        gunzip -c  final.vcf.gz | grep -v  '\./\.' > final.filtered.vcf
+       
+       
+        bgzip final.filtered.vcf
+        tabix -fp vcf final.filtered.vcf.gz
+
+        #all sites with matching positions more
+        bcftools isec -c all /ocean/projects/mcb200036p/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z --threads 1 -p dir
+        #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
+        cd dir      
+        bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z --threads 1 -p dir
+        cd dir
+     
+        #Remove 0/0(reference) from 0001.vcf.gz(unk unique) then use remaining postions(alt alleles that dont match)  to remove alleles from (0003 and 0002) that were made from "-c all".
+        gunzip -c 0001.vcf.gz | grep -v "0/0" | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > List
+        mv List ../
+        cd ../
+        bcftools view -T ^List 0002.vcf.gz --output-type z --threads 1 > 1KG.vcf.gz
+        bcftools view -T ^List 0003.vcf.gz --output-type z --threads 1 > unk.vcf.gz
+        bcftools index -t unk.vcf.gz
+        bcftools index -t 1KG.vcf.gz
+        #Merge unk and 1KG 
+        bcftools merge 1KG.vcf.gz unk.vcf.gz  --output-type z --threads 1 > merged.vcf.gz
+        bcftools index -t merged.vcf.gz 
+        mv merged.vcf.gz* ../            
+        cd ../
+        rm *final*
+        rm -r dir
+        """
+
+
+rule PCA:
+    input: "{wd}/{sample}/merged.vcf.gz"
+    
+    output:
+        "{wd}/{sample}/SubPopulationNeuralNetworkResults"
+    run:
+        srrid=str(output).split("/")[1]
+        os.chdir(DIR + "/" + srrid)
+        vcf=str(input).split("/")[2]
+        metadata_path="/ocean/projects/mcb200036p/jahaltom/Ancestry/data/metadata.tsv"
+        run="first"
+        PCA(vcf,srrid,metadata_path,run)
         
         
-        RandomForestClassifier(xtrain,ytrain,xtest,ytest,"SubPopulation")
-        neural_network(xtrain,ytrain,xtest,ytest,"SubPopulation")
+        
+        
+        
+        #metadata=metadata[metadata['Superpopulation code'] == "EAS" ]
+        #metadata.to_csv('EASmeta.tsv',sep='\t',index=False,header=True)
+        run="second"
+        metadata_path="/ocean/projects/mcb200036p/jahaltom/Ancestry/data/EASmeta.tsv"
+        PCA(vcf,srrid,metadata_path,run)
+        shell("rm first* second*")
+        
+        
+
+
 
 
         
