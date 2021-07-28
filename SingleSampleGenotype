@@ -23,7 +23,7 @@ rule JointGenotype:
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
         -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/vcf.gz \
-        -O {wildcards.wd}/{wildcards.sample}/vcf2.gz \      
+        -O {wildcards.wd}/{wildcards.sample}/vcf2.gz \
         --include-non-variant-sites   
         rm {wildcards.wd}/{wildcards.sample}/vcf.gz*
                 
