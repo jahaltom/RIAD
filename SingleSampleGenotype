@@ -1,0 +1,63 @@
+#Create output directory
+DIR='output'
+
+
+
+
+#Read in run accession IDs from txt file. 
+with open ("RAids.txt") as f:
+    ra=f.read().splitlines()
+
+
+
+rule all:
+	input: ["{wd}/{sample}/vcf.finished.gz".format(wd=DIR,sample=s) for s in ra]
+    
+
+rule JointGenotype:
+    input: ["{wd}/{sample}/vcf.gz".format(wd=DIR,sample=s) for s in ra]
+    output: "{wd}/{sample}/vcf.finished.gz"
+    
+    shell:
+        """          
+        gatk --java-options "-Xmx10g" GenotypeGVCFs \
+        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/vcf2.gz \      
+        --include-non-variant-sites   
+        rm {wildcards.wd}/{wildcards.sample}/vcf.gz*
+                
+        gatk --java-options "-Xmx10g" VariantFiltration \
+        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/vcf2.gz \
+        -O {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz \
+        --filter-expression "DP < 10.0" \
+        --filter-name "filter_DP" \
+        --filter-expression "MQ < 40.0" \
+        --filter-name "filter_MQ" \
+        --filter-expression "FS > 60.0" \
+        --filter-name "filter_FS" \
+        --filter-expression "MQRankSum < -12.5" \
+        --filter-name "filter_MQRankSum" \
+        --filter-expression "ReadPosRankSum < -8.0" \
+        --filter-name "filter_ReadPosRankSum" \
+        --filter-expression "QD < 2.0" \
+        --filter-name "filter_QD"
+        rm {wildcards.wd}/{wildcards.sample}/vcf2.gz*
+        
+        
+        gatk --java-options "-Xmx10g" SelectVariants \
+        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz \
+        -O {wildcards.wd}/{wildcards.sample}/vcf.finished.gz \
+        --exclude-filtered true \
+        --select-type-to-exclude INDEL      
+        
+        rm {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz*
+        """
+        
+
+            
+
+
+	
