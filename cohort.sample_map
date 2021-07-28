@@ -1,0 +1,15 @@
+import pandas as pd     
+
+
+with open ("RAids.txt") as f:
+    ra=f.read().splitlines()
+
+df2 = pd.DataFrame()
+for s in ra:    
+    df = pd.DataFrame()
+    srrid = s
+    path="output/"+srrid + "/vcf.gz"
+    df.insert(len(df.columns),"srrid",[srrid])
+    df.insert(len(df.columns),"path",[path])   
+    df2=pd.concat([df2,df],axis=0)    
+df2.to_csv("data/cohort.sample_map",sep='\t',mode='a',index=False,header=None) 
