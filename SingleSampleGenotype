@@ -1,7 +1,7 @@
 #Create output directory
 DIR='output'
 
-
+#snakemake -j 100 --cluster "sbatch -t 03:00:00 -c 16 -N 1"
 
 
 #Read in run accession IDs from txt file. 
