@@ -38,6 +38,6 @@ rule concat:
     shell:        
         """
         bcftools concat --output-type z -o ChrAll.vcf.gz {input}  
-        gatk VcfToIntervalList I={output} O=ChrAll.intervals
         tabix -fp vcf {output}
+        gatk VcfToIntervalList I={output} O=ChrAll.intervals
         """
