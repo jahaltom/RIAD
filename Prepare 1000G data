@@ -1,4 +1,5 @@
 import os 
+from os import path
 
 ##Make list 1-22. Then add X. These will denote the Chrs
 chr_num=[]
