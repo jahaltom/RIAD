@@ -24,7 +24,7 @@ rule download1000G_filter:
         "filtered.ALL.chr{c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz"
     shell:
         """
-        wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/{output}
+        wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz
         bcftools view --types snps {output} --output-type z -o filtered.{output}
         tabix -fp vcf filtered.{output}
         """
