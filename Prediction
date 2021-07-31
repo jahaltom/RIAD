@@ -381,9 +381,9 @@ rule isec:
 
         #all sites with matching positions more
         bcftools isec -c all /ocean/projects/mcb200036p/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z  -p dir
-	rm 0001.vcf.gz
         #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
-        cd dir      
+        cd dir  
+	rm 0000.vcf.gz
         bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z  -p dir
         cd dir
      
