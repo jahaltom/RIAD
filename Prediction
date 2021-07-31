@@ -365,7 +365,7 @@ rule all:
 	input: ["{wd}/{sample}/SubPopulationNeuralNetworkResults".format(sample=s,wd=DIR) for s in ra]
 
 rule isec:
-    input: "{wd}/{sample}/vcf.gz"
+    input: "{wd}/{sample}/vcf.finished.gz"
     
     output: "{wd}/{sample}/merged.vcf.gz"
             
@@ -424,10 +424,10 @@ rule PCA:
         
         #metadata=metadata[metadata['Superpopulation code'] == "EAS" ]
         #metadata.to_csv('EASmeta.tsv',sep='\t',index=False,header=True)
-        run="second"
-        metadata_path="/ocean/projects/mcb200036p/jahaltom/Ancestry/data/EASmeta.tsv"
-        PCA(vcf,srrid,metadata_path,run)
-        shell("rm first* second*")
+        #run="second"
+        #metadata_path="/ocean/projects/mcb200036p/jahaltom/Ancestry/data/EASmeta.tsv"
+       # PCA(vcf,srrid,metadata_path,run)
+       # shell("rm first* second*")
         
         
 
