@@ -16,6 +16,8 @@ import warnings
 from sklearn.exceptions import ConvergenceWarning
 warnings.simplefilter("ignore", ConvergenceWarning)
 
+#export OMP_NUM_THREADS=1
+#export USE_SIMPLE_THREADED_LEVEL3=1
 
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
@@ -94,7 +96,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
+    pred.to_csv("/work/LAS/xgu-lab/jahaltom/Ancestry/" + classification+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
         
         
 
@@ -149,7 +151,7 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'RandomForestResults',sep='\t',mode='a',index=False,header=None)     
+    pred.to_csv("/work/LAS/xgu-lab/jahaltom/Ancestry/" + classification+'RandomForestResults',sep='\t',mode='a',index=False,header=None)     
         
    
         
@@ -231,7 +233,7 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid):
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv("/ocean/projects/mcb200036p/jahaltom/Ancestry/" + classification+'SVMResults',sep='\t',mode='a',index=False,header=None) 
+    pred.to_csv("/work/LAS/xgu-lab/jahaltom/Ancestry/" + classification+'SVMResults',sep='\t',mode='a',index=False,header=None) 
 
 
 
@@ -353,7 +355,7 @@ def PCA(vcf,srrid,metadata_path,run):
 
 
 #Read in run accession IDs from txt file. 
-with open ("RAids.txt") as f:
+with open ("ids") as f:
     ra=f.read().splitlines()
 # output directory
 DIR='output'
@@ -380,10 +382,10 @@ rule isec:
         tabix -fp vcf final.filtered.vcf.gz
 
         #all sites with matching positions more
-        bcftools isec -c all /ocean/projects/mcb200036p/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z  -p dir
+        bcftools isec -c all /work/LAS/xgu-lab/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z  -p dir
         #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
         cd dir  
-	rm 0000.vcf.gz
+        rm 0000.vcf.gz
         bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z  -p dir
         cd dir
      
@@ -414,7 +416,7 @@ rule PCA:
         srrid=str(output).split("/")[1]
         os.chdir(DIR + "/" + srrid)
         vcf=str(input).split("/")[2]
-        metadata_path="/ocean/projects/mcb200036p/jahaltom/Ancestry/data/metadata.tsv"
+        metadata_path="/work/LAS/xgu-lab/jahaltom/Ancestry/data/metadata.tsv"
         run="first"
         PCA(vcf,srrid,metadata_path,run)
         
