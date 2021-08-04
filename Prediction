@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn import metrics
 import random
-from pyrpipe.runnable import Runnable
+
 from pandas import DataFrame
 import numpy as np
 import matplotlib.pyplot as plt
@@ -302,10 +302,10 @@ def PCA(vcf,srrid,metadata_path,run):
         train.columns =['Sample name']
         
         #Run PLINK PCA
-        shell("plink --vcf " + vcf + " --pca 16 --within samples --mac 1 --pca-clusters train --out " + run)
+        shell("plink --vcf " + vcf + " --pca 20 --within samples --mac 1 --pca-clusters train --out " + run)
         
         #PCA data from plink
-        vardata= pd.read_csv(run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16'])
+        vardata= pd.read_csv(run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20'])
         vardata=vardata.drop(['Drop'], axis=1)
         
         
@@ -316,17 +316,17 @@ def PCA(vcf,srrid,metadata_path,run):
         
         #Make training and test sets same as PCA.       
         Train = pd.merge(data,train,on=['Sample name'])
-        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]  # Features
+        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]  # Features
         y_train=Train['Superpopulation name']  # Labels
         
         Test = pd.merge(data,test,on=['Sample name'])
-        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]  # Features
+        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]  # Features
         y_test=Test['Superpopulation name']  # Labels
         
         
         
         unk_test = vardata[vardata['Sample name'] == srrid ]
-        unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16']]
+        unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]
       
         
           
@@ -355,7 +355,7 @@ def PCA(vcf,srrid,metadata_path,run):
 
 
 #Read in run accession IDs from txt file. 
-with open ("ids") as f:
+with open ("RAids.txt") as f:
     ra=f.read().splitlines()
 # output directory
 DIR='output'
@@ -369,46 +369,56 @@ rule all:
 rule isec:
     input: "{wd}/{sample}/vcf.finished.gz"
     
-    output: "{wd}/{sample}/merged.vcf.gz"
+    output: "{wd}/{sample}/Merged.vcf.gz"
             
     shell:
         """
         cd {wildcards.wd}/{wildcards.sample}
         
-        gunzip -c  vcf.gz | grep -v  '\./\.' > final.filtered.vcf
+        gunzip -c  vcf.finished.gz | grep -v  '\./\.' > final.filtered.vcf
        
        
         bgzip final.filtered.vcf
         tabix -fp vcf final.filtered.vcf.gz
 
-        #all sites with matching positions more
-        bcftools isec -c all /work/LAS/xgu-lab/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z  -p dir
-        #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
-        cd dir  
-        rm 0000.vcf.gz
-        bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z  -p dir
-        cd dir
-     
-        #Remove 0/0(reference) from 0001.vcf.gz(unk unique) then use remaining postions(alt alleles that dont match)  to remove alleles from (0003 and 0002) that were made from "-c all".
-        gunzip -c 0001.vcf.gz | grep -v "0/0" | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > List
-        mv List ../
-        cd ../
-        bcftools view -T ^List 0002.vcf.gz --output-type z  > 1KG.vcf.gz
-        bcftools view -T ^List 0003.vcf.gz --output-type z  > unk.vcf.gz
-        bcftools index -t unk.vcf.gz
-        bcftools index -t 1KG.vcf.gz
-        #Merge unk and 1KG 
-        bcftools merge 1KG.vcf.gz unk.vcf.gz  --output-type z  > merged.vcf.gz
-        bcftools index -t merged.vcf.gz 
-        mv merged.vcf.gz* ../            
-        cd ../
+        #By chr 
+        
+        for i in $(seq 1 22); do echo $i >> list; done
+        echo X >> list
+            
+        cat list | while read i; do
+            #all sites with matching positions
+            bcftools isec -c all /work/LAS/xgu-lab/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z -r $i  -p dir.$i        
+            #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
+            cd dir.$i
+            rm 0000.vcf.gz
+            bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z  -p dir
+            cd dir
+         
+            #Remove 0/0(reference) from 0001.vcf.gz(unk unique) then use remaining postions(alt alleles that dont match)  to remove alleles from (0003 and 0002) that were made from "-c all".
+            gunzip -c 0001.vcf.gz | grep -v "0/0" | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > List
+            mv List ../
+            cd ../
+            bcftools view -T ^List 0002.vcf.gz --output-type z  > 1KG.vcf.gz
+            bcftools view -T ^List 0003.vcf.gz --output-type z  > unk.vcf.gz
+            bcftools index -t unk.vcf.gz
+            bcftools index -t 1KG.vcf.gz
+            #Merge unk and 1KG 
+            bcftools merge 1KG.vcf.gz unk.vcf.gz  --output-type z  > merged.$i.vcf.gz
+            bcftools index -t merged.$i.vcf.gz
+            mv merged.$i.vcf.gz* ../            
+            cd ../
+        done   
         rm *final*
-        rm -r dir
+        rm -r *dir*
+        bcftools concat --output-type z -o Merged.vcf.gz *merged*
+        tabix -fp vcf Merged.vcf.gz
+        rm *merged*
         """
 
 
 rule PCA:
-    input: "{wd}/{sample}/merged.vcf.gz"
+    input: "{wd}/{sample}/Merged.vcf.gz"
     
     output:
         "{wd}/{sample}/SubPopulationNeuralNetworkResults"
