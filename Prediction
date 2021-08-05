@@ -388,32 +388,46 @@ rule isec:
             
         cat list | while read i; do
             #all sites with matching positions
-            bcftools isec -c all /work/LAS/xgu-lab/jahaltom/Ancestry/data/ChrAll.vcf.gz final.filtered.vcf.gz --output-type z -r $i  -p dir.$i        
+            bcftools isec -c all /work/LAS/xgu-lab/jahaltom/Ancestry/data/filtered.ALL.chr$i.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz final.filtered.vcf.gz --output-type z -r $i  -p dir.$i        
             #only sites with all alleles identical.(1/1,0/1). 0/0 will be filtered out along with those alt alleles that dont match between 1KG and unk.
             cd dir.$i
             rm 0000.vcf.gz
             bcftools isec -c none 0002.vcf.gz 0003.vcf.gz --output-type z  -p dir
             cd dir
          
+         
             #Remove 0/0(reference) from 0001.vcf.gz(unk unique) then use remaining postions(alt alleles that dont match)  to remove alleles from (0003 and 0002) that were made from "-c all".
             gunzip -c 0001.vcf.gz | grep -v "0/0" | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > List
-            mv List ../
-            cd ../
-            bcftools view -T ^List 0002.vcf.gz --output-type z  > 1KG.vcf.gz
-            bcftools view -T ^List 0003.vcf.gz --output-type z  > unk.vcf.gz
-            bcftools index -t unk.vcf.gz
-            bcftools index -t 1KG.vcf.gz
-            #Merge unk and 1KG 
-            bcftools merge 1KG.vcf.gz unk.vcf.gz  --output-type z  > merged.$i.vcf.gz
+            
+            #If List is not empty, then
+            if [ -s "List" ]
+            then 
+                mv List ../
+                cd ../
+                bcftools view -T ^List 0002.vcf.gz --output-type z  > 1KG.vcf.gz
+                bcftools view -T ^List 0003.vcf.gz --output-type z  > unk.vcf.gz
+                bcftools index -t unk.vcf.gz
+                bcftools index -t 1KG.vcf.gz
+                #Merge unk and 1KG 
+                bcftools merge 1KG.vcf.gz unk.vcf.gz  --output-type z  > merged.$i.vcf.gz
+            else
+                mv List ../
+                cd ../
+                bcftools index -t 0002.vcf.gz
+                bcftools index -t 0003.vcf.gz
+                #Merge unk and 1KG 
+                bcftools merge 0002.vcf.gz 0003.vcf.gz  --output-type z  > merged.$i.vcf.gz
+            fi
+            
             bcftools index -t merged.$i.vcf.gz
             mv merged.$i.vcf.gz* ../            
             cd ../
         done   
         rm *final*
         rm -r *dir*
-        bcftools concat --output-type z -o Merged.vcf.gz *merged*
+        bcftools concat --output-type z -o Merged.vcf.gz *merged.*
         tabix -fp vcf Merged.vcf.gz
-        rm *merged*
+        rm *merged*       
         """
 
 
