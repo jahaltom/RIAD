@@ -10,8 +10,7 @@ chr_num.append("X")
 #chr_num.append("Y") 
 
 
-#Activate GATK
-export PATH="/work/LAS/xgu-lab/gatk-4.2.0.0/:$PATH"
+
 
 #Make output directory
 if path.exists("data") is not True:
