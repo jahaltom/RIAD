@@ -2,8 +2,8 @@
 
 #SBATCH --time=1:00:00   # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
-#SBATCH --ntasks-per-node=30   # 30 processor core(s) per node 
-#SBATCH -p RM-shared
+#SBATCH --ntasks-per-node=16   # 16 processor core(s) per node 
+
 
 
 
@@ -19,6 +19,6 @@ gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 #Index fasta
 samtools faidx GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 # Generate STAR genome
-STAR --runMode genomeGenerate --genomeDir star_index/HomoS --sjdbGTFfile GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 30
+STAR --runMode genomeGenerate --genomeDir star_index/HomoS --sjdbGTFfile GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 16
 
 
