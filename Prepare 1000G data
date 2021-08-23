@@ -13,31 +13,18 @@ chr_num.append("X")
 if path.exists("data") is not True:
         os.mkdir("data") 
  
-os.chdir("data")
+
 rule all: 
     input:
-        "ChrAll.vcf.gz"
+        "data/Chr{chr}_SNPs.interval.list"
         
 #Download vcf's for all chr in 1000G, filter indels, index.        
 rule download1000G_filter:
-    output:
-        "ALL.chr{c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz",
-        "filtered.ALL.chr{c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz"
+    output: ["data/Chr{chr}_SNPs.interval.list".format(chr=s) for s in chr_num]
     shell:
+        """    
+        bcftools view --types snps ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.chr}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz --output-type z -o data/Chr{wildcards.chr}_SNPs.vcf.gz
+        tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
+        gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval.list
         """
-        wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/{output[0]}
-        bcftools view --types snps {output[0]} --output-type z -o filtered.{output[0]}
-        tabix -fp vcf filtered.{output[0]}
-        """
-#Concat call chr vcf's into one vcf, make interval list with final vcf. 
-rule concat:
-    input:
-        expand("filtered.ALL.chr{c}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz", c=chr_num)
-    output:
-        "ChrAll.vcf.gz"
-    shell:        
-        """
-        bcftools concat --output-type z -o ChrAll.vcf.gz {input}  
-        tabix -fp vcf {output}
-        gatk VcfToIntervalList I={output} O=ChrAll.intervals
-        """
+
