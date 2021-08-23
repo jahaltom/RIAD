@@ -17,7 +17,7 @@ if path.exists("data") is not True:
 rule all: 
     input: ["data/Chr{chr}_SNPs.interval.list".format(chr=s) for s in chr_num]
         
-#Download vcf's for all chr in 1000G, filter indels, index.        
+#Get SNP only vcf's from 1000 Genomes Project for each Chr#, index, make interval list.        
 rule download1000G_filter:
     output: "data/Chr{chr}_SNPs.interval.list"
     shell:
