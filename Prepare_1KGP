@@ -29,11 +29,12 @@ rule download1000G_filter:
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
         gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval_list
         
+        
+        
+        #Make interval list for all chr.
         for i in $(seq 1 22); do echo $i >> list.bed; done
         echo X >> list.bed
-
-
-
+        
         cat list | while read i; do
           #Get intervals 
           cat Chr$i\_SNPs.interval_list | grep -v "@" >> interval_list
