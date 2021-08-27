@@ -28,5 +28,24 @@ rule download1000G_filter:
         bcftools view --types snps ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.chr}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz --output-type z -o data/Chr{wildcards.chr}_SNPs.vcf.gz
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
         gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval_list
+        
+        for i in $(seq 1 22); do echo $i >> list.bed; done
+        echo X >> list.bed
+
+
+
+        cat list | while read i; do
+          #Get intervals 
+          cat Chr$i\_SNPs.interval_list | grep -v "@" >> interval_list
+          #Get @SQ     SN:Chr#   LN:0
+          cat Chr$i\_SNPs.interval_list | grep "@" | grep -v "@HD" >> header
+
+        done
+        #Get @HD     VN:1.6
+        head -1 Chr1_SNPs.interval_list > top
+
+        cat top header interval_list > ChrAll.interval_list
+
+        rm list top header interval_list       
         """
 
