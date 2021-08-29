@@ -26,7 +26,7 @@ rule var_call:
 	output:
 		"{wd}/{sample}/vcf{chr}.gz"
 	shell:	
-		
+		""" 
 		if [ ! -f {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam.bai ]; then
    			samtools index -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam
 		fi
@@ -75,3 +75,4 @@ rule var_call:
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
 		bgzip {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf   
 		bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+		""" 
