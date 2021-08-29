@@ -27,6 +27,12 @@ rule var_call:
 		"{wd}/{sample}/vcf{chr}.gz"
 	shell:	
 		
+		if [ ! -f {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam.bai ]; then
+   			samtools index -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam
+		fi
+		
+		
+		
 		samtools view -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
