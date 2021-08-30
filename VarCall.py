@@ -40,7 +40,7 @@ rule var_call:
 		    I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
 		    O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
 		    CREATE_INDEX= true \
-		    METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.txt \
+		    METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
 		    VALIDATION_STRINGENCY= SILENT
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
 
