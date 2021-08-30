@@ -19,7 +19,7 @@ chr_list.append("X")
 
 rule all:
 	input:
-		expand("{wd}/{sample}/Chr{chr}.final.vcf.gz",sample=ra, chr=chr_list,wd=DIR)
+		expand("{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi",sample=ra, chr=chr_list,wd=DIR)
 		
 rule bamindex:
 	input: "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
@@ -30,7 +30,7 @@ rule var_call:
 	input:
 		"{wd}/{sample}/Aligned.sortedByCoord.out_star.bam.bai"
 	output:
-		"{wd}/{sample}/Chr{chr}.final.vcf.gz"
+		"{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
 	shell:	
 		""" 
 	
