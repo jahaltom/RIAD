@@ -24,7 +24,7 @@ rule var_call:
 	input:
 		"{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
 	output:
-		"{wd}/{sample}/Chr{wildcards.chr}.final.vcf.gz"
+		"{wd}/{sample}/Chr{chr}.final.vcf.gz"
 	shell:	
 		""" 
 		if [ ! -f {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam.bai ]; then
