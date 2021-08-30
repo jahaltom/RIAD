@@ -19,7 +19,7 @@ chr_list.append("X")
 
 rule all:
 	input:
-		expand("{wd}/{sample}/Chr{wildcards.chr}.final.vcf.gz",sample=ra, chr=chr_list,wd=DIR)
+		expand("{wd}/{sample}/Chr{chr}.final.vcf.gz",sample=ra, chr=chr_list,wd=DIR)
 rule var_call:
 	input:
 		"{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
