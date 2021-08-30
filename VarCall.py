@@ -20,17 +20,20 @@ chr_list.append("X")
 rule all:
 	input:
 		expand("{wd}/{sample}/Chr{chr}.final.vcf.gz",sample=ra, chr=chr_list,wd=DIR)
+		
+rule bamindex:
+	input: "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
+	output: "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam.bai"
+	shell:
+		"samtools index -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam"
 rule var_call:
 	input:
-		"{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
+		"{wd}/{sample}/Aligned.sortedByCoord.out_star.bam.bai"
 	output:
 		"{wd}/{sample}/Chr{chr}.final.vcf.gz"
 	shell:	
 		""" 
-		if [ ! -f {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam.bai ]; then
-   			samtools index -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam
-		fi
-		
+	
 		
 		
 		samtools view -b {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
