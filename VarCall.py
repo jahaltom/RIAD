@@ -78,8 +78,8 @@ rule var_call:
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
 		
 		####################################
-		if test -f Chr{wildcards.chr}.final.vcf.gz; then
-		    rm Chr{wildcards.chr}.final.vcf.gz
+		if test -f {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz; then
+		    rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
 		fi	
 		##############################
 		
