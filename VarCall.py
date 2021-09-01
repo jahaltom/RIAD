@@ -76,6 +76,16 @@ rule var_call:
 
 		gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
+		
+		####################################
+		if [ -f Chr{wildcards.chr}.final.vcf.gz ]; then
+		    rm Chr{wildcards.chr}.final.vcf.gz
+		fi
+		##############################
+		
+		
+		
+		
 		bgzip {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf   
 		bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
 		""" 
