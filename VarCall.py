@@ -1,5 +1,3 @@
-import os
-
 
 #Create output directory
 DIR='output'
