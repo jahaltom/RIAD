@@ -78,13 +78,12 @@ rule var_call:
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
 		
 		####################################
-		if [ -f Chr{wildcards.chr}.final.vcf.gz ]; then
+		if test -f Chr{wildcards.chr}.final.vcf.gz; then
 		    rm Chr{wildcards.chr}.final.vcf.gz
-		fi
+		fi	
 		##############################
 		
-		
-		
+	
 		
 		bgzip {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf   
 		bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
