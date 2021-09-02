@@ -6,7 +6,7 @@ DIR='output'
 
 
 #Read in run accession IDs from txt file. 
-with open ("RAids2.txt") as f:
+with open ("RAids.txt") as f:
     ra=f.read().splitlines()
 
 	
@@ -57,7 +57,7 @@ rule var_call:
 		gatk SplitNCigarReads \
 		    -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
 		    -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
-		    -R /work/LAS/xgu-lab/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna 
+		    -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna 
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.Grouped.bam
 
 
@@ -65,8 +65,8 @@ rule var_call:
 		gatk --java-options "-Xmx20g" HaplotypeCaller \
 		   -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
 		   -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
-		   -R /work/LAS/xgu-lab/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-		   -L /work/LAS/xgu-lab/Ancestry/data/Chr{wildcards.chr}_SNPs.interval_list \
+		   -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+		   -L data/Chr{wildcards.chr}_SNPs.interval_list \
 		   -ERC GVCF \
 		   --native-pair-hmm-threads 4  
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.final.bam
