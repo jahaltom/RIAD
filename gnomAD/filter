@@ -1,0 +1,25 @@
+gatk --java-options "-Xmx10g" VariantFiltration \
+        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V ChrX.SRR975601.vcf.gz \
+        -O vcf.filtered.gz \
+        --filter-expression "DP < 10.0" \
+        --filter-name "filter_DP" \
+        --filter-expression "GQ < 20.0" \
+        --filter-name "filter_GQ" \
+        --filter-expression "AB < 0.2 & AB > 0.8" \
+        --filter-name "filter_AB" 
+
+
+gatk --java-options "-Xmx100g" SelectVariants \
+        -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V gnomad.genomes.v3.1.hgdp_1kg_subset.chr1.vcf.bgz \
+        -O vcf.filtered.gz  \
+        --exclude-filtered true \
+        --select-type-to-exclude INDEL   
+        
+
+
+
+bcftools view -m2 -M2  vcf.filtered.gz --output-type z  > biallelelic.vcf.gz
+
+-m2 -M2 -v snps
