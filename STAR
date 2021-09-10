@@ -8,10 +8,10 @@ import shutil
 # snakemake --resources load=6951 --cluster "sbatch -t 01:00:00 -c 30 -p RM-shared"
 
 #Create output directory
-DIR='output'
+DIR='/ptmp/LAS/jahaltom/output'
 
 #Set path to human genome
-gen='/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+gen='data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 
 
 
