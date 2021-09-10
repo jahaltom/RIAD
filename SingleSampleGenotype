@@ -1,36 +1,43 @@
 #Create output directory
 DIR='output'
 
-#snakemake -j 100 --cluster "sbatch -t 03:00:00 -c 16 -N 1"
+#Set path to human genome
 
 
 #Read in run accession IDs from txt file. 
 with open ("RAids.txt") as f:
     ra=f.read().splitlines()
 
+	
+chr_list = list(range(1, 23))
+chr_list.append("X")
+
 
 
 rule all:
-	input: ["{wd}/{sample}/vcf.finished.gz".format(wd=DIR,sample=s) for s in ra]
+	input:
+		expand("{wd}/{sample}/All.{sample}.vcf.gz",sample=ra, wd=DIR)
+
+
     
 
-rule JointGenotype:
-    input: ["{wd}/{sample}/vcf.gz".format(wd=DIR,sample=s) for s in ra]
-    output: "{wd}/{sample}/vcf.finished.gz"
+rule Genotype:
+    input: "{wd}/{sample}/Chr{chr}.final.vcf.gz"
+    output:"{wd}/{sample}/Chr{chr}.final2.vcf.gz"
     
     shell:
-        """          
+        """         
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
-        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-        -V {wildcards.wd}/{wildcards.sample}/vcf.gz \
-        -O {wildcards.wd}/{wildcards.sample}/vcf2.gz \
+        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
         --include-non-variant-sites   
-        rm {wildcards.wd}/{wildcards.sample}/vcf.gz*
+        #rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz*
                 
         gatk --java-options "-Xmx10g" VariantFiltration \
-        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-        -V {wildcards.wd}/{wildcards.sample}/vcf2.gz \
-        -O {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz \
+        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz \
         --filter-expression "DP < 10.0" \
         --filter-name "filter_DP" \
         --filter-expression "MQ < 40.0" \
@@ -43,21 +50,86 @@ rule JointGenotype:
         --filter-name "filter_ReadPosRankSum" \
         --filter-expression "QD < 2.0" \
         --filter-name "filter_QD"
-        rm {wildcards.wd}/{wildcards.sample}/vcf2.gz*
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz*
         
         
         gatk --java-options "-Xmx10g" SelectVariants \
-        -R /work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-        -V {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz \
-        -O {wildcards.wd}/{wildcards.sample}/vcf.finished.gz \
+        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz  \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz \
         --exclude-filtered true \
         --select-type-to-exclude INDEL      
         
-        rm {wildcards.wd}/{wildcards.sample}/vcf.filtered.gz*
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
         """
         
+        
+    
 
-            
+rule compare:
+    input: "{wd}/{sample}/Chr{chr}.final2.vcf.gz"     
+    output: "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
+    shell:
+        """
+        
+        #Make interval list
+        #gunzip -c /data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk '{{print $1,$2}}' > /data/Chr{wildcards.chr}.interval_list
+        
+        
+        gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz | grep -v  "\./\." > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf
+        bgzip {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
+        
+        #rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz
+        
+        #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele. 
+        
+        tabix -h -T data/Chr{wildcards.chr}.interval_list {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        
+       
+        #rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
+        
+        #Make an index file of comm_pos.vcf.gz
+        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz | grep -v "#"  | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list
+   
+        #Extract positions from 1KGP
+        tabix -h -T {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  data/Chr{wildcards.chr}_SNPs.vcf.gz | bgzip   > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
+        
+        #Match only on positions that have the same allele.
+        bcftools isec -c none {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 4 -p {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}
+        #0000.vcf.gz is records private to  comm_pos.vcf.gz.They will be 0/0 calls that are true matches and 1/1 and 0/1 calls with wrong alt allele. Remove 0/0 and same others as an index list.
+        gunzip -c {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}/0000.vcf.gz | grep -v "0/0" | grep -v "#" || true | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
+    
+        #If List is not empty, then remove unwanted SNPs, else remove nothing. 
+        
+        if [ -s {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List ]; then
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        else
+                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        fi
 
-
-	
+        rm -r  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr} 
+        #{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
+        
+        #Use List to remove unmatched positions from data comtaining all matches 0/0 1/0 1/1. 
+        
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+        #Combine 1KGP with sample to have ancestry infered
+        
+        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+        
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+    
+        """
+        
+rule concat:
+    input: expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz",sample=ra,chr=chr_list,wd=DIR)
+    output: "{wd}/{sample}/All.{sample}.vcf.gz"
+    shell:       
+        "bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz"
