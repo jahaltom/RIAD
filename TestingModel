@@ -1,0 +1,53 @@
+import pandas as pd
+from pandas import DataFrame
+
+
+
+Super=['SuperpopulationChrAll_RBF_PC15_pronlyunkNeuralNetworkResults',  'SuperpopulationChrAll_RBF_PC15_pronlyunkSVMResults',  'SuperpopulationChrAll_RBF_PC15_pronlyunkRandomForestResults']
+
+
+
+for s in Super:
+    check=pd.read_csv("check",sep="\t")
+    ids=check[['ID']].drop_duplicates()
+    ids=ids['ID'].tolist()
+        
+    results=pd.read_csv(s,sep="\t",header=None)
+    results.columns =['InfrEth','prob','Run']
+        
+        
+    test=pd.merge(results,check,on=['Run'])
+        
+        
+        
+    rlist=[]
+    sample_size=[]
+    for i in ids:
+       rlist.append(len(test[(test['ID'] == i) & ((test['InfrEth'] == test['Eth1']) | (test['InfrEth'] == test['Eth2']))]) / len(test[test['ID'] == i])*100)
+       sample_size.append(len(test[test['ID'] == i]))
+        
+        
+        
+    
+    ids=check[['ID']].drop_duplicates()
+    ids=ids.reset_index(drop=True)
+    sample_size=DataFrame(sample_size,columns=['Sample Size'])
+    
+    
+    if s.endswith("NeuralNetworkResults"):
+        Results=DataFrame (rlist,columns=['Neural Network Accuracy'])
+        NN=Results
+    elif s.endswith("RandomForestResults"):
+        Results=DataFrame (rlist,columns=['Random Forest Accuracy'])
+        RF=Results
+    else:
+        Results=DataFrame (rlist,columns=['SVM Accuracy'])
+        SVM=Results
+    
+
+
+
+
+
+RESULTS=pd.concat([ids,sample_size,RF,NN,SVM], axis=1)
+RESULTS.to_csv('RBF_PC15_pronlyunkNeuralNetworkResults',sep='\t',mode='w',index=False) 
