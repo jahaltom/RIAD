@@ -41,7 +41,7 @@ rule STAR1st_pass:
     output:
         "{wd}/{sample}/Log.final.out"
     run:  
-        srrid=str({output}).split("/")[1]
+        srrid=str({output}).split("/")[5]
       
         #Download fastq(s) for run accession ID        
         #Run through trim_galore and STAR
@@ -67,7 +67,7 @@ rule STAR2nd_pass:
     output:
         "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
     run:
-        srrid=str({output}).split("/")[1]
+        srrid=str({output}).split("/")[5]
         sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star2ndpass)
         shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
         
