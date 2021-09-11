@@ -8,16 +8,16 @@ import shutil
 # snakemake --resources load=6951 --cluster "sbatch -t 01:00:00 -c 30 -p RM-shared"
 
 #Create output directory
-DIR='/ptmp/LAS/jahaltom/output'
+DIR='output'
 
 #Set path to human genome
-gen='data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+gen='/work/LAS/xgu-lab/jahaltom/Ancestry/data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 
 
 
 
 #Specify STAR index direcotry. 
-star_index='data/star_index/HomoS'
+star_index='/work/LAS/xgu-lab/jahaltom/Ancestry/data/star_index/HomoS'
 
 #creates a star objects
 star1stpass=mapping.Star(index=star_index,genome=gen,threads=30)
@@ -57,7 +57,7 @@ rule filter:
     output: "{wd}/all.SJ.out.tab"    
     shell:
          #"cat {wildcards.wd}/*.SJ.out.tab* | cut -f1-6 | sort | uniq > {wildcards.wd}/all.SJ.out.tab"
-         "awk -f  data/sjCollapseSamples.awk  {wildcards.wd}/*SJ.out.tab | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab"
+         "awk -f  /work/LAS/xgu-lab/jahaltom/Ancestry/data/sjCollapseSamples.awk  {wildcards.wd}/*SJ.out.tab | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab"
         
         
 rule STAR2nd_pass: 
