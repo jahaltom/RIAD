@@ -72,9 +72,7 @@ rule compare:
     shell:
         """
         
-        #Make interval list
-        #gunzip -c /data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk '{{print $1,$2}}' > /data/Chr{wildcards.chr}.interval_list
-        
+   
         
         gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz | grep -v  "\./\." > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf
         bgzip {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf
