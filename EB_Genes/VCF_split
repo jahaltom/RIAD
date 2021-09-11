@@ -1,9 +1,0 @@
-
-##Loop though autosomal chr and extract chr and loci. 
-for i in {1..22}; do 
-gunzip -c ALL.chr$i.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz | grep -v "#" | awk '{print $1,$2}' > chr$i.loci; 
-done
-##Same for X xhr. 
-gunzip -c ALL.chrX.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz | grep -v "#" | awk '{print $1,$2}' > chrX.loci; 
-
-
