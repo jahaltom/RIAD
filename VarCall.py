@@ -66,7 +66,7 @@ rule var_call:
 		   -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
 		   -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
 		   -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-		   -L data/Chr{wildcards.chr}_SNPs.interval_list \
+		   -L data/Chr{wildcards.chr}.interval_list \
 		   -ERC GVCF \
 		   --native-pair-hmm-threads 4  
 		rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.final.bam
