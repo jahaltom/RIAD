@@ -150,8 +150,8 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     degree = 1
     max_iter=1000
     
-    Cvals = np.logspace(-4,2,25,base=10)
-    gamma_vals = [1] #np.logspace(-2,2,25,base=10)
+    Cvals = np.logspace(-2,10,13)
+    gamma_vals = np.logspace(-9,3,13)
     
     
     bestg=[]
@@ -293,7 +293,7 @@ with open ("RAids.txt") as f:
 # output directory
 DIR='output'
 
-test="ChrAll_RBF_PC15_AncentEB"
+test="ChrAll_RBF_PC15_Annoated"
 
 
 
@@ -311,18 +311,24 @@ rule SuperPop:
     
     output:
         "{wd}/{sample}/Superpopulation{test}SVMResults"
-    run:
+    run:            
         
-        
+        #All.{sample}.vcf.gz must be indexted before bcftools can be used on it.
         shell("bcftools index -f -t {input}")
-        shell("tabix -h -T data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".bed", ".vcf.gz"))
         
-
+        
+        #This first
+        shell("tabix -h -T data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".bed", ".vcf.gz"))
+        #This is inverse
+        #shell("gunzip -c {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".bed", ".vcf.gz") + " | grep -v '#' | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > {wildcards.wd}/{wildcards.sample}/Annotated")      
+       # shell("bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Annotated {input} --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/Annotated.vcf.gz")
         
        
         srrid=str(output).split("/")[1]
         path=DIR + "/"+srrid + "/"
         vcf=DIR + "/" + srrid + "/" + phyla.replace(".bed", ".vcf.gz")
+        #vcf=DIR + "/" + srrid + "/Annotated.vcf.gz"
+        
         metadata_path="data/1KGP.metadata.tsv"    
         
         #All is ChrAll,Chr#,ect
@@ -339,7 +345,7 @@ rule SubPop:
         srrid=str(output).split("/")[1]
         path=DIR + "/"+srrid + "/"
         vcf=DIR + "/" + srrid + "/" + phyla.replace(".bed", ".vcf.gz")
-        
+        #vcf=DIR + "/" + srrid + "/Annotated.vcf.gz"
         
         sub = pd.read_csv(str(input),header=None,sep='\t')
         
