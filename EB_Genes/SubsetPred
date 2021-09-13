@@ -150,8 +150,8 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     degree = 1
     max_iter=1000
     
-    Cvals = np.logspace(-2,10,13)
-    gamma_vals = np.logspace(-9,3,13)
+    Cvals = np.logspace(-4,2,25,base=10)
+    gamma_vals = [1] #np.logspace(-2,2,25,base=10)
     
     
     bestg=[]
