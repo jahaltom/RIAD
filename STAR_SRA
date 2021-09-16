@@ -20,8 +20,8 @@ gen='data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
 star_index='data/star_index/HomoS'
 
 #creates a star objects
-star1stpass=mapping.Star(index=star_index,genome=gen,threads=30)
-star2ndpass=mapping.Star(index=star_index,genome=gen,threads=30,**{'--sjdbFileChrStartEnd':DIR+'/all.SJ.out.tab','--limitSjdbInsertNsj':'5041695'})
+star1stpass=mapping.Star(index=star_index,genome=gen,threads=16)
+star2ndpass=mapping.Star(index=star_index,genome=gen,threads=16,**{'--sjdbFileChrStartEnd':DIR+'/all.SJ.out.tab','--limitSjdbInsertNsj':'5041695'})
 
 
 #creates a trim_galore object.
@@ -41,16 +41,22 @@ rule STAR1st_pass:
     output:
         "{wd}/{sample}/Log.final.out"
     run:  
-        srrid=str({output}).split("/")[5]
-      
-        #Download fastq(s) for run accession ID        
-        #Run through trim_galore and STAR
-        sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star1stpass)                
-        shutil.move(DIR+"/"+srrid + "/"   + "SJ.out.tab", DIR + "/" + srrid+".SJ.out.tab")     
-         
-        shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
-        shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
-        shell("rm {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam")
+        
+        
+        srrid=str({output}).split("/")[1]
+        try:
+            
+          
+            #Download fastq(s) for run accession ID        
+            #Run through trim_galore and STAR
+            sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star1stpass)                
+            shutil.move(DIR+"/"+srrid + "/"   + "SJ.out.tab", DIR + "/" + srrid+".SJ.out.tab")     
+             
+            shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
+            shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
+            shell("rm {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam")
+        except:
+            print("ERROR in " + srrid)
 
 rule filter:
     input: ["{wd}/{sample}/Log.final.out".format(wd=DIR,sample=s) for s in ra]
@@ -67,7 +73,10 @@ rule STAR2nd_pass:
     output:
         "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
     run:
-        srrid=str({output}).split("/")[5]
-        sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star2ndpass)
-        shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
-        
+        srrid=str({output}).split("/")[1]
+        try:
+            
+            sra.SRA(srrid,directory=DIR).trim(trim_galore).align(star2ndpass)
+            shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
+        except:
+            print("ERROR in " + srrid)
