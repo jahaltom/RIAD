@@ -3,7 +3,7 @@ from pandas import DataFrame
 
 
 
-Super=['SuperpopulationChrAll_RBF_PC15_pronlyunkNeuralNetworkResults',  'SuperpopulationChrAll_RBF_PC15_pronlyunkSVMResults',  'SuperpopulationChrAll_RBF_PC15_pronlyunkRandomForestResults']
+Super=['SuperpopulationChrAll_RBF_PC20_DPLT5NeuralNetworkResults',  'SuperpopulationChrAll_RBF_PC20_DPLT5RandomForestResults',  'SuperpopulationChrAll_RBF_PC20_DPLT5SVMResults']
 
 
 
@@ -50,4 +50,4 @@ for s in Super:
 
 
 RESULTS=pd.concat([ids,sample_size,RF,NN,SVM], axis=1)
-RESULTS.to_csv('RBF_PC15_pronlyunkNeuralNetworkResults',sep='\t',mode='w',index=False) 
+RESULTS.to_csv('ChrAll_RBF_PC20_DPLT5',sep='\t',mode='w',index=False) 
