@@ -64,6 +64,7 @@ dependencies:
   - fribidi=1.0.10=h36c2ea0_0
   - ftputil=5.0.1=pyhd8ed1ab_0
   - future=0.18.2=py38h578d9bd_3
+  - gatk4=4.2.2.0=hdfd78af_1
   - gdk-pixbuf=2.42.6=h04a7f16_0
   - gettext=0.19.8.1=h0b5b191_1005
   - giflib=5.2.1=h36c2ea0_2
