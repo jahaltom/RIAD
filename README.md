@@ -1,14 +1,11 @@
 ****Prerequisites****
 
-Create the conda enviroment and activate:
+You will need to have conda installed "Latest - Conda 4.10.3 Python 3.9.5 released July 21, 2021". Create the conda enviroment and activate:
 ```
 conda env create -f environment.yml
 conda activate Ancestry
 ```
-Activate GATK4"
-```
-export PATH="/work/LAS/xgu-lab/tools/gatk-4.2.0.0/:$PATH"
-```
+
 
 ****Data Preparation****
 
