@@ -6,8 +6,7 @@ chr_num=[]
 for x in range(23):
    if x !=0:
       chr_num.append(str(x))
-chr_num.append("X")  
-#chr_num.append("Y") 
+
 
 
 
@@ -29,7 +28,9 @@ rule download1000G_filter:
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
                 
         #Make interval list
-        #gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval_list
+        #Needed for GATK
+        gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval_list
+        #Needed ata later step
         gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk '{{print $1,$2}}' > data/Chr{wildcards.chr}.interval_list
         
         """
