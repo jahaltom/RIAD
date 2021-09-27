@@ -1,6 +1,6 @@
-cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($18=="EB_novel" && $26=="Homo sapiens")print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="Homo sapiens")print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
 #738739
-cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($18=="EB_novel" && $26=="cellular organisms")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="cellular organisms")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
 #620
 cat EB_CellularOrganism | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_CellularOrganism.bed
 cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens.bed
