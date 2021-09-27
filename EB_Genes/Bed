@@ -7,3 +7,52 @@ cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens.b
 
 
 
+
+
+
+
+
+
+
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="Homo sapiens" ||  $26=="Homininae" || $26=="Hominidae" || $26=="Catarrhini" || $26=="Simiiformes" || $26=="Haplorrhini" || $26=="Primates" || $26=="Euarchontoglires" || $26=="Boreoeutheria"|| $26=="Eutheria" || $26=="Amniota")print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
+#
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="cellular organisms" || $26=="Eukaryota" || $26=="Opisthokonta" || $26=="Metazoa" || $26=="Eumetazoa" || $26=="Bilateria"|| $26=="Vertebrata" || $26=="Gnathostomata" || $26=="Euteleostomi" || $26=="Tetrapoda")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
+#
+cat EB_CellularOrganism | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_CellularOrganism_Tetrapoda.bed
+cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens_Amniota.bed
+
+
+
+
+
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="Homo sapiens" ||  $26=="Homininae" || $26=="Hominidae" || $26=="Catarrhini" || $26=="Simiiformes" || $26=="Haplorrhini" || $26=="Primates" || $26=="Euarchontoglires" || $26=="Boreoeutheria")print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
+#
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="cellular organisms" || $26=="Eukaryota" || $26=="Opisthokonta" || $26=="Metazoa" || $26=="Eumetazoa" || $26=="Bilateria"|| $26=="Vertebrata" || $26=="Gnathostomata" || $26=="Euteleostomi")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
+#
+cat EB_CellularOrganism | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_CellularOrganism_Euteleostomi.bed
+cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens_Boreoeutheria.bed
+
+
+
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="Homo sapiens" ||  $26=="Homininae" || $26=="Hominidae" || $26=="Catarrhini" || $26=="Simiiformes" || $26=="Haplorrhini"  )print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
+#
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="cellular organisms" || $26=="Eukaryota" || $26=="Opisthokonta" || $26=="Metazoa" || $26=="Eumetazoa" || $26=="Bilateria")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
+#
+cat EB_CellularOrganism | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_CellularOrganism_Bilateria.bed
+cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens_Haplorrhini.bed
+
+
+
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="Homo sapiens" ||  $26=="Homininae" || $26=="Hominidae" )print  $1,$3,$4,$5,$16,$17,$26}' > EB_HomoSapiens
+#
+cat Transcript_level_metadata.tsv | awk -F "\t" 'OFS="\t" {if($26=="cellular organisms" || $26=="Eukaryota" || $26=="Opisthokonta")print  $1,$3,$4,$5,$16,$17,$26}' > EB_CellularOrganism
+#
+cat EB_CellularOrganism | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_CellularOrganism_Opisthokonta.bed
+cat EB_HomoSapiens | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_HomoSapiens_Hominidae.bed
+
+
+
+
+
+
+
