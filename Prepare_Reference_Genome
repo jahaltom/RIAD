@@ -2,9 +2,8 @@
 
 #SBATCH --time=1:00:00   # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
-#SBATCH --ntasks-per-node=16   # 16 processor core(s) per node 
-
-
+#SBATCH -c 30   # 30 processor core(s) per node
+#SBATCH -p RM-shared
 
 cd data
 
@@ -13,7 +12,7 @@ wget -q ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf.gz
 gunzip GCA_000001405.15*
 
-#Remove "chr" from chr# in fasta and gtf.  
+#Remove "chr" from chr# in fasta and gtf.
 sed -i s'/chr//g' GCA_000001405.15*
 #Create sequence dictionary of fasta
 gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
@@ -21,5 +20,4 @@ gatk CreateSequenceDictionary -R GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 samtools faidx GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
 # Generate STAR genome
 STAR --runMode genomeGenerate --genomeDir star_index/HomoS --sjdbGTFfile GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --runThreadN 16
-
 
