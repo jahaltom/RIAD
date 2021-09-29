@@ -33,7 +33,7 @@ export GIT_PYTHON_REFRESH=quiet
 ```
 
 ```
-snakemake -j 50 -k -s STAR --cluster "sbatch -t 10:00:00 -c 30 -N 1"
+snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 10:00:00 -c 30 -N 1"
 ```
 
 
