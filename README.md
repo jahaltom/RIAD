@@ -1,6 +1,6 @@
 ****Prerequisites****
 
-Using Conda 4.10.3 and Python 3.9.5, create the conda enviroment and activate:
+Using Conda 4.10.3, create the conda enviroment and activate:
 ```
 conda env create -f environment.yml
 conda activate Ancestry
