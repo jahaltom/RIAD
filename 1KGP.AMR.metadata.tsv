@@ -1,0 +1,349 @@
+Sample name	Sex	Biosample ID	Population code	Population name	Superpopulation code	Superpopulation name	Population elastic ID	Data collections
+HG00740	female	SAME124834	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01197	male	SAME124237	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01200	male	SAME1840109	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01205	female	SAME124296	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01248	female	SAME125058	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01250	male	SAME125281	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00554	female	SAME123969	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00637	male	SAME123710	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01077	female	SAME1839581	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG00732	female	SAME125396	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,The Human Genome Structural Variation Consortium,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01089	female	SAME1839432	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG00737	female	SAME125416	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01104	male	SAME123672	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01111	female	SAME123486	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01130	male	SAME1839995	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01142	male	SAME1839731	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01161	male	SAME1839615	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01173	male	SAME124624	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01058	female	SAME1840086	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01060	male	SAME123015	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01072	male	SAME124091	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01488	male	SAME123973	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01495	female	SAME124136	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01052	female	SAME123368	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01064	female	SAME1839759	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01069	male	SAME122825	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01565	male	SAME124566	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01572	female	SAME124705	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01191	female	SAME123651	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01577	male	SAME124349	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01204	male	SAME124297	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01242	female	SAME125064	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01247	male	SAME125067	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01254	female	SAME125285	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01351	female	SAME124683	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01259	male	SAME125280	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01356	male	SAME124682	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01363	female	SAME1839059	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01375	female	SAME124290	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01280	male	SAME1839113	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01402	male	SAME1839873	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01083	female	SAME125397	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01414	female	SAME1839703	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01088	male	SAME1839361	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01438	female	SAME124971	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01095	female	SAME122926	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01440	male	SAME123237	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01281	female	SAME1839107	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01108	female	SAME123103	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01286	male	SAME1839176	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01110	male	SAME123487	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01122	female	SAME1840203	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01325	male	SAME1839604	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01350	male	SAME124684	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01344	male	SAME124862	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01362	male	SAME1839066	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01374	male	SAME124291	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01393	female	SAME1840222	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01134	female	SAME123887	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01139	male	SAME123876	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01464	male	SAME122883	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01471	female	SAME1840197	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38
+HG01177	female	SAME124620	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01494	male	SAME124135	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01305	male	SAME1840020	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01312	female	SAME1839791	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01921	female	SAME123790	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01348	female	SAME124864	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01398	male	SAME1839950	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01413	male	SAME1839612	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01432	female	SAME1839256	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01437	male	SAME124966	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01926	male	SAME123783	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01444	female	SAME1839026	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01933	female	SAME123586	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01456	female	SAME123427	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01938	male	SAME123593	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01468	female	SAME1840382	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01945	female	SAME124153	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01571	male	SAME124346	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01971	female	SAME124326	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02006	female	SAME1840279	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01976	female	SAME124325	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02102	female	SAME1840155	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01951	female	SAME123976	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01968	female	SAME124532	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02253	male	SAME1839347	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01970	male	SAME124327	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01932	male	SAME123587	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01944	male	SAME124152	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01982	male	SAME1840111	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01893	female	SAME123027	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01918	female	SAME123240	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01920	male	SAME123789	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02260	female	SAME1839139	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02265	male	SAME1839117	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02272	female	SAME1840314	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02277	male	SAME1840370	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02291	male	SAME1839948	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02304	male	SAME1839548	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02252	female	SAME1839354	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02271	male	SAME1840319	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+NA19658	male	SAME123132	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19684	female	SAME122941	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19716	female	SAME124450	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19723	male	SAME124695	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19728	female	SAME124702	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19735	male	SAME124874	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19785	female	SAME123150	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19792	male	SAME123327	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+NA19747	male	SAME123501	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19759	male	SAME123707	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19761	female	SAME123894	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19773	female	SAME124067	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19780	male	SAME123147	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19652	male	SAME124978	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19657	female	SAME123129	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19664	male	SAME122955	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19669	female	SAME123903	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19676	male	SAME122790	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19722	female	SAME124696	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19734	female	SAME124873	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19789	male	SAME123152	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19741	male	SAME124718	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19746	female	SAME123502	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19758	female	SAME123706	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19777	male	SAME124063	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00551	female	SAME124252	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00553	male	SAME124254	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00638	female	SAME123652	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00640	male	SAME123434	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01326	female	SAME1839598	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01345	female	SAME124863	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01357	female	SAME124681	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01369	female	SAME1839124	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01112	male	SAME123485	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01124	male	SAME124053	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00731	male	SAME125390	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,The Human Genome Structural Variation Consortium,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01131	female	SAME1839985	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG00736	male	SAME123058	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01136	male	SAME123889	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00743	female	SAME1840184	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01148	male	SAME124424	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01162	female	SAME1839707	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01167	male	SAME124798	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01082	male	SAME125398	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01066	male	SAME124294	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01073	female	SAME124095	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01094	male	SAME122925	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01080	female	SAME125333	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01085	male	SAME125391	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01102	female	SAME123678	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01092	female	SAME1839489	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01107	male	SAME123675	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01097	male	SAME122924	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01119	female	SAME1840402	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01105	female	SAME123673	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01121	male	SAME1840127	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01174	female	SAME124619	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01198	female	SAME125228	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01133	male	SAME123884	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01140	female	SAME124422	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01251	female	SAME125282	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01164	male	SAME1839690	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01256	male	SAME125287	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01171	female	SAME124622	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01176	male	SAME124621	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00734	female	SAME123016	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01183	female	SAME124792	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00739	male	SAME125113	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01188	female	SAME124927	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01190	male	SAME123654	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01047	male	SAME123166	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01054	male	SAME123663	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01061	female	SAME122821	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01383	male	SAME122971	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01390	female	SAME122805	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01395	male	SAME1840207	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01241	male	SAME125065	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01403	female	SAME1839867	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01253	male	SAME125284	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01275	female	SAME123002	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01260	female	SAME122815	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01302	male	SAME1840038	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01272	female	SAME122996	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01277	male	SAME123000	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01354	female	SAME124680	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01359	male	SAME124687	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01366	female	SAME125265	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01378	female	SAME124076	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01392	male	SAME1840234	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01049	female	SAME125248	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01051	male	SAME123712	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01566	female	SAME124564	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01063	male	SAME1839767	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01578	female	SAME124351	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01070	female	SAME123993	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01075	male	SAME124071	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01284	female	SAME1839191	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01489	female	SAME123972	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01311	male	SAME1839796	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01491	male	SAME124140	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01323	female	SAME1839534	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01342	female	SAME124856	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01486	female	SAME1840048	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01498	female	SAME124142	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01441	female	SAME123236	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01465	female	SAME122882	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01953	male	SAME123974	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01405	male	SAME1839863	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01965	female	SAME1839145	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01412	male	SAME1839619	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01431	male	SAME1839260	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01977	male	SAME124324	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01443	male	SAME1839032	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01455	male	SAME123429	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01462	female	SAME123539	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01474	female	SAME1840189	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01927	female	SAME123784	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01479	male	SAME1840251	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01939	female	SAME123592	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01551	female	SAME124008	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01941	male	SAME124149	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01556	male	SAME1840141	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01991	male	SAME124743	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02002	male	SAME123618	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01974	male	SAME124323	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01979	male	SAME124331	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02090	male	SAME124651	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02278	female	SAME1840367	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01892	male	SAME123026	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02285	male	SAME122914	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02292	female	SAME1839943	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01917	male	SAME123235	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01924	female	SAME123785	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02146	male	SAME1839613	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01948	female	SAME124144	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01950	male	SAME123977	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01967	male	SAME124530	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02259	male	SAME1839319	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01936	female	SAME123591	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02266	female	SAME1839110	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02312	female	SAME1839684	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02299	male	SAME1839994	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02150	male	SAME1839407	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02105	female	SAME123873	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02425	female	SAME1839043	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02348	female	SAME1839063	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02275	female	SAME1840376	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG00641	female	SAME123435	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01048	male	SAME123169	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01055	female	SAME123638	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG00742	male	SAME1840188	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02345	female	SAME1839081	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01170	male	SAME124623	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01182	male	SAME124789	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01187	male	SAME124783	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01257	female	SAME125288	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01067	female	SAME122997	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01079	male	SAME123013	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01086	female	SAME125394	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01098	female	SAME123490	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01101	male	SAME123677	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01113	female	SAME123484	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01125	female	SAME124054	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01137	female	SAME123888	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01149	female	SAME124425	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01168	female	SAME124796	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01341	male	SAME124859	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01353	male	SAME124685	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01360	female	SAME122855	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01365	male	SAME124508	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01372	female	SAME1840339	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01377	male	SAME124288	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01550	male	SAME124009	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01435	female	SAME1839239	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01447	female	SAME1839099	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01459	female	SAME1840278	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01461	male	SAME122879	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01384	female	SAME122969	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01389	male	SAME122972	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01396	female	SAME1839954	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01269	female	SAME1839257	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01271	male	SAME122998	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01303	female	SAME1840027	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01308	male	SAME1840002	PUR	Puerto Rican	AMR	American Ancestry	PUR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01485	male	SAME1840047	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01492	female	SAME124137	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01497	male	SAME124134	CLM	Colombian	AMR	American Ancestry	CLM	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+HG01947	male	SAME124155	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01954	female	SAME123980	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01961	male	SAME1839067	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01923	male	SAME123788	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01935	male	SAME123588	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01942	female	SAME124150	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01992	female	SAME124742	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01997	female	SAME124740	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02003	female	SAME123619	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02008	male	SAME123621	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02089	female	SAME124821	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02104	male	SAME123874	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02147	female	SAME1839700	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01973	female	SAME124328	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG01980	female	SAME124917	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02286	female	SAME122912	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02298	female	SAME1839913	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02301	female	SAME124280	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02262	male	SAME1839128	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+HG02274	male	SAME1840306	PEL	Peruvian	AMR	American Ancestry	PEL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release
+NA19654	female	SAME123128	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19661	male	SAME122959	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19678	female	SAME122797	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19717	male	SAME124451	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19729	male	SAME124701	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19731	female	SAME124870	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19750	male	SAME123698	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19755	female	SAME123695	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19762	male	SAME123897	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19774	male	SAME124064	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19779	female	SAME124061	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19786	male	SAME123149	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19649	male	SAME123442	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19651	female	SAME123123	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19663	female	SAME122961	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19670	male	SAME122795	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19788	female	SAME123153	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19795	male	SAME123329	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19682	male	SAME122935	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19719	female	SAME124445	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19726	male	SAME124692	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19740	female	SAME124719	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19752	female	SAME123700	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19764	female	SAME123898	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19771	male	SAME124069	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19776	female	SAME124062	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19783	male	SAME123144	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19648	female	SAME123307	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19655	male	SAME124980	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19679	male	SAME122796	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19681	female	SAME122938	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19720	male	SAME124118	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19725	female	SAME124689	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19732	male	SAME124778	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19749	female	SAME124726	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19756	male	SAME123696	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19770	female	SAME124068	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19782	female	SAME123145	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
+NA19794	female	SAME123328	MXL	Mexican Ancestry	AMR	American Ancestry	MXL	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release
