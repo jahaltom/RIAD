@@ -1,7 +1,5 @@
-import os 
-from os import path
 
-##Make list 1-22. Then add X. These will denote the Chrs
+#Make list 1-22
 chr_num=[]
 for x in range(23):
    if x !=0:
@@ -11,27 +9,25 @@ for x in range(23):
 
 
 
-#Make output directory
-if path.exists("data") is not True:
-        os.mkdir("data") 
- 
+
 
 rule all: 
-    input: ["data/Chr{chr}.interval_list".format(chr=s) for s in chr_num]
+    input: expand("data/Chr{chr}_SNPs.compare.interval_list",chr=chr_num]
         
 #Get SNP only vcf's from 1000 Genomes Project for each Chr#, index, make interval list.        
 rule download1000G_filter:
-    output: "data/Chr{chr}.interval_list"
+    output: "data/Chr{chr}_SNPs.compare.interval_list"
     shell:
-        """    
-        bcftools view --types snps ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.chr}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz --output-type z -o data/Chr{wildcards.chr}_SNPs.vcf.gz
+        """   
+        #Download chr level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://doi.org/10.12688/wellcomeopenres.15126.2). Filter out indels. 
+        bcftools view --types snps ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.chr}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz --output-type z --threads 4 -o data/Chr{wildcards.chr}_SNPs.vcf.gz
+        #Index
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
                 
-        #Make interval list
-        #Needed for GATK
-        gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.interval_list
-        #Needed ata later step
-        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk '{{print $1,$2}}' > data/Chr{wildcards.chr}.interval_list
-        
+        ##Make interval lists
+        #Needed for GATK (rule rule var_call in VarCall.py)
+        gatk VcfToIntervalList I=data/Chr{wildcards.chr}_SNPs.vcf.gz O=data/Chr{wildcards.chr}_SNPs.gatk.interval_list
+        #Needed for a later step in the analysis (rule compare in SingleSampleGenotype). 
+        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk '{{print $1,$2}}' > data/Chr{wildcards.chr}_SNPs.compare.interval_list
         """
 
