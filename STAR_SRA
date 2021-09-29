@@ -26,7 +26,7 @@ rule STAR1st_pass:
             sra.SRA(srrid,directory=DIR).trim(trim_galore)
             #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
-            --genomeDir data/star_index/HomoS \
+            --genomeDir data/star_index_Human \
             --outSAMtype None \
             --limitSjdbInsertNsj 5041695 \
             --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/1stPass. \
@@ -52,7 +52,7 @@ rule STAR2nd_pass:
         try:
             #STAR 2nd pass alignment
             shell(" STAR --runThreadN 30 \
-            --genomeDir data/star_index/HomoS \
+            --genomeDir data/star_index_Human \
             --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
             --limitSjdbInsertNsj 5041695 \
             --outSAMtype BAM SortedByCoordinate \
