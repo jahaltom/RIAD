@@ -12,7 +12,7 @@ for x in range(23):
 
 
 rule all: 
-    input: expand("data/Chr{chr}_SNPs.compare.interval_list",chr=chr_num]
+    input: expand("data/Chr{chr}_SNPs.compare.interval_list",chr=chr_num)
         
 #Get SNP only vcf's from 1000 Genomes Project for each Chr#, index, make interval list.        
 rule download1000G_filter:
