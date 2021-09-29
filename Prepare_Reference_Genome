@@ -3,7 +3,7 @@
 #SBATCH --time=1:00:00   # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
 #SBATCH -c 30   # 30 processor core(s) per node
-#SBATCH -p RM-shared
+
 
 cd data
 
