@@ -1,104 +1,76 @@
-import os
-import pysam
-from pyrpipe import sra,qc,mapping
-from pyrpipe.runnable import Runnable
-import shutil
-
-
-# snakemake --resources load=6951 --cluster "sbatch -t 01:00:00 -c 30 -p RM-shared"
-
-#Create output directory
-DIR='output'
-
-#Set path to human genome
-
-data_path="/work/LAS/xgu-lab/jahaltom/Ancestry/data/"
-gen=data_path + 'GCA_000001405.15_GRCh38_no_alt_analysis_set.fna'
+from pyrpipe import sra,qc
 
 
 
-#Specify STAR index direcotry. 
-star_index=data_path + 'star_index/HomoS'
-
-#creates a star objects
-star1stpass=mapping.Star(index=star_index,genome=gen,threads=16,**{'--limitBAMsortRAM':'50000000000'})
-star2ndpass=mapping.Star(index=star_index,genome=gen,threads=16,**{'--sjdbFileChrStartEnd':DIR+'/all.SJ.out.tab','--limitSjdbInsertNsj':'5041695','--limitBAMsortRAM':'50000000000'})
-
-
+#Output directory
+DIR='Mason_output'
 #creates a trim_galore object.
 trim_galore=qc.Trimgalore(threads=4)
 
-#Read in bam ids
-with open ("ids.txt") as f:
-        ids=f.read().splitlines()
+#Read in run accession IDs from txt file.
+with open ("Bamids.txt") as f:
+    ids=f.read().splitlines()
 
-	
+bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'
+
 rule all:
-	input: expand("{wd}/{sample}/Aligned.sortedByCoord.out_star.bam".format(sample=s,wd=DIR) for s in ids)
-     
-rule STAR1st_pass:
-    #resources:
-        #load=36
-    output:
-        "{wd}/{sample}/Log.final.out"
-    run:  
-        bamid=str({output}).split("/")[1]
-        
-        
-        # Get path to bam file
-        bam="/work/LAS/xgu-lab/shared/02-AlignedData/" + bamid + "_all-reads/"  + bamid + "_all-reads_Aligned.sortedByCoord_sorted.out.bam"
-        #Pathway for fastq files and salmon output 
-        path=DIR + "/" + bamid + "/"
-        #Fastq file names and path. 
-        fq1=path + bamid + '1.fastq'
-        fq2=path + bamid + '2.fastq'
-        #Run picard to convert bam to fastq
-        picard=Runnable(command='picard')
-        param={'SamToFastq':'','I=': bam ,'F=': fq1,'F2=': fq2}
-        picard.run(**param)
-        
-        #Run through trim_galore and STAR  
-        sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore).align(star1stpass)
-        
-        
-        
-        
-        shutil.move(DIR+"/"+bamid + "/"   + "SJ.out.tab", DIR + "/" + bamid +".SJ.out.tab")     
-         
-           
-        shell("rm {wildcards.wd}/{wildcards.sample}/" + bamid + "1.fastq")
-        shell("rm {wildcards.wd}/{wildcards.sample}/" + bamid + "2.fastq")
-        shell("rm {wildcards.wd}/{wildcards.sample}/Aligned.sortedByCoord.out_star.bam")
+        input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam",sample=ids,wd=DIR) 
 
-rule filter:
-    input: ["{wd}/{sample}/Log.final.out".format(wd=DIR,sample=s) for s in ids]
-    output: "{wd}/all.SJ.out.tab"    
+rule STAR1st_pass:
+    output:
+        "{wd}/{sample}/1stPass.SJ.out.tab"
     run:
-         #"cat {wildcards.wd}/*.SJ.out.tab* | cut -f1-6 | sort | uniq > {wildcards.wd}/all.SJ.out.tab"
-         shell("awk -f " + data_path + "sjCollapseSamples.awk  {wildcards.wd}/*SJ.out.tab | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab")
         
+     
         
-rule STAR2nd_pass: 
-    #resources:
-        #load=154
+        bamid=str({output}).split("/")[1]
+        try:      
+          
+            #Pathway for working directory
+            path=DIR + "/" + bamid + "/"
+            #Fastq file names and path. 
+            fq1=path + bamid + '.1.fastq'
+            fq2=path + bamid + '.2.fastq'
+            #Run picard to convert bam to fastq
+            shell("picard SamToFastq I=" + bam + " F=" + fq1 + " F2=" + fq2)
+            #Create SRA object and run through trim_galore  
+            sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)
+
+            #STAR 1st pass alignment
+            shell(" STAR --runThreadN 30 \
+            --genomeDir data/star_index_Human \
+            --outSAMtype None \
+            --limitSjdbInsertNsj 5041695 \
+            --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/1stPass. \
+            --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq")
+            #Record fastq file size
+            shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
+        except:
+            print("ERROR in " + bamid)
+
+rule SJs:
+    input: expand("{wd}/{sample}/1stPass.SJ.out.tab")
+    output: "{wd}/all.SJ.out.tab"
+    shell:
+         #Combines all SJ.out.tab files from the first pass and removes SJ's that are supported by 2 or less unique mappers. Also removes annotated jusntions
+ since these are already recorded in the genome build.
+         "awk -f  data/sjCollapseSamples.awk  {input} | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab"
+
+rule STAR2nd_pass:
     input: "{wd}/all.SJ.out.tab"
     output:
-        "{wd}/{sample}/Aligned.sortedByCoord.out_star.bam"
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     run:
         bamid=str({output}).split("/")[1]
-        
-        
-        
-        #Pathway for fastq files and salmon output 
-        path=DIR + "/" + bamid + "/"
-        #Fastq file names and path. 
-        fq1=path + bamid + '1.fastq'
-        fq2=path + bamid + '2.fastq'
-          
-        		
-                    
-        #Run through trim_galore and STAR  
-        sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore).align(star2ndpass)
-        
-        
-        shell("rm {wildcards.wd}/{wildcards.sample}/*fastq*")
+        try:
+            #STAR 2nd pass alignment
+            shell(" STAR --runThreadN 30 \
+            --genomeDir data/star_index_Human \
+            --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
+            --limitSjdbInsertNsj 5041695 \
+            --outSAMtype BAM SortedByCoordinate \
+            --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq \
+            --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/2ndPass.")
+            shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
+        except:
+            print("ERROR in " + bamid)
