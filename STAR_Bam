@@ -18,19 +18,17 @@ rule all:
 rule STAR1st_pass:
     output:
         "{wd}/{sample}/1stPass.SJ.out.tab"
-    run:
-        
+    run:    
         bamid=str({output}).split("/")[1]
-        bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'       
-        try:      
-          
+        bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'
+        try:
             #Pathway for working directory
             path=DIR + "/" + bamid + "/"
             #Fastq file names and path. 
             fq1=path + bamid + '.1.fastq'
             fq2=path + bamid + '.2.fastq'
             #Run picard to convert bam to fastq
-            shell("picard SamToFastq I=" + bam + " F=" + fq1 + " F2=" + fq2)
+            shell("picard SamToFastq I= " + bam_path + " F= " + fq1 + " F2= " + fq2)
             #Create SRA object and run through trim_galore  
             sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)
 
