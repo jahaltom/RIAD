@@ -7,22 +7,22 @@ DIR='output'
 #creates a trim_galore object.
 trim_galore=qc.Trimgalore(threads=4)
 
-#Read in run accession IDs from txt file. 
+#Read in run accession IDs from txt file.
 with open ("RAids.txt") as f:
     ra=f.read().splitlines()
 
 
-	
+
 rule all:
-	input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam".format(sample=s,wd=DIR) for s in ra)
-     
+        input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam".format(sample=s,wd=DIR) for s in ra)
+
 rule STAR1st_pass:
     output:
         "{wd}/{sample}/1stPass.SJ.out.tab"
-    run:  
+    run:
         srrid=str({output}).split("/")[1]
-        try:            
-            #Download fastq(s) from SRA. Run through trim_galore 
+        try:
+            #Download fastq(s) from SRA. Run through trim_galore
             sra.SRA(srrid,directory=DIR).trim(trim_galore)
             #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
@@ -30,7 +30,7 @@ rule STAR1st_pass:
             --outSAMtype None \
             --limitSjdbInsertNsj 5041695 \
             --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/1stPass. \
-            --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq")                          
+            --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq")
             #Record fastq file size
             shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
         except:
@@ -38,12 +38,13 @@ rule STAR1st_pass:
 
 rule SJs:
     input: expand("{wd}/{sample}/1stPass.SJ.out.tab",wd=DIR,sample=ra)
-    output: "{wd}/all.SJ.out.tab"    
+    output: "{wd}/all.SJ.out.tab"
     shell:
-         #Combines all SJ.out.tab files from the first pass and removes SJ's that are supported by 2 or less unique mappers. Also removes annotated jusntions since these are already recorded in the genome build. 
+         #Combines all SJ.out.tab files from the first pass and removes SJ's that are supported by 2 or less unique mappers. Also removes annotated jusntions
+ since these are already recorded in the genome build.
          "awk -f  data/sjCollapseSamples.awk  {input} | sort -k1,1V -k2,2n -k3,3n | awk '{{if($7>2 && $6==0)print}}' > {wildcards.wd}/all.SJ.out.tab"
-               
-rule STAR2nd_pass: 
+
+rule STAR2nd_pass:
     input: "{wd}/all.SJ.out.tab"
     output:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
@@ -58,7 +59,6 @@ rule STAR2nd_pass:
             --outSAMtype BAM SortedByCoordinate \
             --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq \
             --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/2ndPass.")
-	    shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
+            shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
         except:
-            print("ERROR in " + srrid)           
-    
+            print("ERROR in " + srrid)
