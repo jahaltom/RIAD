@@ -14,7 +14,7 @@ with open ("RAids.txt") as f:
 
 
 rule all:
-        input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam",sample=ids,wd=DIR) 
+        input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam",sample=ra,wd=DIR) 
 
 rule STAR1st_pass:
     output:
@@ -37,7 +37,7 @@ rule STAR1st_pass:
             print("ERROR in " + srrid)
 
 rule SJs:
-    input: expand("{wd}/{sample}/1stPass.SJ.out.tab")
+    input: expand("{wd}/{sample}/1stPass.SJ.out.tab",sample=ra,wd=DIR) 
     output: "{wd}/all.SJ.out.tab"
     shell:
          #Combines all SJ.out.tab files from the first pass and removes SJ's that are supported by 2 or less unique mappers. Also removes annotated jusntions
