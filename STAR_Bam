@@ -47,7 +47,7 @@ rule STAR1st_pass:
             print("ERROR in " + bamid)
 
 rule SJs:
-    input: expand("{wd}/{sample}/1stPass.SJ.out.tab")
+    input: expand("{wd}/{sample}/1stPass.SJ.out.tab",sample=ids,wd=DIR) 
     output: "{wd}/all.SJ.out.tab"
     shell:
          #Combines all SJ.out.tab files from the first pass and removes SJ's that are supported by 2 or less unique mappers. Also removes annotated jusntions since these are already recorded in the genome build.
