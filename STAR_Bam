@@ -11,7 +11,6 @@ trim_galore=qc.Trimgalore(threads=4)
 with open ("Bamids.txt") as f:
     ids=f.read().splitlines()
 
-bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'
 
 rule all:
         input: expand("{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam",sample=ids,wd=DIR) 
@@ -21,9 +20,8 @@ rule STAR1st_pass:
         "{wd}/{sample}/1stPass.SJ.out.tab"
     run:
         
-     
-        
         bamid=str({output}).split("/")[1]
+        bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'       
         try:      
           
             #Pathway for working directory
