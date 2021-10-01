@@ -31,7 +31,8 @@ rule STAR1st_pass:
             shell("picard SamToFastq I= " + bam_path + " F= " + fq1 + " F2= " + fq2)
             #Create SRA object and run through trim_galore  
             sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)
-
+            #Delet origonal fastq(s)
+            shell("ls *fastq | cat | grep -v trim | xargs rm")
             #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
             --genomeDir data/star_index_Human \
