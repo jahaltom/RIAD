@@ -25,7 +25,7 @@ rule STAR1st_pass:
             #Download fastq(s) from SRA. Run through trim_galore
             sra.SRA(srrid,directory=DIR).trim(trim_galore)
             #Delet origonal fastq(s)
-            shell("ls *fastq | cat | grep -v trim | xargs rm")
+            shell("ls {wildcards.wd}/{wildcards.sample}/*fastq | cat | grep -v trim | xargs rm")
             #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
             --genomeDir data/star_index_Human \
