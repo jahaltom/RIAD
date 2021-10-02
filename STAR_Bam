@@ -30,9 +30,7 @@ rule STAR1st_pass:
             #Run picard to convert bam to fastq
             shell("picard SamToFastq I= " + bam_path + " F= " + fq1 + " F2= " + fq2)
             #Create SRA object and run through trim_galore  
-            sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)
-            #Delet origonal fastq(s)
-            shell("ls {wildcards.wd}/{wildcards.sample}/*fastq | cat | grep -v trim | xargs rm")
+            sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)     
             #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
             --genomeDir data/star_index_Human \
@@ -42,6 +40,7 @@ rule STAR1st_pass:
             --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq")
             #Record fastq file size
             shell("ls -lhs {wildcards.wd}/{wildcards.sample}/ >> load")
+            shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
         except:
             print("ERROR in " + bamid)
 
@@ -56,10 +55,20 @@ rule STAR2nd_pass:
     input: "{wd}/all.SJ.out.tab"
     output:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
-    run:
+    run:    
         bamid=str({output}).split("/")[1]
+        bam_path='/ocean/projects/mcb200036p/shared/02-AlignedData/'+ bamid + '_all-reads/'  + bamid + '_all-reads_Aligned.sortedByCoord_sorted.out.bam'
         try:
-            #STAR 2nd pass alignment
+            #Pathway for working directory
+            path=DIR + "/" + bamid + "/"
+            #Fastq file names and path. 
+            fq1=path + bamid + '.1.fastq'
+            fq2=path + bamid + '.2.fastq'
+            #Run picard to convert bam to fastq
+            shell("picard SamToFastq I= " + bam_path + " F= " + fq1 + " F2= " + fq2)
+            #Create SRA object and run through trim_galore  
+            sra.SRA(fastq=fq1,fastq2=fq2,directory=path).trim(trim_galore)     
+            #STAR 1st pass alignment
             shell(" STAR --runThreadN 30 \
             --genomeDir data/star_index_Human \
             --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
@@ -67,6 +76,20 @@ rule STAR2nd_pass:
             --outSAMtype BAM SortedByCoordinate \
             --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq \
             --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/2ndPass.")
+            #Record fastq file size
             shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
         except:
             print("ERROR in " + bamid)
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+    
