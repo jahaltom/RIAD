@@ -1,12 +1,14 @@
-import matplotlib
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+os.chdir(r"C:\Users\15154\Desktop")
 #ID,SampleSize, Random Forest Accuracy  Neural Network Accuracy  SVM Accuracy
-data=pd.read_csv("Results.ChrAll.RBF.PC20.pronlyunk",sep='\t')
+data=pd.read_csv("Results.ChrAll_RBF_PC20_pronlyunk_DPLT5SVMResults",sep='\t')
 
 #ID,Seq Depth, Tissue
-info=pd.read_csv("info",sep='\t')
+info=pd.read_csv("check",sep='\t')
 
 data= pd.merge(info,data,on=['ID'])
 
@@ -14,8 +16,8 @@ data= pd.merge(info,data,on=['ID'])
 
 ###################################################
 # Order points by their x-value
-indexs_to_order_by = data['Seq Depth'].argsort()
-x_ordered = data['Seq Depth'][indexs_to_order_by]
+indexs_to_order_by = data['Total average reads (millions)'].argsort()
+x_ordered = data['Total average reads (millions)'][indexs_to_order_by]
 y_ordered = data['SVM Accuracy'][indexs_to_order_by]
 
 
@@ -27,8 +29,11 @@ plt.plot(x_ordered, y_ordered)
 
 
 plt.xlabel("Total average reads (millions)")
-plt.ylabel("Accuracy");
+plt.ylabel("% Accuracy");
 plt.title("Accuracy infering ancestry by total average reads")
+
+
+axes = plt.gca()
+axes.set_ylim([0,110])
 # Saving the figure.
 plt.savefig("output.jpg")
-
