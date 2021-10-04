@@ -1,0 +1,42 @@
+import pandas as pd
+from pysradb import sraweb
+
+#Are BioProj IDS
+ids=open("IDs",'r')
+ra_out=[]
+ra=[]
+db = sraweb.SRAweb()
+for i in ids:
+     ra.append(i.replace("\n", ""))
+     
+for i in ra:
+     try:
+         df = db.sra_metadata(i)
+         df['ID'] = i
+         df = df[["run_accession", "ID"]]
+         ra_out.append(df)
+     except:
+          ra.append(i)
+          continue
+ra_out = pd.concat(ra_out)
+ra_out.to_csv("list",mode='w', header=True,index=False,sep="\t")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
