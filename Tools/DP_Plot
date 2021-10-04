@@ -1,0 +1,34 @@
+import matplotlib
+import matplotlib.pyplot as plt
+import pandas as pd
+
+#ID,SampleSize, Random Forest Accuracy  Neural Network Accuracy  SVM Accuracy
+data=pd.read_csv("Results.ChrAll.RBF.PC20.pronlyunk",sep='\t')
+
+#ID,Seq Depth, Tissue
+info=pd.read_csv("info",sep='\t')
+
+data= pd.merge(info,data,on=['ID'])
+
+
+
+###################################################
+# Order points by their x-value
+indexs_to_order_by = data['Seq Depth'].argsort()
+x_ordered = data['Seq Depth'][indexs_to_order_by]
+y_ordered = data['SVM Accuracy'][indexs_to_order_by]
+
+
+
+# Plotting barchart
+plt.scatter(x_ordered, y_ordered)
+plt.plot(x_ordered, y_ordered)
+
+
+
+plt.xlabel("Total average reads (millions)")
+plt.ylabel("Accuracy");
+plt.title("Accuracy infering ancestry by total average reads")
+# Saving the figure.
+plt.savefig("output.jpg")
+
