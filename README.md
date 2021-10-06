@@ -41,7 +41,7 @@ list: SRP SRR
 
 cat SRP | while read i; do 
 	cat list | grep "$i" | awk '{print $2}' > RAids.txt
-	snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1 -p speedy"
+	snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1 -p biocrunch"
 	rm output/all.SJ.out.tab
 done
 
