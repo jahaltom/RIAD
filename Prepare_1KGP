@@ -25,6 +25,6 @@ rule download1000G_filter:
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
                 
         ##Make interval list 
-        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > data/Chr{wildcards.chr}_SNPs.compare.interval_list
+        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > data/Chr{wildcards.chr}_SNPs.interval_list
         """
 
