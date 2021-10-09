@@ -37,7 +37,7 @@ rule var_call:
 
 
 
-                samtools index -b {input}
+                
                 samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
