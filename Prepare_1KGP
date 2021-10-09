@@ -15,7 +15,7 @@ rule all:
 
 #Get SNP only vcf's from 1000 Genomes Project for each Chr#, index, make interval list.
 rule Download1KGP:
-    output: "data/Chr{chr}_SNPs.interval_list"
+    output: "data/Chr{chr}_SNPs.list"
     shell:
         """
         #Download chr level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://doi.org/10.12688/wellcomeopenres.15126.2). Filter out indels.
