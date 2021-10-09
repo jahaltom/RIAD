@@ -29,7 +29,8 @@ rule index:
                 """
 rule var_call:
         input:
-                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai"
+                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai",
+                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
         output:
                 "{wd}/{sample}/Chr{chr}.final.vcf.gz"
         shell:
@@ -38,7 +39,7 @@ rule var_call:
 
 
                 
-                samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
+                samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
 
