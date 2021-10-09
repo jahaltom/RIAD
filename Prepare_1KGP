@@ -24,5 +24,5 @@ rule Download1KGP:
         tabix -fp vcf data/Chr{wildcards.chr}_SNPs.vcf.gz
 
         ##Make interval list
-        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > data/Chr{wildcards.chr}_SNPs.list
+        gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,$2,$2}}' > data/Chr{wildcards.chr}_SNPs.list
         """
