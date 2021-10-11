@@ -72,7 +72,7 @@ rule var_call:
                    -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
                    -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
                    -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
-                   -L data/Chr{wildcards.chr}_SNPs.list \
+                   -L data/Chr{wildcards.chr}_SNPs.bed \
                    -ERC GVCF \
                    --native-pair-hmm-threads 8
                 rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
@@ -141,7 +141,7 @@ rule compare:
 
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
 
-        tabix -h -T data/Chr{wildcards.chr}_SNPs.list {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
 
 
