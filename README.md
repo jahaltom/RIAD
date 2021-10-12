@@ -1,7 +1,7 @@
 
 # RNA-Seq Inferred Ancestry (RIA)
-RIA is a method for infering  super-population(Africa, Europe, South Asia, East Asia, and America) from Human RNA-seq data.
-
+RIA is a method for infering super-population (Africa, Europe, South Asia, East Asia, and America)identity from Human RNA-seq data.
+RIA leverages data from 1000 genomes project and utilizes a machine learning approach that involves principal component analysis and support vector machine. 
 
 
 ![alt text](https://github.com/jahaltom/RNA-Seq-Ancestry-Inference/blob/main/FlowChart.png?raw=true)
