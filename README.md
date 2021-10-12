@@ -23,21 +23,28 @@ sbatch Prepare_Reference_Genome
 
 ****Raw data retrieval from SRA, QC, and STAR 2-Pass****
 
-This snakemale script takes in a list of run accession IDs and fetches the raw fastq files from SRA and then uses Trimgalore for QC. The reads are then ran through STAR 2-Pass mode for enhanced novel SJ detection. The SJ.out.tab file for the 2nd pass is made by combining all SJ.out.tab files from the first pass and removing SJ's that are supported by 2 or less unique mappers. 
+The snakemake script "STAR_SRA" takes in a list of run accession IDs "RAids.txt" and fetches the raw fastq files from SRA and then uses Trimgalore for QC. The reads are then ran through STAR 2-Pass mode for enhanced novel SJ detection. The SJ.out.tab file for the 2nd pass is made by combining all SJ.out.tab files from the first pass and removing SJ's that are supported by 2 or less unique mappers. 
 
-These may need to be ran befor running the snakemake script.
-
+For just 1 study, create a list of the corresponding run accession IDs "RAids.txt" and run
 ```
-export OMP_NUM_THREADS=3
-export GIT_PYTHON_REFRESH=quiet 
+snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1"
 ```
 
+For multiple studies, create 2 files:
+
+* SRP: List of unique study accession IDs.
 ```
-snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 10:00:00 -c 30 -N 1"
-
-SRP: List of SRPs(unique)
-list: SRP SRR
-
+ERP126405
+ERP127339
+SRP293106
+```
+* list: 2 column file of study accession IDs and corresponding run accession IDs (SRP SRR).
+```
+ERP124749       ERR4777044
+ERP124749       ERR4777043
+ERP126405       ERR5104751
+ERP126405       ERR5104750
+```
 
 cat SRP | while read i; do 
 	cat list | grep "$i" | awk '{print $2}' > RAids.txt
@@ -48,5 +55,15 @@ done
 ```
 
 
+
+
+
+
+
+
+```
+export OMP_NUM_THREADS=3
+export GIT_PYTHON_REFRESH=quiet 
+```
 
 
