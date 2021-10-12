@@ -1,3 +1,6 @@
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/FlowChart.png?raw=true)
+
 ****Prerequisites****
 
 Using Conda 4.10.3, create the conda enviroment and activate:
