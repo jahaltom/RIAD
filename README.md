@@ -1,6 +1,6 @@
-#
+<p align="center">
 **RNA-Seq Inferred Ancestry**
-
+</p>
 
 
 ![alt text](https://github.com/jahaltom/RNA-Seq-Ancestry-Inference/blob/main/FlowChart.png?raw=true)
