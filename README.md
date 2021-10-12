@@ -19,7 +19,7 @@ snakemake -j 22 -s Prepare_1KGP --cluster "sbatch -t 00:30:00 -c 4 -N 1"
 ```
 
 **GRCh38 Reference Genome**
-The bash script "Prepare_Reference_Genome" will download the GRCh38 fasta(GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.gz), gtf, and create a seqence dictionary and index file for the fasta. It also creates a STAR index.
+The bash script "Prepare_Reference_Genome" will download the Human genome GRCh38 fasta(GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.gz) and the corresponding gtf, and will create a seqence dictionary and index file for the fasta. It also creates a STAR index.
 ```
 sbatch Prepare_Reference_Genome
 ```
