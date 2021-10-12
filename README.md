@@ -45,7 +45,7 @@ ERP124749       ERR4777043
 ERP126405       ERR5104751
 ERP126405       ERR5104750
 ```
-
+Then run STAR_SRA on all studies using this script. This will make it so each study gets its own combined SJ.out.tab file for the 2nd pass. 
 ```
 cat SRP | while read i; do 
 	cat list | grep "$i" | awk '{print $2}' > RAids.txt
