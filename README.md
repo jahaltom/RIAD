@@ -38,7 +38,7 @@ ERP126405
 ERP127339
 SRP293106
 ```
-* list: 2 column file of study accession IDs and corresponding run accession IDs (SRP SRR).
+* list: 2 column file of study accession IDs and corresponding run accession IDs.
 ```
 ERP124749       ERR4777044
 ERP124749       ERR4777043
@@ -46,6 +46,7 @@ ERP126405       ERR5104751
 ERP126405       ERR5104750
 ```
 
+```
 cat SRP | while read i; do 
 	cat list | grep "$i" | awk '{print $2}' > RAids.txt
 	snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1 -p biocrunch"
