@@ -77,7 +77,7 @@ ls *xa* | cat > splits
 
 cat splits | while read i; do
 	cat $i > RAids.txt
-	snakemake -j 250 -k -s VarBam --cluster "sbatch -t 00:30:00  --ntasks-per-node=5 -p RM-shared"
+	snakemake -j 50 -k -s GATK_Genotype --cluster "sbatch -t 00:30:00  -c 5 -p biocrunch"
 done
 ```
 
