@@ -71,7 +71,7 @@ rule var_call:
                 gatk --java-options "-Xmx20g" HaplotypeCaller \
                    -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
                    -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
-                   -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+                   -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
                    -L data/Chr{wildcards.chr}_SNPs.bed \
                    -ERC GVCF \
                    --native-pair-hmm-threads 8
@@ -90,14 +90,14 @@ rule Genotype:
     shell:
         """
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
-        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz \
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
         --include-non-variant-sites
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz*
 
         gatk --java-options "-Xmx10g" VariantFiltration \
-        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz \
         --filter-expression "DP < 5.0" \
@@ -116,7 +116,7 @@ rule Genotype:
 
 
         gatk --java-options "-Xmx10g" SelectVariants \
-        -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz  \
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz \
         --exclude-filtered true \
