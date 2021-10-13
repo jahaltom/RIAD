@@ -69,10 +69,15 @@ done
 
 
 
-
+## GATK
 ```
-export OMP_NUM_THREADS=3
-export GIT_PYTHON_REFRESH=quiet 
-```
+split -l 100 RAids.txt
 
+ls *xa* | cat > splits
+
+cat splits | while read i; do
+	cat $i > RAids.txt
+	snakemake -j 250 -k -s VarBam --cluster "sbatch -t 00:30:00  --ntasks-per-node=5 -p RM-shared"
+done
+```
 
