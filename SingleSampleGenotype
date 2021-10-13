@@ -11,9 +11,6 @@ with open ("RAids.txt") as f:
 
 chr_list = list(range(1, 23))
 
-
-
-
 rule all:
         input:
                 expand("{wd}/{sample}/All.{sample}.vcf.gz",sample=ra,wd=DIR)
@@ -34,11 +31,7 @@ rule var_call:
         output:
                 "{wd}/{sample}/Chr{chr}.final.vcf.gz"
         shell:
-                """
-
-
-
-                
+                """       
                 samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
@@ -124,10 +117,6 @@ rule Genotype:
 
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
         """
-
-
-
-
 rule compare:
     input: "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
     output: "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
