@@ -63,7 +63,7 @@ rule var_call:
                 gatk SplitNCigarReads \
                     -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
                     -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
-                    -R data/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+                    -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
                 rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
 
 
