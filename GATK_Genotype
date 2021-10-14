@@ -93,7 +93,7 @@ rule Genotype:
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz \
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
         --include-non-variant-sites
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz*
+        
 
         gatk --java-options "-Xmx10g" VariantFiltration \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
@@ -136,7 +136,7 @@ rule compare:
         gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
 
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz*
+        
 
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
 
@@ -189,4 +189,8 @@ rule concat:
     output: 
         "{wd}/{sample}/All.{sample}.vcf.gz"
     shell:
-        "bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz"
+        """
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz*
+        bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz
+        """
