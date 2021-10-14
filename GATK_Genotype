@@ -32,7 +32,7 @@ rule var_call:
     output:
         "{wd}/{sample}/Chr{chr}.final.vcf.gz"
     group:
-        "group"
+        "Genotype"
     shell:
         """       
         samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
@@ -85,7 +85,7 @@ rule Genotype:
     output: 
         "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
     group: 
-        "group"
+        "Genotype"
     shell:
         """
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
@@ -129,7 +129,7 @@ rule compare:
     output: 
         "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
     group:               
-        "group"
+        "Genotype"
     shell:
         """
 
