@@ -62,5 +62,6 @@ rule STAR2nd_pass:
             --readFilesIn {wildcards.wd}/{wildcards.sample}/*trimgalore.fastq \
             --outFileNamePrefix {wildcards.wd}/{wildcards.sample}/2ndPass.")
             shell("rm {wildcards.wd}/{wildcards.sample}/*fastq")
+            shell("samtools index -b {output}")
         except:
             print("ERROR in " + srrid)
