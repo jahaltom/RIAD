@@ -1,85 +1,91 @@
 #Create output directory
-DIR='output'
+DIR='output2'
 
 #Set path to human genome
 
 
 #Read in run accession IDs from txt file.
-with open ("RAids.txt") as f:
+with open ("RAids2.txt") as f:
     ra=f.read().splitlines()
 
 
 chr_list = list(range(1, 23))
 
+
 rule all:
-        input:
-                expand("{wd}/{sample}/All.{sample}.vcf.gz",sample=ra,wd=DIR)
+    input:
+        expand("{wd}/{sample}/All.{sample}.vcf.gz",sample=ra,wd=DIR)
 
 rule index:
-        input:
-                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
-        output:
-                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai"
-        shell:
-                """
-                samtools index -b {input}
-                """
+    input:
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
+    output:
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai"
+    shell:
+        """
+        samtools index -b {input}
+        """
 rule var_call:
-        input:
-                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai",
-                "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
-        output:
-                "{wd}/{sample}/Chr{chr}.final.vcf.gz"
-        shell:
-                """       
-                samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
+    input:
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai",
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
+    output:
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz"
+    group:
+        "group"
+    shell:
+        """       
+        samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
 
-                gatk MarkDuplicates \
-                    I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
-                    O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
-                    CREATE_INDEX= true \
-                    METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
-                    VALIDATION_STRINGENCY= SILENT
-                rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
+        gatk MarkDuplicates \
+            I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
+            O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
+            CREATE_INDEX= true \
+            METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
+            VALIDATION_STRINGENCY= SILENT
+        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
 
-                gatk AddOrReplaceReadGroups \
-                    I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
-                    O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam \
-                    RGSM= sample \
-                    RGLB= lib \
-                    RGPL= plat \
-                    RGPU= plat
-                rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup*
+        gatk AddOrReplaceReadGroups \
+            I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
+            O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam \
+            RGSM= sample \
+            RGLB= lib \
+            RGPL= plat \
+            RGPU= plat
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup*
 
-                gatk SplitNCigarReads \
-                    -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
-                    -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
-                    -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
-                rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
-
-
-
-                gatk --java-options "-Xmx20g" HaplotypeCaller \
-                   -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
-                   -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
-                   -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
-                   -L data/Chr{wildcards.chr}_SNPs.bed \
-                   -ERC GVCF \
-                   --native-pair-hmm-threads 5
-                rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
+        gatk SplitNCigarReads \
+            -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
+            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
+            -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
 
 
-                gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
-                rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
 
-                bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
-                """
+        gatk --java-options "-Xmx20g" HaplotypeCaller \
+           -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
+           -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+           -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+           -L data/Chr{wildcards.chr}_SNPs.bed \
+           -ERC GVCF \
+           --native-pair-hmm-threads 7
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
+
+
+        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
+
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+        """
 rule Genotype:
-    input: "{wd}/{sample}/Chr{chr}.final.vcf.gz"
-    output:"{wd}/{sample}/Chr{chr}.final2.vcf.gz"
-
+    input: 
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz"
+    output: 
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
+    group: 
+        "group"
     shell:
         """
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
@@ -118,8 +124,12 @@ rule Genotype:
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
         """
 rule compare:
-    input: "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
-    output: "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
+    input: 
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
+    output: 
+        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
+    group:               
+        "group"
     shell:
         """
 
@@ -144,15 +154,15 @@ rule compare:
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
 
         #Match only on positions that have the same allele.
-        bcftools isec -c none {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 5 -p {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}
+        bcftools isec -c none {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 -p {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}
         #0000.vcf.gz is records private to  comm_pos.vcf.gz.They will be 0/0 calls that are true matches and 1/1 and 0/1 calls with wrong alt allele. Remove 0/0 and same others as an index list.
         gunzip -c {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}/0000.vcf.gz | grep -v "0/0" | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
 
         #If List is not empty, then remove unwanted SNPs, else remove nothing.
 
         if test -s {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List ; then
-                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 5 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
-                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz --output-type z --threads 5 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
         else
                 mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
                 mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
@@ -166,7 +176,7 @@ rule compare:
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
         #Combine 1KGP with sample to have ancestry infered
 
-        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 5 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
 
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz*
@@ -174,7 +184,9 @@ rule compare:
         """
 
 rule concat:
-    input: expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz",sample=ra,chr=chr_list,wd=DIR)
-    output: "{wd}/{sample}/All.{sample}.vcf.gz"
+    input: 
+        expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz",sample=ra,chr=chr_list,wd=DIR)
+    output: 
+        "{wd}/{sample}/All.{sample}.vcf.gz"
     shell:
-        "bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 5 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz"
+        "bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz"
