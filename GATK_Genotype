@@ -1,5 +1,5 @@
 #Create output directory
-DIR='output2'
+DIR='output'
 
 #Set path to human genome
 
