@@ -192,7 +192,7 @@ rule concat:
         "{wd}/{sample}/All.{sample}.vcf.gz"
     shell:
         """
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz*
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/*.final.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/*.final2.vcf.gz*
         bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz
         """
