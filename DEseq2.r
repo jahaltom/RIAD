@@ -22,11 +22,11 @@ rownames(counts)=countData$Gene_stable_ID
 dds = DESeqDataSetFromMatrix(countData = counts,colData = colData,design = ~ Ancestry + RT_PCR_Result)
 
 dds <- estimateSizeFactors(dds)
-idx <- rowSums( counts(dds, normalized=TRUE) >= 5 ) >= 3
+idx <- rowSums( counts(dds, normalized=TRUE) >= 30 ) >= 10
 dds <- dds[idx,]
 dds <- DESeq(dds)
 
 
-result - results(dds, contrast=c(Ancestry,SAS,EAS))
-result - result[complete.cases(result),]## to remove rows with NA
+result = results(dds, contrast=c(Ancestry,EUR,AFR))
+result = result[complete.cases(result),]## to remove rows with NA
 write.table(result, TumorDEG.txt)
