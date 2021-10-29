@@ -30,7 +30,7 @@ rule var_call:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai",
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     output:
-        "{wd}/{sample}/Chr{chr}.final.vcf.gz"
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
     group:
         "Genotype"
     shell:
@@ -81,9 +81,9 @@ rule var_call:
         """
 rule Genotype:
     input: 
-        "{wd}/{sample}/Chr{chr}.final.vcf.gz"
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
     output: 
-        "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz.tbi"
     group: 
         "Genotype"
     shell:
@@ -125,9 +125,9 @@ rule Genotype:
         """
 rule compare:
     input: 
-        "{wd}/{sample}/Chr{chr}.final2.vcf.gz"
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz.tbi"
     output: 
-        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz"
+        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
     group:               
         "Genotype"
     shell:
@@ -185,7 +185,7 @@ rule compare:
 
 rule concat:
     input: 
-        expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz",sample=ra,chr=chr_list,wd=DIR)
+        expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi",sample=ra,chr=chr_list,wd=DIR)
     output: 
         "{wd}/{sample}/All.{sample}.vcf.gz"
     shell:
