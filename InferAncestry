@@ -18,7 +18,7 @@ warnings.simplefilter("ignore", ConvergenceWarning)
 #export OMP_NUM_THREADS=3
 #export GIT_PYTHON_REFRESH=quiet 
 # output directory
-DIR='Mason_output'##################
+DIR='output'##################
 
 
 
@@ -185,15 +185,24 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     
     #Predict unk
  
-    pred= mod.predict(unktest)    
+        
     prob= mod.predict_proba(unktest)
-    pred=pd.DataFrame(data=pred.flatten())
+    prob= pd.DataFrame(prob, columns = mod.classes_)
+
+    
+    pred= mod.predict(unktest)
+    pred= pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
+    
     pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.insert(len(pred.columns),"Prob",[prob],True)
-    pred.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
-    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
+    print(pred,prob)
+    
+    df = pd.concat([pred, prob], axis=1)
+    
+    
+    df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+    df.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
 
     
@@ -276,7 +285,7 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
 
 
 #Read in run accession IDs from txt file. #####################
-with open ("Bamids.txt") as f:###
+with open ("RAids.txt") as f:###
     ra=f.read().splitlines()
 
 
