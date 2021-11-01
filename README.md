@@ -81,3 +81,7 @@ cat splits | while read i; do
 done
 ```
 
+## InferAncestry
+snakemake -j 1 -k -s InferAncestry --cluster "sbatch -t 00:30:00  -c 7 -p RM-shared"
+
+
