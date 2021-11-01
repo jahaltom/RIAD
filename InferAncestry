@@ -150,7 +150,6 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
 
 #SVMs with Polynomial Kernels
 def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
-    models=[]
     max_iter=1000    
     Cvals = np.logspace(-4,2,10)
     gamma_vals = np.logspace(-3, 2, 10)   
@@ -186,13 +185,15 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     
     #Predict unk
  
-    pred = mod.predict(unktest)    
+    pred= mod.predict(unktest)    
+    prob= mod.predict_proba(unktest)
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None) 
-    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=None)
+    pred.insert(len(pred.columns),"Prob",[prob],True)
+    pred.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
 
     
@@ -264,8 +265,8 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
     
             
         svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        #RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        #neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         
 
             
