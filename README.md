@@ -18,7 +18,7 @@ conda activate Ancestry
 ## Data Preparation
 
 **1000 Genomes Project:**
-The snakemake script "Prepare_1KGP" downloads chr(1-22) level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://www.internationalgenome.org/data-portal/data-collection/grch38, https://doi.org/10.12688/wellcomeopenres.15126.2) and filters out INDELs along with indexing the resulting VCF. It also creates the interval lists needed fot the analysis. 
+The snakemake script "Prepare_1KGP" downloads chr(1-22) level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://www.internationalgenome.org/data-portal/data-collection/grch38, https://doi.org/10.12688/wellcomeopenres.15126.2) and filters out INDELs along with indexing the resulting VCF. It also creates a .bed interval lists needed for the analysis. 
 ```
 snakemake -j 22 -s Prepare_1KGP --cluster "sbatch -t 01:00:00 -c 4 -N 1"
 ```
