@@ -18,7 +18,7 @@ rule Download1KGP:
     output: "data/Chr{chr}_SNPs.bed"
     shell:
         """
-        #Download chr(1-22) level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://doi.org/10.12688/wellcomeopenres.15126.2). Filter out indels.
+        #Download chr(1-22) level VCF files from 1000 Genomes Project phase 3 on GRCh38 (https://www.internationalgenome.org/data-portal/data-collection/grch38, https://doi.org/10.12688/wellcomeopenres.15126.2). Filter out indels.
         bcftools view --types snps ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/ALL.chr{wildcards.chr}.shapeit2_integrated_snvindels_v2a_27022019.GRCh38.phased.vcf.gz --output-type z --threads 4 -o data/Chr{wildcards.chr}_SNPs.vcf.gz
         #Index
         bcftools index -t data/Chr{wildcards.chr}_SNPs.vcf.gz
