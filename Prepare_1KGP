@@ -23,6 +23,6 @@ rule Download1KGP:
         #Index
         bcftools index -t data/Chr{wildcards.chr}_SNPs.vcf.gz
 
-        ##Make interval list
+        ##Make BED interval list
         gunzip -c data/Chr{wildcards.chr}_SNPs.vcf.gz | grep -v "#" | awk -F'\t' -v OFS='\t' '{{print $1,($2-1),$2}}' > data/Chr{wildcards.chr}_SNPs.bed
         """
