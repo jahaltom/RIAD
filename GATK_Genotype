@@ -16,18 +16,9 @@ rule all:
     input:
         expand("{wd}/{sample}/All.{sample}.vcf.gz",sample=ra,wd=DIR)
 
-rule index:
-    input:
-        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
-    output:
-        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai"
-    shell:
-        """
-        samtools index -b {input}
-        """
+
 rule var_call:
     input:
-        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam.bai",
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     output:
         "{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
@@ -35,7 +26,7 @@ rule var_call:
         "Genotype"
     shell:
         """       
-        samtools view -b {input[1]} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
+        samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
 
