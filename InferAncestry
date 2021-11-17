@@ -5,21 +5,17 @@ from sklearn import metrics
 import random
 from pandas import DataFrame
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
-from matplotlib.colors import ListedColormap
-from mpl_toolkits.mplot3d import Axes3D
+import os
 # This code will suppress warnings.
 import warnings
 from sklearn.exceptions import ConvergenceWarning
 warnings.simplefilter("ignore", ConvergenceWarning)
 
-#export OMP_NUM_THREADS=3
-#export GIT_PYTHON_REFRESH=quiet 
-# output directory
-DIR='output'##################
 
+# output directory
+DIR='output'
 
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
@@ -84,10 +80,15 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
-    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=None)    
+    
+   
         
-
+    if not os.path.isfile(classification+run+'NeuralNetworkResults'):
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=True)      
+    else: # else it exists so append without writing the header
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
+    
+    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)    
 
 def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
      
@@ -139,10 +140,16 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)     
-    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=None)
+    
+    
+    
    
-        
+    if not os.path.isfile(classification+run+'RandomForestResults'):
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=True)    
+    else: # else it exists so append without writing the header
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)    
+    
+    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=True)
    
 
 #SVMs with Polynomial Kernels
@@ -181,7 +188,6 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
 
     
     #Predict unk
- 
         
     prob= mod.predict_proba(unktest)
     prob= pd.DataFrame(prob, columns = mod.classes_)
@@ -198,7 +204,11 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     df = pd.concat([pred, prob], axis=1)
     
     
-    df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+    if not os.path.isfile(classification+run+'SVMResults'):
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+    else: # else it exists so append without writing the header
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None) 
+    
     df.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
 
@@ -271,8 +281,8 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
     
             
         svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        #RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        #neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         
 
             
@@ -286,7 +296,7 @@ with open ("RAids.txt") as f:###
     ra=f.read().splitlines()
 
 
-test="ChrAll.RBF.PC20"
+test="ChrAll.PC20"
 
 
 
@@ -310,6 +320,8 @@ rule SuperPop:
         
         #All is ChrAll,Chr#,ect
         PCA(vcf,metadata_path,test,path,srrid,"Superpopulation")
+
+        
    
 # rule SubPop:
 #     input: "{wd}/{sample}/Superpopulation{test}SVMResults",
