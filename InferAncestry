@@ -25,7 +25,6 @@ DIR='output'##################
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
     models=[]
-    trainacc = []
     testacc = []
     bestlearnrate=[]
     best_alpha=[]
@@ -63,9 +62,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
       
      
     
-        trainacc.append( mod.score(xtrain,ytrain) )
-        testacc.append( mod.score(xtest,ytest) )
-        
+        testacc.append(bestacc)
         bestlearnrate.append(bestrate)
         best_alpha.append(bestalpha)
         models.append(mod)
@@ -85,7 +82,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred = models[idx].predict(unktest)    
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
-    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
+    pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
     pred.insert(len(pred.columns),"ID",[srrid],True)
     pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
     pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=None)    
