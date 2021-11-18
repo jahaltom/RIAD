@@ -1,7 +1,7 @@
 import pandas as pd
 from pysradb import sraweb
 
-#Are BioProj IDS
+#"IDs" Are BioProj IDs
 ids=open("IDs",'r')
 ra_out=[]
 ra=[]
@@ -19,6 +19,7 @@ for i in ra:
           ra.append(i)
           continue
 ra_out = pd.concat(ra_out)
+#Outputs Run BioProj ID
 ra_out.to_csv("list",mode='w', header=True,index=False,sep="\t")
 
 
