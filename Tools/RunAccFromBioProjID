@@ -1,0 +1,53 @@
+import pandas as pd
+from pysradb import sraweb
+
+#"IDs" are BioProject IDs
+ids=open("IDs",'r')
+
+ra_out=[]
+ra=[]
+#SRA database
+db = sraweb.SRAweb()
+#Convert ids to list.
+for i in ids:
+     ra.append(i.replace("\n", ""))   
+     
+#Loop through BioProject IDs and gather corresponding Run Accession IDs  
+for i in ra:
+     try:
+         #Extract metadata from SRA. Will contain all Run AccessionIDs for BioProject ID. 
+         df = db.sra_metadata(i)
+         #Add column for BioProject ID
+         df['ID'] = i
+         #Extract Run AccessionID and BioProject ID columns. 
+         df = df[["run_accession", "ID"]]
+         ra_out.append(df)
+     except:
+          #If SRA server fails, add BioProject ID to bottom of ra to try again. 
+          ra.append(i)
+          continue
+
+ra_out = pd.concat(ra_out)
+
+#Outputs all Run AccessionIDs for BioProject ID
+ra_out.to_csv("list",mode='w', header=True,index=False,sep="\t")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
