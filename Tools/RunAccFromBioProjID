@@ -29,7 +29,7 @@ for i in ra:
 
 ra_out = pd.concat(ra_out)
 
-#Outputs all Run AccessionIDs for BioProject ID. In this order. 
+#Outputs all Run Accession IDs for BioProject ID. In this order. 
 ra_out.to_csv("Run_BioProjID",mode='w', header=True,index=False,sep="\t")
 
 
