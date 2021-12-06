@@ -3,33 +3,33 @@ from pandas import DataFrame
 
 
 
-Super=['SuperpopulationChrAll_RBF_PC20_DPLT5NeuralNetworkResults',  'SuperpopulationChrAll_RBF_PC20_DPLT5RandomForestResults',  'SuperpopulationChrAll_RBF_PC20_DPLT5SVMResults']
+Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20RandomForestResults',  'SuperpopulationChrAll.PC20NeuralNetworkResults']
 
 
 
 for s in Super:
     check=pd.read_csv("check",sep="\t")
-    ids=check[['ID']].drop_duplicates()
-    ids=ids['ID'].tolist()
+    ids=check[['BioProject ID']].drop_duplicates()
+    ids=ids['BioProject ID'].tolist()
         
-    results=pd.read_csv(s,sep="\t",header=None)
-    results.columns =['InfrEth','prob','Run']
+    results=pd.read_csv(s,sep="\t")
+    results=results.rename(columns = {'ID':'run_accession'})
         
         
-    test=pd.merge(results,check,on=['Run'])
+    test=pd.merge(results,check,on=['run_accession'])
         
         
         
     rlist=[]
     sample_size=[]
     for i in ids:
-       rlist.append(len(test[(test['ID'] == i) & ((test['InfrEth'] == test['Eth1']) | (test['InfrEth'] == test['Eth2']))]) / len(test[test['ID'] == i])*100)
-       sample_size.append(len(test[test['ID'] == i]))
+       rlist.append(len(test[(test['BioProject ID'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['BioProject ID'] == i])*100)
+       sample_size.append(len(test[test['BioProject ID'] == i]))
         
         
         
     
-    ids=check[['ID']].drop_duplicates()
+    ids=check[['BioProject ID']].drop_duplicates()
     ids=ids.reset_index(drop=True)
     sample_size=DataFrame(sample_size,columns=['Sample Size'])
     
