@@ -9,8 +9,8 @@ Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20Rando
 
 for s in Super:
     check=pd.read_csv("check",sep="\t")
-    ids=check[['BioProject ID']].drop_duplicates()
-    ids=ids['BioProject ID'].tolist()
+    ids=check[['Population']].drop_duplicates()
+    ids=ids['Population'].tolist()
         
     results=pd.read_csv(s,sep="\t")
     results=results.rename(columns = {'ID':'run_accession'})
@@ -23,13 +23,13 @@ for s in Super:
     rlist=[]
     sample_size=[]
     for i in ids:
-       rlist.append(len(test[(test['BioProject ID'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['BioProject ID'] == i])*100)
-       sample_size.append(len(test[test['BioProject ID'] == i]))
+       rlist.append(len(test[(test['Population'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['Population'] == i])*100)
+       sample_size.append(len(test[test['Population'] == i]))
         
         
         
     
-    ids=check[['BioProject ID']].drop_duplicates()
+    ids=check[['Population']].drop_duplicates()
     ids=ids.reset_index(drop=True)
     sample_size=DataFrame(sample_size,columns=['Sample Size'])
     
