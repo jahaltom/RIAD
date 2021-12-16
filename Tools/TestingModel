@@ -8,46 +8,51 @@ Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20Rando
 
 
 for s in Super:
-    check=pd.read_csv("check",sep="\t")
-    ids=check[['Population']].drop_duplicates()
+    #Read in metadata
+    metadata=pd.read_csv("metadata",sep="\t")
+    #Gather population names
+    ids=metadata[['Population']].drop_duplicates()
     ids=ids['Population'].tolist()
-        
+    
+    #Read in ancestry inference results 
     results=pd.read_csv(s,sep="\t")
     results=results.rename(columns = {'ID':'run_accession'})
         
+    #Merge metadata with results  
+    test=pd.merge(results,metadata,on=['run_accession'])
         
-    test=pd.merge(results,check,on=['run_accession'])
         
         
-        
-    rlist=[]
+    acclist=[]
     sample_size=[]
     for i in ids:
-       rlist.append(len(test[(test['Population'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['Population'] == i])*100)
+       #Calculate accuracy as % 
+       acclist.append(len(test[(test['Population'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['Population'] == i])*100)
+       #Get whole sample size
        sample_size.append(len(test[test['Population'] == i]))
         
         
         
-    
-    ids=check[['Population']].drop_duplicates()
+    #Gather population names as df
+    ids=metadata[['Population']].drop_duplicates()
     ids=ids.reset_index(drop=True)
+    
+    #Make sample_size into df
     sample_size=DataFrame(sample_size,columns=['Sample Size'])
     
     
     if s.endswith("NeuralNetworkResults"):
-        Results=DataFrame (rlist,columns=['Neural Network Accuracy'])
-        NN=Results
+        resultsNN=DataFrame (acclist,columns=['Neural Network Accuracy'])
     elif s.endswith("RandomForestResults"):
-        Results=DataFrame (rlist,columns=['Random Forest Accuracy'])
-        RF=Results
+        resultsRF=DataFrame (acclist,columns=['Random Forest Accuracy'])      
     else:
-        Results=DataFrame (rlist,columns=['SVM Accuracy'])
-        SVM=Results
+        resultsSVM=DataFrame (acclist,columns=['SVM Accuracy'])
+        
     
 
 
 
 
 
-RESULTS=pd.concat([ids,sample_size,RF,NN,SVM], axis=1)
-RESULTS.to_csv('ChrAll_RBF_PC20_DPLT5',sep='\t',mode='w',index=False) 
+accResults=pd.concat([ids,sample_size,resultsRF,resultsNN,resultsSVM], axis=1)
+accResults.to_csv('ChrAll_PC20_DPLT5',sep='\t',mode='w',index=False) 
