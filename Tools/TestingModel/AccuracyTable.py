@@ -5,37 +5,36 @@ from pandas import DataFrame
 
 Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20RandomForestResults',  'SuperpopulationChrAll.PC20NeuralNetworkResults']
 
-
+#Read in metadata
+metadata=pd.read_csv("metadata",sep="\t")
 
 for s in Super:
-    #Read in metadata
-    metadata=pd.read_csv("metadata",sep="\t")
-    #Gather population names
-    ids=metadata[['Population']].drop_duplicates()
-    ids=ids['Population'].tolist()
+ 
+    #Gather BioProj_Population 
+    ids=metadata[['BioProj_Population']].drop_duplicates()
+    ids=ids.reset_index(drop=True)
+    #Make list
+    ids_list=ids['BioProj_Population'].tolist()
     
     #Read in ancestry inference results 
     results=pd.read_csv(s,sep="\t")
     results=results.rename(columns = {'ID':'run_accession'})
         
     #Merge metadata with results  
-    test=pd.merge(results,metadata,on=['run_accession'])
+    resultsMeta=pd.merge(results,metadata,on=['run_accession'])
         
         
-        
+       
     acclist=[]
     sample_size=[]
-    for i in ids:
+    for i in ids_list:
        #Calculate accuracy as % 
-       acclist.append(len(test[(test['Population'] == i) & ((test['Superpopulation'] == test['Eth1']) | (test['Superpopulation'] == test['Eth2']))]) / len(test[test['Population'] == i])*100)
-       #Get whole sample size
-       sample_size.append(len(test[test['Population'] == i]))
+       acclist.append(len(resultsMeta[(resultsMeta['BioProj_Population'] == i) & ((resultsMeta['Superpopulation'] == resultsMeta['Eth1']) | (resultsMeta['Superpopulation'] == resultsMeta['Eth2']))]) / len(resultsMeta[resultsMeta['BioProj_Population'] == i])*100)
+       #Get sample size
+       sample_size.append(len(resultsMeta[resultsMeta['BioProj_Population'] == i]))
         
         
         
-    #Gather population names as df
-    ids=metadata[['Population']].drop_duplicates()
-    ids=ids.reset_index(drop=True)
     
     #Make sample_size into df
     sample_size=DataFrame(sample_size,columns=['Sample Size'])
@@ -47,7 +46,7 @@ for s in Super:
         resultsRF=DataFrame (acclist,columns=['Random Forest Accuracy'])      
     else:
         resultsSVM=DataFrame (acclist,columns=['SVM Accuracy'])
-        
+    
     
 
 
