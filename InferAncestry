@@ -79,7 +79,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
     
    
         
@@ -139,7 +139,7 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
     
     
     
@@ -198,7 +198,7 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred.columns =[classification]
     
     pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
     print(pred,prob)
     
     df = pd.concat([pred, prob], axis=1)
