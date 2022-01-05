@@ -3,59 +3,64 @@ import pandas as pd
 import seaborn as sb
 import os
 
-os.chdir(r"C:\Users\15154\Desktop")
+os.chdir(r"C:\Users\15154\Desktop\RIA")
 
-#Run,Tissue
-Groups=pd.read_csv("Info.txt",sep="\t")
+#Read in metadata
+metadata=pd.read_csv("metadata",sep="\t")
+#Read in results
+results=pd.read_csv("SuperpopulationChrAll.PC20SVMResults",sep="\t")
 
-Groups2=pd.read_csv("check",sep="\t")
-#Run,ect...
-Group=pd.merge(Groups,Groups2,on=['Run'])
+results=results.rename(columns = {'ID':'run_accession'})
 
+#Merge on run_accession
+merged=pd.merge(metadata,results,on=['run_accession'])
 
-results=pd.read_csv("SuperpopulationChrAll_RBF_PC20_DPLT5SVMResults",sep="\t",header=None)
-results.columns =['InfrEth','prob','Run']
+#This column will be used to get sample size later
+merged['sample size']=1
 
-
-final=pd.merge(Group,results,on=['Run'])
-#Use for sample size later
-final['sample size']=1
-
-#Adds 1 or 0 based of accuracy 
+#adds 1 if ancestry inference accurate, 0 otherwise 
 def test(s):
-    if ((s['InfrEth'] == s['Eth1']) | (s['InfrEth'] == s['Eth2'])):
+    if ((s['Superpopulation'] == s['Eth1']) | (s['Superpopulation'] == s['Eth2'])):
         return 1
     else:
         return 0
                                          
-final['Test'] = final.apply(test, axis=1)                                     
-final['Group']=final['ID'] + "#" + final['tissue']
-                              
+merged['Accuracy'] = merged.apply(test, axis=1)                                     
+merged['TissueGroup']=merged['Population'] + "#" + merged['Tissue']
+                     
 
-#Sum sample size and test
-final = final.groupby(['Group'],as_index = False).sum()
-final['Accuracy']=final['Test']/final['sample size']*100
-
-#Split column into 2
-final[['Study','Tissue']] = final.Group.str.split("#",expand=True)
-
-#Sub
-final = final[['Study','Tissue','Accuracy']]
-
-#Make list
-Acc= final['Accuracy'].tolist()
-Tissue= final['Tissue'].tolist()
-Study= final['Study'].tolist()
+#Sum sample size and Accuracy
+merged = merged.groupby(['TissueGroup'],as_index = False).sum()
+#Calulate overall accuracy
+merged['OverallAccuracy']=merged['Accuracy']/merged['sample size']*100
 
 
-d={ 'x': Study, 'y': Acc, 'group': Tissue}
-plot=sb.barplot(x='x', y='y', hue="group", data=d)
-plot.set_xticklabels(plot.get_xticklabels(), rotation=90)  
+
+#Split TissueGroup column into 2
+merged[['Study','Tissue']] = merged.TissueGroup.str.split("#",expand=True)
+
+
+
+
+plot=sb.barplot(x='Study', y='OverallAccuracy', hue="Tissue", data=merged)
+plot.set_xticklabels(plot.get_xticklabels(), rotation=90,size = 7)  
+
+plot2=sb.barplot()
+
+print(type(plot))
+for patch in plot.patches:
+    # we change the bar width
+    if patch.get_height() > 0: 
+        patch.set_width(0.3)
+        #plot2.add_patch(patch)
+
+print(plot2)
+
 plt.legend(bbox_to_anchor=(1.01, 1),borderaxespad=0)
-
 plt.xlabel("Study")
 plt.ylabel("Accuracy")
 plt.title("Ancestry Inference Accuracy by Tissue")
 #Keeps stuff being cropped
+
 
 plt.savefig("output.png",format='png',dpi=150,bbox_inches='tight')
