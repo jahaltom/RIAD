@@ -69,7 +69,7 @@ done
 
 
 
-## GATK
+## Infer Ancestry
 ```
 split -l 100 RAids.txt
 
