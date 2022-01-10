@@ -14,9 +14,7 @@ from sklearn.exceptions import ConvergenceWarning
 warnings.simplefilter("ignore", ConvergenceWarning)
 
 
-# output directory
-DIR='output'
-
+#ML methods##############
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
@@ -284,33 +282,205 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
         RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         
+#####################
 
-            
+        
+#Create output directory
+DIR='output'
 
 
-      
-
-
-#Read in run accession IDs from txt file. #####################
-with open ("RAids.txt") as f:###
+#Read in run accession IDs from txt file.
+with open ("RAids.txt") as f:
     ra=f.read().splitlines()
-
 
 test="ChrAll.PC20"
 
+chr_list = list(range(1, 23))
 
 
 rule all:
-	input: expand("{wd}/{sample}/Superpopulation{test}SVMResults",sample=ra,wd=DIR,test=test)
+    input: expand("{wd}/{sample}/Superpopulation{test}SVMResults",sample=ra,wd=DIR,test=test)
+
+
+rule var_call:
+    input:
+        "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
+    output:
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
+    group:
+        "Genotype"
+    shell:
+        """       
+        samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
 
 
 
+        gatk MarkDuplicates \
+            I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
+            O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
+            CREATE_INDEX= true \
+            METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
+            VALIDATION_STRINGENCY= SILENT
+        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
+
+        gatk AddOrReplaceReadGroups \
+            I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
+            O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam \
+            RGSM= sample \
+            RGLB= lib \
+            RGPL= plat \
+            RGPU= plat
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup*
+
+        gatk SplitNCigarReads \
+            -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
+            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
+            -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
+
+
+
+        gatk --java-options "-Xmx20g" HaplotypeCaller \
+           -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
+           -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+           -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+           -L data/Chr{wildcards.chr}_SNPs.bed \
+           -ERC GVCF \
+           --native-pair-hmm-threads 7
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
+
+
+        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
+
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+        """
+rule Genotype:
+    input: 
+        "{wd}/{sample}/Chr{chr}.final.vcf.gz.tbi"
+    output: 
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz.tbi"
+    group: 
+        "Genotype"
+    shell:
+        """
+        gatk --java-options "-Xmx10g" GenotypeGVCFs \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+        --include-non-variant-sites
+        
+
+        gatk --java-options "-Xmx10g" VariantFiltration \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz \
+        --filter-expression "DP < 5.0" \
+        --filter-name "filter_DP" \
+        --filter-expression "MQ < 40.0" \
+        --filter-name "filter_MQ" \
+        --filter-expression "FS > 60.0" \
+        --filter-name "filter_FS" \
+        --filter-expression "MQRankSum < -12.5" \
+        --filter-name "filter_MQRankSum" \
+        --filter-expression "ReadPosRankSum < -8.0" \
+        --filter-name "filter_ReadPosRankSum" \
+        --filter-expression "QD < 2.0" \
+        --filter-name "filter_QD"
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz*
+
+
+        gatk --java-options "-Xmx10g" SelectVariants \
+        -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz  \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz \
+        --exclude-filtered true \
+        --select-type-to-exclude INDEL
+
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
+        """
+rule compare:
+    input: 
+        "{wd}/{sample}/Chr{chr}.final2.vcf.gz.tbi"
+    output: 
+        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
+    group:               
+        "Genotype"
+    shell:
+        """
+
+        gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
+
+        
+
+        #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
+
+        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+
+
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz*
+
+        #Make an index file of comm_pos.vcf.gz. Handels blank vcfs
+        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list
+
+        #Extract positions from 1KGP
+        tabix -h -T {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  data/Chr{wildcards.chr}_SNPs.vcf.gz | bgzip   > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
+
+        #Match only on positions that have the same allele.
+        bcftools isec -c none {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 -p {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}
+        #0000.vcf.gz is records private to  comm_pos.vcf.gz.They will be 0/0 calls that are true matches and 1/1 and 0/1 calls with wrong alt allele. Remove 0/0 and same others as an index list.
+        gunzip -c {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}/0000.vcf.gz | grep -v "0/0" | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
+
+        #If List is not empty, then remove unwanted SNPs, else remove nothing.
+
+        if test -s {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List ; then
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        else
+                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        fi
+
+        rm -r  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr} {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
+
+        #Use List to remove unmatched positions from data comtaining all matches 0/0 1/0 1/1.
+
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
+        #Combine 1KGP with sample to have ancestry infered
+
+        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz*
+
+        """
+
+rule concat:
+    input: 
+        expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi",sample=ra,chr=chr_list,wd=DIR)
+    output: 
+        "{wd}/{sample}/All.{sample}.vcf.gz"
+    group:
+        "Infer Ancestry"
+    shell:
+        """
+        rm {wildcards.wd}/{wildcards.sample}/2ndPass.Aligned.sortedByCoord.out.bam*
+        rm {wildcards.wd}/{wildcards.sample}/*.final.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/*.final2.vcf.gz*
+        bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz
+        """
 
 rule SuperPop:
     input: "{wd}/{sample}/All.{sample}.vcf.gz"
     
     output:
         "{wd}/{sample}/Superpopulation{test}SVMResults"
+    group:
+        "Infer Ancestry"
     run:
    
         srrid=str(output).split("/")[1]
@@ -322,47 +492,3 @@ rule SuperPop:
         PCA(vcf,metadata_path,test,path,srrid,"Superpopulation")
 
         
-   
-# rule SubPop:
-#     input: "{wd}/{sample}/Superpopulation{test}SVMResults",
-#            "{wd}/{sample}/All.{sample}.2.vcf.gz" 
-    
-#     output:
-#         "{wd}/{sample}/Population{test}SVMResults"
-#     run:
-#         srrid=str(output).split("/")[1]
-#         path=DIR + "/"+srrid + "/"
-#         vcf=str(input[1])
-        
-        
-#         sub = pd.read_csv(str(input[0]),header=None,sep='\t')
-        
-
-        
-#         if sub.iloc[0,0] == 'AFR':
-#             metadata_path="data/1KGP.AFR.metadata.tsv"      
-#             PCA(vcf,metadata_path,test,path,srrid,"Population")
-#         elif sub.iloc[0,0] == 'EAS':
-#             metadata_path="data/1KGP.EAS.metadata.tsv"      
-#             PCA(vcf,metadata_path,test,path,srrid,"Population")
-#         elif sub.iloc[0,0] == 'AMR':
-#             metadata_path="data/1KGP.AMR.metadata.tsv"       
-#             PCA(vcf,metadata_path,test,path,srrid,"Population")
-#         elif sub.iloc[0,0] == 'SAS':
-#             metadata_path="data/1KGP.SAS.metadata.tsv"      
-#             PCA(vcf,metadata_path,test,path,srrid,"Population")
-#         elif sub.iloc[0,0] == 'EUR':
-#             metadata_path="data/1KGP.EUR.metadata.tsv"      
-#             PCA(vcf,metadata_path,test,path,srrid,"Population")
-   
-    
-   
-    
-   
-    
-# EUR =  metadata[metadata['Superpopulation code'] == "EUR" ]
-# EUR.to_csv('1KGP.EUR.metadata.tsv',sep='\t',index=False,header=True)
-   
-    
-
-
