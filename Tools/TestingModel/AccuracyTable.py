@@ -6,14 +6,15 @@ Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20Rando
 
 #Read in metadata
 metadata=pd.read_csv("metadata",sep="\t")
+#Gather BioProj_Population 
+ids=metadata[['BioProj_Population']].drop_duplicates()
+
+
+#Make list
+ids_list=ids['BioProj_Population'].tolist()  
 
 for s in Super:
-    #Gather BioProj_Population 
-    ids=metadata[['BioProj_Population']].drop_duplicates()
-    
-    
-    #Make list
-    ids_list=ids['BioProj_Population'].tolist()    
+  
     
     #Read in ancestry inference results 
     results=pd.read_csv(s,sep="\t")       
