@@ -71,12 +71,12 @@ for c in chr_num:
     acclist.append(numCorrect/sum(sample_size)*100)
     
     #Overall accuracy pop specific across studies
-    acclist.append(sum(population_correct_dict["AFR"])/sum(population_sample_size_dict["AFR"]))
-    acclist.append(sum(population_correct_dict["EUR"])/sum(population_sample_size_dict["EUR"]))
-    acclist.append(sum(population_correct_dict["AMR"])/sum(population_sample_size_dict["AMR"]))
-    acclist.append(sum(population_correct_dict["EAS/SAS"])/sum(population_sample_size_dict["EAS/SAS"]))
-    acclist.append(sum(population_correct_dict["SAS"])/sum(population_sample_size_dict["SAS"]))
-    acclist.append(sum(population_correct_dict["EAS"])/sum(population_sample_size_dict["EAS"]))
+    acclist.append(sum(population_correct_dict["AFR"])/sum(population_sample_size_dict["AFR"])*100)
+    acclist.append(sum(population_correct_dict["EUR"])/sum(population_sample_size_dict["EUR"])*100)
+    acclist.append(sum(population_correct_dict["AMR"])/sum(population_sample_size_dict["AMR"])*100)
+    acclist.append(sum(population_correct_dict["EAS/SAS"])/sum(population_sample_size_dict["EAS/SAS"])*100)
+    acclist.append(sum(population_correct_dict["SAS"])/sum(population_sample_size_dict["SAS"])*100)
+    acclist.append(sum(population_correct_dict["EAS"])/sum(population_sample_size_dict["EAS"])*100)
     
     
     
