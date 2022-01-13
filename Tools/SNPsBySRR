@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH --time=10:00:00   # walltime limit (HH:MM:SS)
+#SBATCH --nodes=1   # number of nodes
+#SBATCH --ntasks-per-node=30   # 30 processor core(s) per node
+#SBATCH -p RM-shared
+
+
+
+cat RAids.txt  | while read i;do
+        gunzip -c output/$i/All.$i.vcf.gz | grep -v "#" | wc -l >> SNPS
+done
+
+
+paste RAids.txt SNPS > AllRunsSNPS.txt
