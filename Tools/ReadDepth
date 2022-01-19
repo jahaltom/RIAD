@@ -1,0 +1,7 @@
+
+cat RAids.txt  | while read i;do
+        cat output/$i/2ndPass.Log.final.out | grep "Uniquely mapped reads number" | awk '{print $6}' >> NumUniqReads
+done
+
+
+paste RAids.txt NumUniqReads > AllRunsNumUniqReads.txt
