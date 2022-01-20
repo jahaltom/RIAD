@@ -1,7 +1,7 @@
                  
 cat species | while read i;do
   cat Transcript_level_metadata.tsv | awk  -v species="$i" -F "\t" 'OFS="\t"   {if($26==species)print  $1,$3,$4,$5,$16,$17,$26}' > EB_$i
-  cat EB_$i | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_$i.bed
+  cat EB_$i | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_$i.tsv
   rm EB_$i
 done
 
