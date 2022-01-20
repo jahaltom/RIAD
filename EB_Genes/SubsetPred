@@ -5,23 +5,20 @@ from sklearn import metrics
 import random
 from pandas import DataFrame
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
-from matplotlib.colors import ListedColormap
-from mpl_toolkits.mplot3d import Axes3D
+import os
 # This code will suppress warnings.
 import warnings
 from sklearn.exceptions import ConvergenceWarning
 warnings.simplefilter("ignore", ConvergenceWarning)
 
-#export OMP_NUM_THREADS=3
-#export GIT_PYTHON_REFRESH=quiet 
+
+#ML methods##############
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
     models=[]
-    trainacc = []
     testacc = []
     bestlearnrate=[]
     best_alpha=[]
@@ -59,9 +56,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
       
      
     
-        trainacc.append( mod.score(xtrain,ytrain) )
-        testacc.append( mod.score(xtest,ytest) )
-        
+        testacc.append(bestacc)
         bestlearnrate.append(bestrate)
         best_alpha.append(bestalpha)
         models.append(mod)
@@ -81,12 +76,17 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred = models[idx].predict(unktest)    
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
-    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
-    pred.to_csv("output/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=None)    
+    pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    
+   
         
-
+    if not os.path.isfile(classification+run+'NeuralNetworkResults'):
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=True)      
+    else: # else it exists so append without writing the header
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
+    
+    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)    
 
 def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
      
@@ -137,75 +137,77 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)     
-    pred.to_csv("output/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=None)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    
+    
+    
    
-        
+    if not os.path.isfile(classification+run+'RandomForestResults'):
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=True)    
+    else: # else it exists so append without writing the header
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)    
+    
+    pred.to_csv(DIR+ "/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=True)
    
 
 #SVMs with Polynomial Kernels
 def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
-    models=[]
-    degree = 1
-    max_iter=1000
-    
-    Cvals = np.logspace(-4,2,25,base=10)
-    gamma_vals = [1] #np.logspace(-2,2,25,base=10)
-    
-    
-    bestg=[]
-    bestC=[]
-    bestTest=[]
-    bestTrain=[]
-    for degree in [1,2,3,4]:
-        bestc = 0
-        bestgamma = 0
-        besttrainacc = 0
-        besttestacc = 0
-        
-        
-   
-        for c in Cvals:
-            for gamma in gamma_vals:
-    
-                clf = SVC(C=c, kernel='rbf', degree=degree, gamma=gamma, coef0=1.0, shrinking=True, probability=False,max_iter=max_iter)
-    
-                clf.fit(xtrain, ytrain)
-    
-                trainacc = clf.score(xtrain, ytrain)
-                testacc = clf.score(xtest, ytest)
+    max_iter=1000    
+    Cvals = np.logspace(-4,2,10)
+    gamma_vals = np.logspace(-3, 2, 10)   
     
 
+    bestc = 0
+    bestgamma = 0
+    besttrainacc = 0
+    besttestacc = 0
     
-                if testacc > besttestacc:
-                    besttestacc = testacc
-                    besttrainacc = trainacc
-                    bestgamma = gamma
-                    bestc = c
-                    mod=clf
-        models.append(mod)          
-        bestg.append(bestgamma)
-        bestC.append(bestc)
-        bestTest.append(besttestacc)
-    
-    idx = bestTest.index(max(bestTest))    
-    
-
     
    
-    testacc= models[idx].score(xtest,ytest)
-    print(testacc,max(bestTest))
+    for c in Cvals:
+        for gamma in gamma_vals:
+
+            clf = SVC(C=c, kernel='rbf', gamma=gamma, random_state=1, shrinking=True, probability=True,max_iter=max_iter)
+
+            clf.fit(xtrain, ytrain)
+
+            trainacc = clf.score(xtrain, ytrain)
+            testacc = clf.score(xtest, ytest)
+
+
+
+            if testacc > besttestacc:
+                besttestacc = testacc
+                besttrainacc = trainacc
+                bestgamma = gamma
+                bestc = c
+                mod=clf
+
+
     
     #Predict unk
- 
-    pred = models[idx].predict(unktest)    
-    pred=pd.DataFrame(data=pred.flatten())
+        
+    prob= mod.predict_proba(unktest)
+    prob= pd.DataFrame(prob, columns = mod.classes_)
+
+    
+    pred= mod.predict(unktest)
+    pred= pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
-    pred.insert(len(pred.columns),"TestAcc",[testacc],True)
-    pred.insert(len(pred.columns),"ID",[srrid],True)
-    pred.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None) 
-    pred.to_csv("output/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=None)
+    
+    pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
+    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    print(pred,prob)
+    
+    df = pd.concat([pred, prob], axis=1)
+    
+    
+    if not os.path.isfile(classification+run+'SVMResults'):
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+    else: # else it exists so append without writing the header
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None) 
+    
+    df.to_csv(DIR+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
 
     
@@ -246,10 +248,10 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
         
         
         #Run PLINK PCA
-        shell("plink --vcf " + vcf + " --pca 15 --within " + path + "samples --mac 1 --pca-clusters " + path + "train --out " + path + run)
+        shell("plink --vcf " + vcf + " --pca 20 --within " + path + "samples --mac 1 --pca-clusters " + path + "train --out " + path + run)
         
         #PCA data from plink
-        vardata= pd.read_csv(path + run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15'])
+        vardata= pd.read_csv(path + run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name','PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20'])
         vardata=vardata.drop(['Drop'], axis=1)
         
         
@@ -262,27 +264,23 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
         
         #Make unkown, training, and test sets for ML methods.
         Train = pd.merge(data,train,on=['Sample name'])
-        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15']]  # Features
+        x_train=Train[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]  # Features
         y_train=Train[classification + ' code']  # Labels
         
         Test = pd.merge(data,test,on=['Sample name'])
-        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15']]  # Features
+        x_test=Test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]  # Features
         y_test=Test[classification + ' code']  # Labels
         
         
         
         unk_test = vardata[vardata['Sample name'] == "sample" ]
-        unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15']]
+        unk_test=unk_test[['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8','PC9','PC10','PC11','PC12','PC13','PC14','PC15','PC16','PC17','PC18','PC19','PC20']]
       
     
             
-        
+        svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-
-            
-
 
       
 
@@ -293,7 +291,7 @@ with open ("RAids.txt") as f:
 # output directory
 DIR='output'
 
-test="ChrAll_RBF_PC15_Annoated"
+test="ChrAll_PC20"
 
 
 
@@ -303,9 +301,12 @@ phyla="EB_HomoSapiens.bed"
 rule all:
 	input: ["{wd}/{sample}/Population{test}SVMResults".format(sample=s,wd=DIR,test=test) for s in ra]
 
+rule all:
+    input: expand("{wd}/{sample}/Superpopulation{test}SVMResults",sample=ra,wd=DIR,test=test)
 
 
 
+        
 rule SuperPop:
     input: "{wd}/{sample}/All.{sample}.vcf.gz"
     
@@ -318,63 +319,21 @@ rule SuperPop:
         
         
         #This first
-        shell("tabix -h -T data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".bed", ".vcf.gz"))
-        #This is inverse
-        #shell("gunzip -c {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".bed", ".vcf.gz") + " | grep -v '#' | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' > {wildcards.wd}/{wildcards.sample}/Annotated")      
-       # shell("bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Annotated {input} --output-type z --threads 4 > {wildcards.wd}/{wildcards.sample}/Annotated.vcf.gz")
-        
+        shell("tabix -h -T data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".tsv", ".vcf.gz"))
+
        
         srrid=str(output).split("/")[1]
         path=DIR + "/"+srrid + "/"
-        vcf=DIR + "/" + srrid + "/" + phyla.replace(".bed", ".vcf.gz")
-        #vcf=DIR + "/" + srrid + "/Annotated.vcf.gz"
+        vcf=DIR + "/" + srrid + "/" + phyla.replace(".tsv", ".vcf.gz")
+ 
         
         metadata_path="data/1KGP.metadata.tsv"    
         
         #All is ChrAll,Chr#,ect
         PCA(vcf,metadata_path,test,path,srrid,"Superpopulation")
-        
-        
-rule SubPop:
-    input: "{wd}/{sample}/Superpopulation{test}SVMResults"
-           
-    
-    output:
-        "{wd}/{sample}/Population{test}SVMResults"
-    run:
-        srrid=str(output).split("/")[1]
-        path=DIR + "/"+srrid + "/"
-        vcf=DIR + "/" + srrid + "/" + phyla.replace(".bed", ".vcf.gz")
-        #vcf=DIR + "/" + srrid + "/Annotated.vcf.gz"
-        
-        sub = pd.read_csv(str(input),header=None,sep='\t')
-        
+     
 
         
-        if sub.iloc[0,0] == 'AFR':
-            metadata_path="data/1KGP.AFR.metadata.tsv"      
-            PCA(vcf,metadata_path,test,path,srrid,"Population")
-        elif sub.iloc[0,0] == 'EAS':
-            metadata_path="data/1KGP.EAS.metadata.tsv"      
-            PCA(vcf,metadata_path,test,path,srrid,"Population")
-        elif sub.iloc[0,0] == 'AMR':
-            metadata_path="data/1KGP.AMR.metadata.tsv"       
-            PCA(vcf,metadata_path,test,path,srrid,"Population")
-        elif sub.iloc[0,0] == 'SAS':
-            metadata_path="data/1KGP.SAS.metadata.tsv"      
-            PCA(vcf,metadata_path,test,path,srrid,"Population")
-        elif sub.iloc[0,0] == 'EUR':
-            metadata_path="data/1KGP.EUR.metadata.tsv"      
-            PCA(vcf,metadata_path,test,path,srrid,"Population")
-   
-    
-   
-    
-   
-    
-# EUR =  metadata[metadata['Superpopulation code'] == "EUR" ]
-# EUR.to_csv('1KGP.EUR.metadata.tsv',sep='\t',index=False,header=True)
-   
-    
+        
 
 
