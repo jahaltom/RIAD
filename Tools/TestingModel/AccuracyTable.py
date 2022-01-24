@@ -1,11 +1,11 @@
 import pandas as pd
 from pandas import DataFrame
 
-Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20RandomForestResults',  'SuperpopulationChrAll.PC20NeuralNetworkResults']
+Super=['SuperpopulationChrAll.PC15.SVMResults',  'SuperpopulationChrAll.PC15.RandomForestResults',  'SuperpopulationChrAll.PC15.NeuralNetworkResults']
 
 
 #Read in metadata
-metadata=pd.read_csv("metadata",sep="\t")
+metadata=pd.read_csv("metadata2",sep="\t")
 #Gather BioProj_Population 
 ids=metadata[['BioProj_Population']].drop_duplicates()
 
@@ -58,4 +58,4 @@ ids=ids.reset_index(drop=True)
 accResults=pd.concat([ids,sample_size,resultsRF,resultsNN,resultsSVM], axis=1)
 
 
-accResults.to_csv('ChrAll_PC20_DPLT5.tsv',sep='\t',mode='w',index=False) 
+accResults.to_csv('ChrAll_PC15_DPLT5.tsv',sep='\t',mode='w',index=False) 
