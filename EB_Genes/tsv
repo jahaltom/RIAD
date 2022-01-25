@@ -1,8 +1,16 @@
                  
 cat species | while read i;do
-  cat Transcript_level_metadata.tsv | awk  -v species="$i" -F "\t" 'OFS="\t"   {if($26==species)print  $1,$3,$4,$5,$16,$17,$26}' > EB_$i
+  cat Transcript_level_metadata.tsv | awk  -v species="$i" -F "\t" 'OFS="\t"   {if($26==species)print  $1,$3,$4,$5,$16,$17,$26}' > EB_Ann_$i
+  cat EB_Ann_$i | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_Ann_$i.tsv
+  rm EB_Ann_$i
+  
+  cat Transcript_level_metadata.tsv | awk  -v species="$i" -F "\t" 'OFS="\t"   {if($26==species)print  $1,$3,$4,$5,$16,$17,$26,$7}' | grep -v "annotated" > EB_$i
   cat EB_$i | sed 's/chr//g' | awk '{print $2,$3,$4}' >  EB_$i.tsv
   rm EB_$i
+  
+  cat Transcript_level_metadata.tsv | awk  -v species="$i" -F "\t" 'OFS="\t"   {if($26==species)print  $1,$3,$4,$5,$16,$17,$26,$7}' | grep -v "novel" > Ann_$i
+  cat Ann_$i | sed 's/chr//g' | awk '{print $2,$3,$4}' >  Ann_$i.tsv
+  rm Ann_$i  
 done
 
 
@@ -11,7 +19,7 @@ done
 sed -i 's/Homo sapiens/Homo_sapiens/g' Transcript_level_metadata.tsv
 
 
-
+##species
 Homo_sapiens
 Homininae
 Hominidae
