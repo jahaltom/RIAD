@@ -279,8 +279,8 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
     
             
         svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        #RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        #neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
 
       
 
@@ -296,7 +296,7 @@ test="ChrAll_PC20"
 
 
 
-phyla="EB_HomoSapiens.bed"
+phyla="FILE"
 
 rule all:
 	input: ["{wd}/{sample}/Population{test}SVMResults".format(sample=s,wd=DIR,test=test) for s in ra]
@@ -319,12 +319,12 @@ rule SuperPop:
         
         
         #This first
-        shell("tabix -h -T data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".tsv", ".vcf.gz"))
+        shell("tabix -h -R data/" + phyla +" {input} | bgzip  > {wildcards.wd}/{wildcards.sample}/" + phyla.replace(".tsv", ".vcf.gz"))
 
        
         srrid=str(output).split("/")[1]
         path=DIR + "/"+srrid + "/"
-        vcf=DIR + "/" + srrid + "/" + phyla.replace(".tsv", ".vcf.gz")
+        vcf=path + phyla.replace(".tsv", ".vcf.gz")
  
         
         metadata_path="data/1KGP.metadata.tsv"    
