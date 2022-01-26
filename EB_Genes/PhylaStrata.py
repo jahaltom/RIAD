@@ -291,15 +291,13 @@ with open ("RAids.txt") as f:
 # output directory
 DIR='output'
 
-test="ChrAll_PC20"
+test="ChrAll_PC20.FILE"
 
 
 
 
 phyla="FILE"
 
-rule all:
-	input: ["{wd}/{sample}/Population{test}SVMResults".format(sample=s,wd=DIR,test=test) for s in ra]
 
 rule all:
     input: expand("{wd}/{sample}/Superpopulation{test}SVMResults",sample=ra,wd=DIR,test=test)
