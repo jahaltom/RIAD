@@ -416,7 +416,7 @@ rule compare:
 
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
 
-        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        tabix -h -R data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
 
 
@@ -426,7 +426,7 @@ rule compare:
         gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list
 
         #Extract positions from 1KGP
-        tabix -h -T {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  data/Chr{wildcards.chr}_SNPs.vcf.gz | bgzip   > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
+        tabix -h -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  data/Chr{wildcards.chr}_SNPs.vcf.gz | bgzip   > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
 
         #Match only on positions that have the same allele.
