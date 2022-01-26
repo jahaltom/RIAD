@@ -1,0 +1,6 @@
+#files is list of tsv files made by tsv script
+cat files | while read i;do
+  cp PhylaStrata.py PhylaStrata.$i.py
+  sed -i "s/FILE/$i/g" PhylaStrata.$i.py
+  snakemake -j 300 -k -s PhylaStrata.$i.py --cluster "sbatch -t 02:00:00  -c 7 -p RM-shared"
+done
