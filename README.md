@@ -70,6 +70,9 @@ done
 
 
 ## Infer Ancestry
+Performs GATK best practices workflow for RNAseq short variant discovery (SNPs + Indels). Intersects varaint data from GATK with 1000 Genomes Project ancestry informative SNPs to gather common loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
+
+Split RAids.txt so snakemake doesnt stall. 
 ```
 split -l 100 RAids.txt
 
