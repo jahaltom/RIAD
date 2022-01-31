@@ -5,7 +5,7 @@ Super=['SuperpopulationChrAll.PC15.SVMResults',  'SuperpopulationChrAll.PC15.Ran
 
 
 #Read in metadata
-metadata=pd.read_csv("metadata2",sep="\t")
+metadata=pd.read_csv("metadata",sep="\t")
 #Gather BioProj_Population 
 ids=metadata[['BioProj_Population']].drop_duplicates()
 
