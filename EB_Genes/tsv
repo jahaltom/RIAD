@@ -15,14 +15,34 @@ sed -i 's/Homo sapiens/Homo_sapiens/g' Transcript_level_metadata.tsv
 
 
 ##species
-Homo_sapiens
-Homininae
-Hominidae
-Catarrhini
-Simiiformes
-Haplorrhini
-Primates
-Euarchontoglires
-Boreoeutheria
-Eutheria
 Amniota
+Bilateria
+Boreoeutheria
+Bovinae
+Catarrhini
+Cercopithecinae
+Chordata
+Deuterostomia
+Euarchontoglires
+Eukaryota
+Eumetazoa
+Euteleostomi
+Eutheria
+Gnathostomata
+Haplorrhini
+Hominidae
+Homininae
+Hominoidea
+Homo_sapiens
+Hylobatidae
+Mammalia
+Metazoa
+Opisthokonta
+Primates
+Rattus
+Sarcopterygii
+Simiiformes
+Tetrapoda
+Theria
+Vertebrata
+cellular organisms
