@@ -1,7 +1,8 @@
-
+#Loop though run accessiom ids.
 cat RAids.txt  | while read i;do
+        # Use STAR log file to get number of unique mapped reads.
         cat output/$i/2ndPass.Log.final.out | grep "Uniquely mapped reads number" | awk '{print $6}' >> NumUniqReads
 done
 
-
+#Merge NumUniReads with run accessiom ids.
 paste RAids.txt NumUniqReads > AllRunsNumUniqReads.txt
