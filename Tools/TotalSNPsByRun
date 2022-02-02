@@ -6,7 +6,7 @@
 #SBATCH -p RM-shared
 
 
-
+#Loop through run accessiom ids and get total num of SNPs for each id. 
 cat RAids.txt  | while read i;do
         gunzip -c output/$i/All.$i.vcf.gz | grep -v "#" | wc -l >> SNPS
 done
