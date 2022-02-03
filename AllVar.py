@@ -11,7 +11,7 @@ with open ("RAids.txt") as f:
 
 
 chr_list = list(range(1, 23))
-chr_list.append("M")
+#chr_list.append("M")
 
 
 rule all:
