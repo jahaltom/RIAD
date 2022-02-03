@@ -65,7 +65,7 @@ rule var_call:
             -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
             --bqsr-recal-file {wildcards.wd}/{wildcards.sample}/recal_data.table \
             -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split*
                
 
         gatk --java-options "-Xmx20g" HaplotypeCaller \
@@ -127,7 +127,7 @@ rule Genotype:
 
         gunzip -c  {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.Chr{wildcards.chr}.temp.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.Chr{wildcards.chr}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.Chr{wildcards.chr}.vcf.gz
-        rm {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.Chr{wildcards.chr}.temp.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/{wildcards.sample}.Chr{wildcards.chr}.temp.vcf.gz*
         """
 
 
