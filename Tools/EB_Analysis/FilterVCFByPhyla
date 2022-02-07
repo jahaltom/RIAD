@@ -10,8 +10,9 @@ done
 
 
 
-###Had to change Homo sapiens to Homo_sapiens in Transcript_level_metadata.tsv 
+###Had to change Homo sapiens to Homo_sapiens in Transcript_level_metadata.tsv. Same with cellular organisms.
 sed -i 's/Homo sapiens/Homo_sapiens/g' Transcript_level_metadata.tsv
+sed -i 's/cellular organisms/cellular_organisms/g' Transcript_level_metadata.tsv
 
 
 ##species
@@ -45,4 +46,4 @@ Simiiformes
 Tetrapoda
 Theria
 Vertebrata
-cellular organisms
+cellular_organisms
