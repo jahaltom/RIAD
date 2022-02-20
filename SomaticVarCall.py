@@ -13,7 +13,7 @@ tumor = [x for x in tumor if pd.isnull(x) == False]
 ra=tumor+normal
 
 chr_list = list(range(21, 23))
-#chr_list.append("M")
+
 
 
 rule all:
@@ -81,9 +81,7 @@ rule VarCallNormals:
         gatk Mutect2 \
           -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
           -I {wildcards.wd}/{wildcards.normalSample}/Chr{wildcards.chr}.final.bam \
-          -tumor {wildcards.normalSample} \
           -L {wildcards.chr} \
-          --germline-resource data/Chr{wildcards.chr}_SNPs.vcf.gz \
           --max-mnp-distance 0 \
           -O {wildcards.wd}/{wildcards.normalSample}/Chr{wildcards.chr}.{wildcards.normalSample}.normal.vcf.gz
           
@@ -123,7 +121,7 @@ rule SomaticVarCall:
     input:
         expand("{wd}/pon.{chr}.vcf.gz",wd=DIR,tumorSample=tumor,chr=chr_list)
     output:
-        "{wd}/{tumorSample}.{chr}.somatic.vcf.gz"
+        "{wd}/{tumorSample}.{chr}.somatic.unfiltered.vcf.gz"
 
     shell:
         """
@@ -131,7 +129,24 @@ rule SomaticVarCall:
           -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
           -I {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.final.bam \
           -L {wildcards.chr} \
-          --germline-resource data/Chr{wildcards.chr}_SNPs.vcf.gz \
+          --germline-resource data/gnomad.hg38.vcf.gz \
           -panel-of-normals {wildcards.wd}/pon.{wildcards.chr}.vcf.gz \
+          -O {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.unfiltered.vcf.gz
+        """
+rule FilterMutectCalls:
+    input:
+        expand("{wd}/{tumorSample}.{chr}.somatic.unfiltered.vcf.gz",wd=DIR,tumorSample=tumor,chr=chr_list)
+    output:
+        "{wd}/{tumorSample}.{chr}.somatic.vcf.gz"
+
+    shell:
+        """
+        gatk FilterMutectCalls \
+          -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+          -V {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.unfiltered.vcf.gz \
+          --stats {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.unfiltered.vcf.gz.stats \
+          -L {wildcards.chr} \        
           -O {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.vcf.gz
         """
+        
+
