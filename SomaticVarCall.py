@@ -148,5 +148,3 @@ rule FilterMutectCalls:
           -L {wildcards.chr} \
           -O {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.vcf.gz
         """
-        
-
