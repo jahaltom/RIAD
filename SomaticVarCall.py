@@ -145,7 +145,7 @@ rule FilterMutectCalls:
           -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
           -V {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.unfiltered.vcf.gz \
           --stats {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.unfiltered.vcf.gz.stats \
-          -L {wildcards.chr} \        
+          -L {wildcards.chr} \
           -O {wildcards.wd}/{wildcards.tumorSample}.{wildcards.chr}.somatic.vcf.gz
         """
         
