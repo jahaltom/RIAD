@@ -21,7 +21,7 @@ chr_list = list(range(1, 23))
 
 
 rule all:
-    input: expand("{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.filtered.vcf.gz",wd=DIR,chr=chr_list,id=ids)
+    input: expand("{wd}/{id}_SomaticMutations/{id}_SomaticMutations.vcf.gz",wd=DIR,id=ids)
 
 
 rule BamFormating:
@@ -175,9 +175,9 @@ rule CalculateContamination:
           -O {wildcards.wd}/{wildcards.tumorSample}/getpileupsummaries.Chr{wildcards.chr}.table
               
        gatk CalculateContamination \
-          -I {wildcards.wd}/{wildcards.tumorSample}/getpileupsummaries.Chr{wildcards.chr}.table
+          -I {wildcards.wd}/{wildcards.tumorSample}/getpileupsummaries.Chr{wildcards.chr}.table \
           -tumor-segmentation {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.segments.table \
-          -O {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.calculatecontamination.table")                
+          -O {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.calculatecontamination.table              
        """
         
          
@@ -192,8 +192,8 @@ rule FilterCalls:
         tumor_Segfiles=""   
         tumor_Confiles=""
         for i in tumorSamples:
-            tumor_Segfiles= tumor_files + "--tumor-segmentation {wildcards.wd}/" + i +"/Chr{wildcards.chr}.segments.table "
-            tumor_Confiles= tumor_files + "--contamination-table {wildcards.wd}/" + i +"/Chr{wildcards.chr}.calculatecontamination.table "
+            tumor_Segfiles= tumor_Segfiles + "--tumor-segmentation {wildcards.wd}/" + i +"/Chr{wildcards.chr}.segments.table "
+            tumor_Confiles= tumor_Confiles + "--contamination-table {wildcards.wd}/" + i +"/Chr{wildcards.chr}.calculatecontamination.table "
             
                                    
         shell("gatk LearnReadOrientationModel \
@@ -210,7 +210,16 @@ rule FilterCalls:
           "-O {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.somatic.filtered.vcf.gz")
           
           
-          
+rule concat:
+    input: 
+        expand("{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.filtered.vcf.gz",wd=DIR,id=ids,chr=chr_list)
+    output: 
+        "{wd}/{id}_SomaticMutations/{id}_SomaticMutations.vcf.gz"
+    shell:
+        """
+        bcftools concat {wildcards.wd}/{wildcards.id}_SomaticMutations/*somatic.filtered.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}_SomaticMutations.vcf.gz
+        """
+         
           
           
           
