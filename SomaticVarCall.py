@@ -1,5 +1,5 @@
 import pandas as pd
-
+import os
 
 #Create output directory
 DIR='output'
@@ -21,7 +21,7 @@ chr_list = list(range(1, 23))
 
 
 rule all:
-    input: expand("{wd}/{id}.{chr}.somatic.vcf.gz",wd=DIR,chr=chr_list,id=ids)
+    input: expand("{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.filtered.vcf.gz",wd=DIR,chr=chr_list,id=ids)
 
 
 rule BamFormating:
@@ -121,40 +121,93 @@ rule CreateSomaticPanelOfNormals:
            -L {wildcards.chr}
         """
 
+
+##Joint calling tumor and normal samples from the same individual.
 rule SomaticVarCall:
     input:      
         expand("{wd}/pon.{chr}.vcf.gz",wd=DIR,chr=chr_list,id=ids)
 
     output:
-        "{wd}/{id}.{chr}.somatic.vcf.gz"
+        "{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.unfiltered.vcf.gz"
 
-    run:
+    run:    
         
-        tumorSamples=design.loc[design['ID'] == id]['Tumor'].tolist()       
+        try:
+            os.mkdir(DIR+"/"+ wildcards.id + "_SomaticMutations")
+        except: pass
+        
+        tumorSamples=design.loc[design['ID'] == wildcards.id]['Tumor'].tolist()       
         tumor_files=""        
         for i in tumorSamples:
             tumor_files= tumor_files + "-I {wildcards.wd}/" + i +"/Chr{wildcards.chr}.final.bam "
             
-            
-        normalSamples=design.loc[design['ID'] == id]['Normal'].tolist()
+       
+        normalSamples=design.loc[design['ID'] == wildcards.id]['Normal'].tolist()
         normal_files=""
         normal_list=""        
         for i in normalSamples:
             normal_files= normal_files + "-I {wildcards.wd}/" + i +"/Chr{wildcards.chr}.final.bam "
             normal_list= normal_list + "-normal " + i + " "
             
-                  
+      
         shell("gatk Mutect2 \
-          -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna " + tumor_files + normal_files + normal_list +
+          -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna " + tumor_files + normal_files + normal_list + 
           "-L {wildcards.chr} \
           --germline-resource data/gnomad.hg38.vcf.gz \
           -panel-of-normals {wildcards.wd}/pon.{wildcards.chr}.vcf.gz \
-          --f1r2-tar-gz {wildcards.wd}/{wildcards.id}.f1r2.tar.gz \
-          -O {wildcards.wd}/{wildcards.id}.{wildcards.chr}.somatic.vcf.gz")
+          --f1r2-tar-gz {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.f1r2.tar.gz \
+          -O {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.somatic.unfiltered.vcf.gz")
   
           
           
-          
+rule CalculateContamination:
+    input:
+        expand("{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.unfiltered.vcf.gz",wd=DIR,chr=chr_list,tumorSamples=tumor,id=ids)
+    output:
+        "{wd}/{tumorSample}/Chr{chr}.calculatecontamination.table"
+
+    shell:
+       """
+       gatk GetPileupSummaries \
+          -I {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.final.bam \
+          -V data/gnomad.hg38.vcf.gz \
+          -L {wildcards.chr} \
+          -O {wildcards.wd}/{wildcards.tumorSample}/getpileupsummaries.Chr{wildcards.chr}.table
+              
+       gatk CalculateContamination \
+          -I {wildcards.wd}/{wildcards.tumorSample}/getpileupsummaries.Chr{wildcards.chr}.table
+          -tumor-segmentation {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.segments.table \
+          -O {wildcards.wd}/{wildcards.tumorSample}/Chr{wildcards.chr}.calculatecontamination.table")                
+       """
+        
+         
+rule FilterCalls:
+    input:
+        expand("{wd}/{tumorSample}/Chr{chr}.calculatecontamination.table",wd=DIR,chr=chr_list,id=ids,tumorSample=tumor)
+    output:
+        "{wd}/{id}_SomaticMutations/{id}.Chr.{chr}.somatic.filtered.vcf.gz"
+    run:   
+        
+        tumorSamples=design.loc[design['ID'] == wildcards.id]['Tumor'].tolist()       
+        tumor_Segfiles=""   
+        tumor_Confiles=""
+        for i in tumorSamples:
+            tumor_Segfiles= tumor_files + "--tumor-segmentation {wildcards.wd}/" + i +"/Chr{wildcards.chr}.segments.table "
+            tumor_Confiles= tumor_files + "--contamination-table {wildcards.wd}/" + i +"/Chr{wildcards.chr}.calculatecontamination.table "
+            
+                                   
+        shell("gatk LearnReadOrientationModel \
+          -I {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.f1r2.tar.gz \
+          -O {wildcards.wd}/{wildcards.id}_SomaticMutations/read-orientation-model.Chr{wildcards.chr}.tar.gz")
+
+        
+        shell("gatk FilterMutectCalls \
+          -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
+          -V {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.somatic.unfiltered.vcf.gz \
+          --stats {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.somatic.unfiltered.vcf.gz.stats \
+          -L {wildcards.chr} \
+          --ob-priors {wildcards.wd}/{wildcards.id}_SomaticMutations/read-orientation-model.Chr{wildcards.chr}.tar.gz " + tumor_Segfiles + tumor_Confiles +           
+          "-O {wildcards.wd}/{wildcards.id}_SomaticMutations/{wildcards.id}.Chr.{wildcards.chr}.somatic.filtered.vcf.gz")
           
           
           
