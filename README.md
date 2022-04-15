@@ -13,7 +13,19 @@ Using Conda 4.10.3, create the conda enviroment and activate:
 conda env create -f environment.yml
 conda activate Ancestry
 ```
+or you can use the Singularity image:
 
+
+```
+singularity pull ria.sif library://aseetharam/ancestry/ria:latest
+```
+
+you can access the tools inside the container by prefixing:
+
+```
+module load singularity
+singularity exec --bind $PWD ria.sif snakemake 
+```
 
 ## Data Preparation
 
