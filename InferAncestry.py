@@ -468,7 +468,7 @@ rule concat:
         "Infer Ancestry"
     shell:
         """
-        rm {wildcards.wd}/{wildcards.sample}/2ndPass.Aligned.sortedByCoord.out.bam*
+        #rm {wildcards.wd}/{wildcards.sample}/2ndPass.Aligned.sortedByCoord.out.bam*
         rm {wildcards.wd}/{wildcards.sample}/*.final.vcf.gz*
         rm {wildcards.wd}/{wildcards.sample}/*.final2.vcf.gz*
         bcftools concat {wildcards.wd}/{wildcards.sample}/*{wildcards.sample}.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/All.{wildcards.sample}.vcf.gz
