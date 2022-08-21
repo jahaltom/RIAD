@@ -166,17 +166,6 @@ rule ClinVar:
      
         
         
-# #The ClinVar database (https://www.ncbi.nlm.nih.gov/clinvar/) contains information on the medical relevance of genetic variations(Landrum et al. 2018).   
-# #Get GRCh38 VCFs  
-# wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
-# wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz.tbi
-# #Get variant summary file and remove GRCh37 data fromn it. 
-# wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
-# gunzip variant_summary.txt.gz
-# cat variant_summary.txt | grep -v "GRCh37" > ClinVarSummaryGRCh38.txt
-# rm variant_summary.txt
-
-# ############
 
 
 
