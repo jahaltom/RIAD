@@ -1,0 +1,60 @@
+import pandas as pd
+from pandas import DataFrame
+
+
+
+
+#awk '{print $1}' *ped*  > pedOrder
+# metadata=pd.read_csv("1KGP.metadata.tsv",sep='\t')
+
+# metadata=metadata[["Sample name","Superpopulation code"]]
+
+# ped=pd.read_csv("pedOrder",sep='\t',header=None)
+# ped.columns =['Sample name']
+
+# pop=pd.merge(metadata,ped,on=['Sample name'],how="right")
+# pop.fillna('-', inplace=True)
+
+# pop=pop[["Superpopulation code"]]
+
+# pop.to_csv("1KGP.pop",index=False,mode='w',header=None)
+
+
+#Output directory
+DIR='output'
+
+#Read in run accession IDs from txt file.
+with open ("RAids.txt") as f:
+    ra=f.read().splitlines()
+
+
+
+rule all:
+        input: expand("{wd}/{sample}/ADMIXTURE_Results.tsv",sample=ra,wd=DIR)
+
+rule ADMIXTURE:
+    output:
+        "{wd}/{sample}/ADMIXTURE_Results.tsv"
+    run:
+        shell("cp 1KGP.pop {wildcards.wd}/{wildcards.sample}/")
+        shell("cd {wildcards.wd}/{wildcards.sample}/")
+        shell("plink --vcf All.{wildcards.sample}.vcf.gz --make-bed --out 1KGP")        
+        shell("admixture 1KGP.bed 5 --supervised -j4")
+        
+        
+        shell("tail -1 1KGP.5.Q > {wildcards.sample}.prop")
+        
+        df=[]       
+        qfile=pd.read_csv({wildcards.sample}+".prop",sep=' ',header=None)
+        qfile.columns =["EUR","EAS","AMR","SAS","AFR" ]
+        prop=qfile.iloc[0].tolist()
+        max_prop_indx=prop.index(max(prop))
+         
+        df.append({wildcards.sample})
+        df.append(qfile.columns[max_prop_indx])    
+        df=pd.DataFrame(df).T
+        df.columns =["run_accession","Inferred Ancestry"]
+        df=pd.concat([df, qfile], axis=1)
+        
+        df.to_csv('ADMIXTURE_Results.tsv',sep='\t',mode='w',index=False)     
+        df.to_csv('/ocean/projects/bio210061p/jahaltom/ADMIXTURE_Results.tsv',sep='\t',mode='a',index=False,header=None) 
