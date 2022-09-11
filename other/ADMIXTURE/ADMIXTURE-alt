@@ -1,0 +1,52 @@
+
+
+
+
+cat RAids.txt | while read i;do
+	cat admix.sh | sed "s/SAMPLE/$i/g" > output/$i/$i.sh
+	cat sample.py | sed "s/SAMPLE/$i/g" > output/$i/$i.py
+	sbatch output/$i/$i.sh
+done
+
+
+
+###admix.sh
+#!/bin/bash
+
+#SBATCH --time=4:00:00   # walltime limit (HH:MM:SS)   
+#SBATCH -p RM-shared
+#SBATCH -c 20
+
+source activate Ancestry
+
+cp 1KGP.pop output/SAMPLE/
+cd output/SAMPLE/
+plink --vcf All.SAMPLE.vcf.gz --make-bed --out 1KGP       
+/work/LAS/xgu-lab/RIA/dist/admixture_linux-1.3.0/admixture 1KGP.bed 5 --supervised -j4
+tail -1 1KGP.5.Q > SAMPLE.prop
+
+python  SAMPLE.py
+        
+        
+
+
+###sample.py
+import pandas as pd
+from pandas import DataFrame
+
+
+        
+df=[]       
+qfile=pd.read_csv("SAMPLE.prop",sep=' ',header=None)
+qfile.columns =["EUR","EAS","AMR","SAS","AFR" ]############################Comfirm
+prop=qfile.iloc[0].tolist()
+max_prop_indx=prop.index(max(prop))
+         
+df.append("SAMPLE")
+df.append(qfile.columns[max_prop_indx])    
+df=pd.DataFrame(df).T
+df.columns =["run_accession","Inferred Superpopulation"]
+df=pd.concat([df, qfile], axis=1)
+  ##############################################################################################################################Change header order match RIA       
+df.to_csv('ADMIXTURE_Results.tsv',sep='\t',mode='w',index=False)     
+df.to_csv('/work/LAS/xgu-lab/RIA/ADMIXTURE_Results.tsv',sep='\t',mode='a',index=False,header=None) 
