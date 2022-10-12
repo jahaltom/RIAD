@@ -1,0 +1,8 @@
+
+OutputDir: 'output'
+#Specify individual chromosome: [5]
+#Specify individual chromosomes: [5,6]
+#Specify all chromosomes: 'All' 
+Interval: 'All'
+#Specify number of PCs for PCA step
+PCs: 20
