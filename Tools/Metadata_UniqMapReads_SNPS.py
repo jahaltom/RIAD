@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 
 
+os.chdir(r"C:\Users\15154\Documents")
+
+
 ################
 Ancestry_Results_File='SuperpopulationChrAll.PC20SVMResults'
 os.chdir(r"C:\Users\15154\Documents")
@@ -34,7 +37,7 @@ resultsMeta["Accurate_Eth"]=resultsMeta["Accurate"]+resultsMeta["Eth1"]
 #Add in dummy row to sperate accurate from non.  
 resultsMeta = pd.concat([resultsMeta[resultsMeta.Accurate == 'No'], pd.DataFrame({'Num of SNPs': [0,0,0], 'Accurate_Eth': [""," ","  "], 'Eth1':["","",""]}), resultsMeta[resultsMeta.Accurate == 'Yes']])
 #Plot
-plot=sb.scatterplot(resultsMeta["Num of SNPs"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","red","green","blue","purple","yellow"])
+plot=sb.scatterplot(resultsMeta["Num of SNPs"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","red","green","blue","purple","orange"])
 plt.margins(y=0.1)
 plt.xlabel("Total SNPs/Sample")
 plt.ylabel("Ancestry Correctly Inferred")
@@ -51,7 +54,7 @@ plt.show()
 #Add in dummy row to sperate accurate from non.  
 resultsMeta = pd.concat([resultsMeta[resultsMeta.Accurate == 'No'], pd.DataFrame({'Num of Unique Mapped Reads': [0,0,0], 'Accurate_Eth': [""," ","  "], 'Eth1':["","",""]}), resultsMeta[resultsMeta.Accurate == 'Yes']])
 #Plot
-plot=sb.scatterplot(resultsMeta["Num of Unique Mapped Reads"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","red","green","blue","purple","yellow"])
+plot=sb.scatterplot(resultsMeta["Num of Unique Mapped Reads"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","red","green","blue","purple","orange"])
 plt.margins(y=0.1)
 plt.xlabel("# of Unique Mapped Reads/Sample")
 plt.ylabel("Ancestry Correctly Inferred")
@@ -59,12 +62,5 @@ plt.title(uniqMapRead_plot_title)
 plt.legend(title='Superpopulation')
 plt.grid(True, axis='x')
 plt.savefig(outfilePrefix+"AccuracyBy#UniqMappedReads.png",format='png',dpi=150,bbox_inches='tight')
-
-
-
-
-
-
-
 
 
