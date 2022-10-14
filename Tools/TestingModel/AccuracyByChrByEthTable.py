@@ -3,7 +3,7 @@ from pandas import DataFrame
 
 
 #Make list 1-22
-chr_num=[]
+chr_num=["All"]
 for x in range(1,23):
       chr_num.append(str(x))
       
@@ -80,24 +80,26 @@ for c in chr_num:
     
     
     
+    #Add total sample size to sample_size and make into df
+    sample_size.append(sum(sample_size))
+    sample_size.append(sum(population_sample_size_dict["AFR"]))
+    sample_size.append(sum(population_sample_size_dict["EUR"]))
+    sample_size.append(sum(population_sample_size_dict["AMR"]))
+    sample_size.append(sum(population_sample_size_dict["EAS/SAS"]))
+    sample_size.append(sum(population_sample_size_dict["SAS"]))
+    sample_size.append(sum(population_sample_size_dict["EAS"]))
+    
+    
+    
     #Accuracy results for a Chr
-    temp_results_Chr=DataFrame(acclist,columns=['Chr'+c])
-    
+    temp_results_Chr=DataFrame(acclist,columns=['Chr'+c]) 
+    temp_sample_size=DataFrame(sample_size,columns=['Sample Size'])
     #Add to df that will store accuracy results for each Chr
-    results_Chr = pd.concat([results_Chr, temp_results_Chr], axis=1)
+    results_Chr = pd.concat([results_Chr, temp_sample_size, temp_results_Chr], axis=1)
     
 
-#Add total sample size to sample_size and make into df
-sample_size.append(sum(sample_size))
-sample_size.append(sum(population_sample_size_dict["AFR"]))
-sample_size.append(sum(population_sample_size_dict["EUR"]))
-sample_size.append(sum(population_sample_size_dict["AMR"]))
-sample_size.append(sum(population_sample_size_dict["EAS/SAS"]))
-sample_size.append(sum(population_sample_size_dict["SAS"]))
-sample_size.append(sum(population_sample_size_dict["EAS"]))
 
 
-sample_size=DataFrame(sample_size,columns=['Sample Size'])  
 #Add OverallAccuracy string to ids
 ids.loc[-1] = ['OverallAccuracy']
 ids.loc[-2] = ['AFR OverallAccuracy']
@@ -110,7 +112,7 @@ ids.loc[-7] = ['EAS OverallAccuracy']
 
 ids=ids.reset_index(drop=True)
 #Combine results
-results_Chr=pd.concat([ids,sample_size,results_Chr], axis=1)
+results_Chr=pd.concat([ids,results_Chr], axis=1)
 results_Chr.to_csv('Chr1-22_PC20_DPLT5.tsv',sep='\t',mode='w',index=False) 
 
 
