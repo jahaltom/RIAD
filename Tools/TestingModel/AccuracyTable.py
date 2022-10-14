@@ -1,7 +1,7 @@
 import pandas as pd
 from pandas import DataFrame
 
-Super=['SuperpopulationChrAll.PC15.SVMResults',  'SuperpopulationChrAll.PC15.RandomForestResults',  'SuperpopulationChrAll.PC15.NeuralNetworkResults']
+Super=['SuperpopulationChrAll.PC20SVMResults',  'SuperpopulationChrAll.PC20RandomForestResults',  'SuperpopulationChrAll.PC20NeuralNetworkResults']
 
 
 #Read in metadata
