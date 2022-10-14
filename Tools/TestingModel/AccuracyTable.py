@@ -9,8 +9,10 @@ for x in range(1,23):
       
       
 
-#Read in metadata
+#Read in metadata and sort by self-reported ethnicity
 metadata=pd.read_csv("metadata",sep="\t")
+metadata=metadata.sort_values(by=['Eth1'])
+
 #Gather BioProj_Population 
 ids=metadata[['BioProj_Population']].drop_duplicates()
 #Make list
@@ -112,13 +114,5 @@ ids=ids.reset_index(drop=True)
 #Combine results
 results_Chr=pd.concat([ids,results_Chr], axis=1)
 results_Chr.to_csv('Chr1-22_PC20_DPLT5.tsv',sep='\t',mode='w',index=False) 
-
-
-
-
-
-
-
-
 
     
