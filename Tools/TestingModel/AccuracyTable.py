@@ -72,22 +72,23 @@ for c in chr_num:
     
     #Overall accuracy pop specific across studies
     acclist.append(sum(population_correct_dict["AFR"])/sum(population_sample_size_dict["AFR"])*100)
-    acclist.append(sum(population_correct_dict["EUR"])/sum(population_sample_size_dict["EUR"])*100)
     acclist.append(sum(population_correct_dict["AMR"])/sum(population_sample_size_dict["AMR"])*100)
     acclist.append(sum(population_correct_dict["EAS/SAS"])/sum(population_sample_size_dict["EAS/SAS"])*100)
-    acclist.append(sum(population_correct_dict["SAS"])/sum(population_sample_size_dict["SAS"])*100)
     acclist.append(sum(population_correct_dict["EAS"])/sum(population_sample_size_dict["EAS"])*100)
+    acclist.append(sum(population_correct_dict["EUR"])/sum(population_sample_size_dict["EUR"])*100)
+    acclist.append(sum(population_correct_dict["SAS"])/sum(population_sample_size_dict["SAS"])*100)
+    
     
     
     
     #Add total sample size to sample_size and make into df
     sample_size.append(sum(sample_size))
     sample_size.append(sum(population_sample_size_dict["AFR"]))
-    sample_size.append(sum(population_sample_size_dict["EUR"]))
-    sample_size.append(sum(population_sample_size_dict["AMR"]))
-    sample_size.append(sum(population_sample_size_dict["EAS/SAS"]))
-    sample_size.append(sum(population_sample_size_dict["SAS"]))
+    sample_size.append(sum(population_sample_size_dict["AMR"]))   
+    sample_size.append(sum(population_sample_size_dict["EAS/SAS"]))    
     sample_size.append(sum(population_sample_size_dict["EAS"]))
+    sample_size.append(sum(population_sample_size_dict["EUR"]))
+    sample_size.append(sum(population_sample_size_dict["SAS"]))
     
     
     
@@ -103,11 +104,11 @@ for c in chr_num:
 #Add OverallAccuracy string to ids
 ids.loc[-1] = ['OverallAccuracy']
 ids.loc[-2] = ['AFR OverallAccuracy']
-ids.loc[-3] = ['EUR OverallAccuracy']
-ids.loc[-4] = ['AMR OverallAccuracy']
-ids.loc[-5] = ['EAS/SAS OverallAccuracy']
-ids.loc[-6] = ['SAS OverallAccuracy']
-ids.loc[-7] = ['EAS OverallAccuracy']
+ids.loc[-3] = ['AMR OverallAccuracy']
+ids.loc[-4] = ['EAS/SAS OverallAccuracy']
+ids.loc[-5] = ['EAS OverallAccuracy']
+ids.loc[-6] = ['EUR OverallAccuracy']
+ids.loc[-7] = ['SAS OverallAccuracy']
 
 
 ids=ids.reset_index(drop=True)
