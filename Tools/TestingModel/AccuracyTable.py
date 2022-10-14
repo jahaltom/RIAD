@@ -3,13 +3,11 @@ from pandas import DataFrame
 
 
 #Make list 1-22
-chr_num=["All"]
+chr_num=["All.PC20SVMResults","All.PC20RandomForestResults","All.PC20NeuralNetworkResults","ADMIXTURE"]
 for x in range(1,23):
-      chr_num.append(str(x))
+      chr_num.append(str(x)+".PC20SVMResults")
       
       
-      
-
 
 #Read in metadata
 metadata=pd.read_csv("metadata",sep="\t")
@@ -23,7 +21,7 @@ results_Chr = pd.DataFrame()
 for c in chr_num:
  
     #Read in ancestry inference results 
-    results=pd.read_csv("SuperpopulationChr"+c+".PC20SVMResults",sep="\t")       
+    results=pd.read_csv("SuperpopulationChr"+c,sep="\t")       
     
     #Merge metadata with results  
     resultsMeta=pd.merge(results,metadata,on=['run_accession'])               
