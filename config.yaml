@@ -1,5 +1,7 @@
-
 OutputDir: 'output'
+THREADS: 30
+#Specify file type: fastq,fq, bam, VCF, or SRA.
+FileType: 'fastq'
 #Specify individual chromosome: [5]
 #Specify individual chromosomes: [5,6]
 #Specify all chromosomes: 'All' 
