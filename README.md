@@ -44,8 +44,8 @@ sbatch Prepare_Reference_Genome
 ## STAR.py: 
 This snakemake script performs STAR 2-pass alignment when given fastq file(s) (fastq mode) or run accession ID(s) (SRA mode).  In SRA mode, this script fetches the raw fastq files from the SRA and then uses Trimgalore for QC. Trimgalore is used for QC in fastq mode as well. After QC, the reads are then ran through a STAR 2-Pass alignment for enhanced novel SJ detection. The SJ.out.tab file for the 2nd pass is made by combining all SJ.out.tab files from the first pass and removing SJ's that are supported by 2 or less unique mappers. 
 
-	* User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
-	* For SRA mode, ids.txt must contain run accession ID(s).
+* User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
+* For SRA mode, ids.txt must contain run accession ID(s).
 ids.txt
 ```
 SRR975601
@@ -53,14 +53,16 @@ SRR975602
 SRR975603
 SRR975604
 ```
-	*For fastq mode ids.txt must contain directory names for individual sample fastq(s). Below would be (Sample1,Sample2) 
 
+*For fastq mode ids.txt must contain directory names for individual sample fastq(s). Below would be (Sample1,Sample2) 
 
 #Single-end
+```
 OutputDir/Sample1/Sample1.fastq
 OutputDir/Sample2/Sample2.fastq
-
+```
 #Paired-end
+```
 OutputDir/Sample1/Sample1.r1.fastq
 OutputDir/Sample1/Sample1.r2.fastq
 OutputDir/Sample2/Sample2.r1.fastq
