@@ -97,7 +97,8 @@ done
 ```
 
 
-* STAR.py: Performs STAR 2-pass alignment when given fastq file(s) or run accession ID(s). 
+
+## STAR.py: Performs STAR 2-pass alignment when given fastq file(s) or run accession ID(s). 
 	* User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
   		*Specifying FileType: 'SRA' will fetch raw reads from the SRA prior to the STAR 2-pass alignment.   
 	* For SRA mode, ids.txt must contain run accession ID.
