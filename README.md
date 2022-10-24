@@ -110,7 +110,27 @@ done
 
 
 ## Infer Ancestry
-Performs GATK best practices workflow for RNAseq short variant discovery (SNPs + Indels). Intersects varaint data from GATK with 1000 Genomes Project ancestry informative SNPs to gather common loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
+Performs GATK best practices workflow for RNAseq short variant discovery. Intersects input varient data with varaint data from the 1000 Genomes Project to gather common ancestry informative loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
+
+*In the config.yaml file, specify the number of PCs to be used for the machine learning step (Default 20) and chromosomes to be genotyped (Default Chr1-22).
+*For SRA/fastq mode, simply continue to execution.
+
+
+*For using ones own bam files:
+	*Make sure to index bam with "samtools index -b 2ndPass.Aligned.sortedByCoord.out.bam"
+	*ids.txt must contain directory names for individual sample bam(s). Below would be (Sample1,Sample2) 
+
+OutputDir/Sample1/2ndPass.Aligned.sortedByCoord.out.bam
+OutputDir/Sample2/2ndPass.Aligned.sortedByCoord.out.bam
+
+```
+ids.txt
+```
+Sample1
+Sample2
+
+
+
 
 Split RAids.txt so snakemake doesnt stall. 
 ```
