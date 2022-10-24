@@ -41,67 +41,11 @@ The bash script "Prepare_Reference_Genome" will download the Human genome GRCh38
 sbatch Prepare_Reference_Genome
 ```
 
-## Raw data retrieval from SRA, QC, and STAR 2-Pass
+## STAR.py: 
+This snakemake script performs STAR 2-pass alignment when given fastq file(s) (fastq mode) or run accession ID(s) (SRA mode).  In SRA mode, this script fetches the raw fastq files from the SRA and then uses Trimgalore for QC. Trimgalore is used for QC in fastq mode as well. After QC, the reads are then ran through a STAR 2-Pass alignment for enhanced novel SJ detection. The SJ.out.tab file for the 2nd pass is made by combining all SJ.out.tab files from the first pass and removing SJ's that are supported by 2 or less unique mappers. 
 
-The snakemake script "STAR_SRA" takes in a list of run accession IDs "RAids.txt" and fetches the raw fastq files from SRA and then uses Trimgalore for QC. The reads are then ran through STAR 2-Pass mode for enhanced novel SJ detection. The SJ.out.tab file for the 2nd pass is made by combining all SJ.out.tab files from the first pass and removing SJ's that are supported by 2 or less unique mappers. 
-
-For just 1 study, create a list of the corresponding run accession IDs "RAids.txt" and run
-```
-snakemake -j 50 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1"
-```
-
-For multiple studies, create 2 files:
-
-* SRP: List of unique study accession IDs.
-```
-ERP126405
-ERP127339
-SRP293106
-```
-* list: 2 column file of study accession IDs and corresponding run accession IDs.
-```
-ERP124749       ERR4777044
-ERP124749       ERR4777043
-ERP126405       ERR5104751
-ERP126405       ERR5104750
-```
-Then run STAR_SRA on all studies using this script. This will make it so each study gets its own combined SJ.out.tab file for the 2nd pass. 
-```
-cat SRP | while read i; do 
-	cat list | grep "$i" | awk '{print $2}' > RAids.txt
-	snakemake -j 300 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1 -p RM-shared"
-	rm output/all.SJ.out.tab
-done
-
-```
-
-
-
-
-
-
-
-## Infer Ancestry
-Performs GATK best practices workflow for RNAseq short variant discovery (SNPs + Indels). Intersects varaint data from GATK with 1000 Genomes Project ancestry informative SNPs to gather common loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
-
-Split RAids.txt so snakemake doesnt stall. 
-```
-split -l 100 RAids.txt
-
-ls *xa* | cat > splits
-
-cat splits | while read i; do
-	cat $i > RAids.txt
-	snakemake -j 300 -k -s InferAncestry.py --cluster "sbatch -t 02:00:00  -c 7 -p RM-shared"
-done
-```
-
-
-
-## STAR.py: Performs STAR 2-pass alignment when given fastq file(s) or run accession ID(s). 
 	* User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
-  		*Specifying FileType: 'SRA' will fetch raw reads from the SRA prior to the STAR 2-pass alignment.   
-	* For SRA mode, ids.txt must contain run accession ID.
+	* For SRA mode, ids.txt must contain run accession ID(s).
 ids.txt
 ```
 SRR975601
@@ -127,3 +71,59 @@ ids.txt
 Sample1
 Sample2
 ```
+
+*Execution:
+
+For just 1 study use this snakemake command. Make sure your STAR_THREADS matches whats in -c. 
+```
+snakemake -j 25 -s STAR.py --cluster "sbatch -t 1:00:00 -c 30 -N 1"
+```
+
+
+For multiple studies, create 2 files:
+
+* SRP: List of unique study accession IDs.
+```
+ERP126405
+ERP127339
+SRP293106
+```
+* list: 2 column file of study accession IDs and corresponding run accession IDs.
+```
+ERP124749       ERR4777044
+ERP124749       ERR4777043
+ERP126405       ERR5104751
+ERP126405       ERR5104750
+```
+Then run STAR.py on all studies using this script. This will make it so each study gets its own combined SJ.out.tab file for the 2nd pass. 
+```
+cat SRP | while read i; do 
+	cat list | grep "$i" | awk '{print $2}' > RAids.txt
+	snakemake -j 300 -k -s STAR_SRA --cluster "sbatch -t 8:00:00 -c 30 -N 1 -p RM-shared"
+	rm output/all.SJ.out.tab
+done
+
+```
+
+
+
+
+
+## Infer Ancestry
+Performs GATK best practices workflow for RNAseq short variant discovery (SNPs + Indels). Intersects varaint data from GATK with 1000 Genomes Project ancestry informative SNPs to gather common loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
+
+Split RAids.txt so snakemake doesnt stall. 
+```
+split -l 100 RAids.txt
+
+ls *xa* | cat > splits
+
+cat splits | while read i; do
+	cat $i > RAids.txt
+	snakemake -j 300 -k -s InferAncestry.py --cluster "sbatch -t 02:00:00  -c 7 -p RM-shared"
+done
+```
+
+
+
+
