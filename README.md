@@ -47,7 +47,7 @@ This snakemake script performs STAR 2-pass alignment when given fastq file(s) (f
 * User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
 * For SRA mode, ids.txt must contain run accession ID(s).
 
-* ids.txt
+ids.txt
 ```
 SRR975601
 SRR975602
@@ -69,6 +69,7 @@ OutputDir/Sample1/Sample1.r2.fastq
 OutputDir/Sample2/Sample2.r1.fastq
 OutputDir/Sample2/Sample2.r2.fastq
 ```
+
 ids.txt
 ```
 Sample1
