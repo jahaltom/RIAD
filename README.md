@@ -76,7 +76,7 @@ Sample1
 Sample2
 ```
 
-#Execution:
+**Execution:**
 
 For just 1 study use this snakemake command. Make sure your STAR_THREADS matches whats in -c. 
 ```
@@ -135,7 +135,7 @@ Sample2
 
 
 
-
+**Execution:**
 Split RAids.txt so snakemake doesnt stall. 
 ```
 split -l 100 RAids.txt
