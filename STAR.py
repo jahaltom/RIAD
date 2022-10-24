@@ -6,7 +6,7 @@ import glob
 #Read in config file
 configfile: "config.yaml"
 DIR = config['OutputDir']
-THREADS=config['THREADS']
+STAR_THREADS=config['STAR_THREADS']
 FileType=config['FileType']
 
 
@@ -19,7 +19,7 @@ def STAR(path):
     #Delet origonal fastq(s)
     #shell("ls "+path+"*fastq | cat | grep -v trim | xargs rm")
     #STAR 1st pass alignment
-    shell(" STAR --runThreadN "+str(THREADS)+" \
+    shell(" STAR --runThreadN "+str(STAR_THREADS)+" \
     --genomeDir data/star_index_Human \
     --outSAMtype None \
     --limitSjdbInsertNsj 5041695 \
@@ -79,7 +79,7 @@ rule STAR2nd_pass:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     run:
             #STAR 2nd pass alignment
-            shell(" STAR --runThreadN "+str(THREADS)+" \
+            shell(" STAR --runThreadN "+str(STAR_THREADS)+" \
             --genomeDir data/star_index_Human \
             --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
             --limitSjdbInsertNsj 5041695 \
