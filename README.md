@@ -57,12 +57,12 @@ SRR975604
 
 * For fastq mode ids.txt must contain directory names for individual sample fastq(s). Below would be (Sample1,Sample2)
 
-#Single-end
+Single-end
 ```
 OutputDir/Sample1/Sample1.fastq
 OutputDir/Sample2/Sample2.fastq
 ```
-#Paired-end
+Paired-end
 ```
 OutputDir/Sample1/Sample1.r1.fastq
 OutputDir/Sample1/Sample1.r2.fastq
@@ -76,7 +76,7 @@ Sample1
 Sample2
 ```
 
-*Execution:
+#Execution:
 
 For just 1 study use this snakemake command. Make sure your STAR_THREADS matches whats in -c. 
 ```
