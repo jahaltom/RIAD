@@ -79,7 +79,7 @@ rule STAR2nd_pass:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     run:
             #STAR 2nd pass alignment
-            shell(" STAR --runThreadN "+THREADS+" \
+            shell(" STAR --runThreadN "+str(THREADS)+" \
             --genomeDir data/star_index_Human \
             --sjdbFileChrStartEnd {wildcards.wd}/all.SJ.out.tab \
             --limitSjdbInsertNsj 5041695 \
