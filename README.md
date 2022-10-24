@@ -96,3 +96,33 @@ cat splits | while read i; do
 done
 ```
 
+
+* STAR.py: Performs STAR 2-pass alignment when given fastq file(s) or run accession ID(s). 
+	* User must specify FileType, OutputDir, and STAR_THREADS in config.yaml.
+  		*Specifying FileType: 'SRA' will fetch raw reads from the SRA prior to the STAR 2-pass alignment.   
+	* For SRA mode, ids.txt must contain run accession ID.
+ids.txt
+```
+SRR975601
+SRR975602
+SRR975603
+SRR975604
+```
+	*For fastq mode ids.txt must contain directory names for individual sample fastq(s). Below would be (Sample1,Sample2) 
+
+
+#Single-end
+OutputDir/Sample1/Sample1.fastq
+OutputDir/Sample2/Sample2.fastq
+
+#Paired-end
+OutputDir/Sample1/Sample1.r1.fastq
+OutputDir/Sample1/Sample1.r2.fastq
+OutputDir/Sample2/Sample2.r1.fastq
+OutputDir/Sample2/Sample2.r2.fastq
+```
+ids.txt
+```
+Sample1
+Sample2
+```
