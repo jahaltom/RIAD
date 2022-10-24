@@ -17,7 +17,7 @@ trim_galore=qc.Trimgalore(threads=4)
 
 def STAR(path):
     #Delet origonal fastq(s)
-    shell("ls "+path+"*fastq | cat | grep -v trim | xargs rm")
+    #shell("ls "+path+"*fastq | cat | grep -v trim | xargs rm")
     #STAR 1st pass alignment
     shell(" STAR --runThreadN "+THREADS+" \
     --genomeDir data/star_index_Human \
@@ -52,17 +52,17 @@ rule STAR1st_pass:
             if len(my_files_path) == 1:
                 #Run Salmon on sra object(fastq files) and delete fastq when finished.
                 sra.SRA(fastq=my_files_path[0],directory=path).trim(trim_galore)
-                STAR(path)
+                STAR(str(path))
 
             elif len(my_files_path) == 2:
                 #Run Salmon on sra object(fastq files) and delete fastq when finished.
                 sra.SRA(fastq=my_files_path[0],fastq2=my_files_path[1],directory=path).trim(trim_galore)
-                STAR(path)     
+                STAR(str(path))     
                         
         elif (FileType == 'SRA'):
             #Download fastq(s) from SRA. Run through trim_galore
             sra.SRA(wildcards.sample,directory=wildcards.wd).trim(trim_galore)
-            STAR(path)
+            STAR(str(path))
   
    
 rule SJs:
