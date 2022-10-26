@@ -22,7 +22,7 @@ OutputDir=config['OutputDir']
 
 #ML methods##############
 
-def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
+def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,sample_id,run):
     # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer
     models=[]
     testacc = []
@@ -82,7 +82,7 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
-    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[sample_id],True)
 
 
 
@@ -91,9 +91,9 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     else: # else it exists so append without writing the header
         pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)
 
-    pred.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)
+    pred.to_csv(OutputDir+ "/" + sample_id + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)
 
-def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
+def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,sample_id,run):
 
     models=[]
 
@@ -141,7 +141,7 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
-    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[sample_id],True)
 
 
 
@@ -151,11 +151,11 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
     else: # else it exists so append without writing the header
         pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)
 
-    pred.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=True)
+    pred.to_csv(OutputDir+ "/" + sample_id + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=True)
 
 
 #SVMs with rbf Kernels
-def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
+def svm(xtrain,ytrain,xtest,ytest,classification,unktest,sample_id,run):
     max_iter=1000
     Cvals = np.logspace(-4,2,10)
     gamma_vals = np.logspace(-3, 2, 10)
@@ -200,7 +200,7 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     pred.columns =[classification]
 
     pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
-    pred.insert(len(pred.columns),"run_accession",[srrid],True)
+    pred.insert(len(pred.columns),"run_accession",[sample_id],True)
 
 
     df = pd.concat([pred, prob], axis=1)
@@ -211,7 +211,7 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
     else: # else it exists so append without writing the header
         df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None)
 
-    df.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
+    df.to_csv(OutputDir+ "/" + sample_id + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
 
 #N PCs
@@ -220,7 +220,7 @@ for i in range(1,PCs+1):
     pcs.append("PC"+str(i))
 
 
-def PCA(vcf,metadata_path,run,path,srrid,classification):
+def PCA(vcf,metadata_path,run,path,sample_id,classification):
         #Import metadata and gather sample names for each person in 1KGP.
         metadata=pd.read_csv(metadata_path,sep='\t')
         samples=metadata['Sample name'].copy()
@@ -241,9 +241,9 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
 
         #Add unkown to 1KGP samples
         samples=samples.to_frame()
-        samples.loc[len(samples.index)] = [srrid]
+        samples.loc[len(samples.index)] = [sample_id]
 
-        
+
 
         #Specify all samples for PCA. This is needed for plink.
         file = pd.concat([samples, samples,samples], axis=1)
@@ -294,14 +294,14 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
 
 
 
-        unk_test = vardata[vardata['Sample name'] == srrid ]
+        unk_test = vardata[vardata['Sample name'] == sample_id ]
         unk_test=unk_test[pcs]
 
 
 
-        svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
+        svm(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
+        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
+        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
 
 #####################
 
@@ -336,7 +336,7 @@ rule GATK:
     shell:
         """
         samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
-        
+
         gatk MarkDuplicates \
             I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
             O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
@@ -344,7 +344,7 @@ rule GATK:
             METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
             VALIDATION_STRINGENCY= SILENT
         rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
-        
+
         gatk AddOrReplaceReadGroups \
             I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
             O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam \
@@ -353,13 +353,13 @@ rule GATK:
             RGPL= plat \
             RGPU= plat
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup*
-        
+
         gatk SplitNCigarReads \
             -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
             -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
             -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
-        
+
         gatk --java-options "-Xmx20g" HaplotypeCaller \
            -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz \
@@ -368,7 +368,7 @@ rule GATK:
            -ERC GVCF \
            --native-pair-hmm-threads 7
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split*
-        
+
         gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
@@ -380,7 +380,7 @@ rule GATK:
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz \
         --include-non-variant-sites
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
-        
+
         gatk --java-options "-Xmx10g" VariantFiltration \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz \
@@ -398,7 +398,7 @@ rule GATK:
         --filter-expression "QD < 2.0" \
         --filter-name "filter_QD"
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz*
-        
+
         gatk --java-options "-Xmx10g" SelectVariants \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz  \
@@ -406,22 +406,22 @@ rule GATK:
         --exclude-filtered true \
         --select-type-to-exclude INDEL
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
-        
-        
+
+
         gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.temp.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.temp.vcf.gz*
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
-               
+
         """
 rule Intersect:
-    input: 
+    input:
         "{wd}/{sample}/Chr{chr}.GATK.vcf.gz.tbi"
-    output: 
+    output:
         "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
-    group:               
+    group:
         "Genotype"
     shell:
-        """    
+        """
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
         tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
@@ -448,12 +448,12 @@ rule Intersect:
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
         #Combine 1KGP with sample to have ancestry infered
-        
+
         bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz*
         """
-        
+
 rule concat:
     input:
         expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi",sample=id,chr=chr_list,wd=OutputDir)
@@ -471,11 +471,10 @@ rule SuperPop:
 
     run:
 
-   
+
         path=wildcards.wd + "/"+wildcards.sample + "/"
         vcf=str(input)
         metadata_path="data/1KGP.metadata.tsv"
 
         #All is ChrAll,Chr#,ect
         PCA(vcf,metadata_path,chrPCSpec,path,wildcards.sample,"Superpopulation")
-
