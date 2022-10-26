@@ -329,7 +329,7 @@ rule all:
     input: expand("{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults",sample=id,wd=OutputDir,chrPCSpec=chrPCSpec)
 
 
-
+#File must be indexed
 rule Intersect:
     input:
         "{wd}/{sample}/{sample}.vcf.gz"
@@ -338,7 +338,7 @@ rule Intersect:
 
     shell:
         """
-        bcftools view -r {wildcards.chr} --threads 7 --output-type z  {input} > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz
+        bcftools view -t {wildcards.chr} --threads 7 --output-type z  {input} > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz
         
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
