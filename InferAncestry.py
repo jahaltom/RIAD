@@ -23,26 +23,26 @@ OutputDir=config['OutputDir']
 #ML methods##############
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
-    # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer 
+    # Now make plots of Training Accuracy and plots of Testing Accuracy for NN, one layer
     models=[]
     testacc = []
     bestlearnrate=[]
     best_alpha=[]
     noderange = range(1,11,1)
-    
+
     alpharange = np.logspace(-6,0,5)
     learnrate = np.logspace(-3,-1,3)
-    
+
     for nodecnt in noderange:
-            
+
         bestacc = 0
         bestalpha = 0
-        bestrate = 0   
+        bestrate = 0
         for alpha in alpharange:
             for rate in learnrate:
-    
-  
-    
+
+
+
                 clf = MLPClassifier(hidden_layer_sizes=(nodecnt),\
                             activation='relu', solver='sgd', \
                             learning_rate='adaptive', batch_size='auto',\
@@ -50,69 +50,69 @@ def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
                             nesterovs_momentum=True,verbose=False,\
                             momentum=0.9,early_stopping=False,\
                             max_iter=200, learning_rate_init=rate)
-        
+
                 clf.fit(xtrain, ytrain)
-    
+
                 if clf.score(xtest,ytest)> bestacc:
                     bestacc = clf.score(xtest,ytest)
                     bestalpha = alpha
                     bestrate = rate
                     mod=clf
-    
-      
-     
-    
+
+
+
+
         testacc.append(bestacc)
         bestlearnrate.append(bestrate)
         best_alpha.append(bestalpha)
         models.append(mod)
-        
-       
-  
-    
+
+
+
+
     idx = testacc.index(max(testacc))
-  
-   
-    
+
+
+
     test_acc= models[idx].score(xtest,ytest)
 
     #Predict unk
- 
-    pred = models[idx].predict(unktest)    
+
+    pred = models[idx].predict(unktest)
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[test_acc],True)
     pred.insert(len(pred.columns),"run_accession",[srrid],True)
-    
-   
-        
+
+
+
     if not os.path.isfile(classification+run+'NeuralNetworkResults'):
-        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=True)      
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=True)
     else: # else it exists so append without writing the header
-        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)    
-    
-    pred.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)    
+        pred.to_csv(classification+run+'NeuralNetworkResults',sep='\t',mode='a',index=False,header=None)
+
+    pred.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'NeuralNetworkResults',sep='\t',mode='w',index=False,header=True)
 
 def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
-     
+
     models=[]
-    
-    
+
+
     numtreerange = [1,5,10,25,50,100,200]
     overalltestacc = []
     overalltrainacc=[]
     bestNumTrees=[]
     depthrange = range(1,11)
     for depth in depthrange:
-        
+
         best_num_trees = 0
         bestTest_acc = 0
         bestTrain_acc=0
-       
+
         for num_trees in numtreerange:
             clf = RandomForestClassifier(bootstrap=True,n_estimators=num_trees,max_features='auto',criterion='gini',random_state=1,max_depth=depth)
             clf.fit(xtrain, ytrain)
-           
+
             testacc= clf.score(xtest,ytest)
             trainacc=clf.score(xtrain,ytrain)
             if testacc >= bestTest_acc:
@@ -125,49 +125,49 @@ def RandomForest_Classifier(xtrain,ytrain,xtest,ytest,classification,unktest,srr
 
         models.append(mod)
         overalltrainacc.append( bestTrain_acc )
-        overalltestacc.append(bestTest_acc) 
+        overalltestacc.append(bestTest_acc)
         bestNumTrees.append(best_num_trees)
-        
+
     idx = overalltestacc.index(max(overalltestacc))
     #clf = RandomForestClassifier(bootstrap=True,n_estimators=bestNumTrees[idx],max_features=None,criterion='gini',max_depth=idx+1)
-    #models[idx].fit(xtrain, ytrain)   
-            
+    #models[idx].fit(xtrain, ytrain)
+
     testacc= models[idx].score(xtest,ytest)
-    
-   
-    
-    
-    pred = models[idx].predict(unktest)    
+
+
+
+
+    pred = models[idx].predict(unktest)
     pred=pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
     pred.insert(len(pred.columns),"TestAcc",[testacc],True)
     pred.insert(len(pred.columns),"run_accession",[srrid],True)
-    
-    
-    
-   
+
+
+
+
     if not os.path.isfile(classification+run+'RandomForestResults'):
-        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=True)    
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=True)
     else: # else it exists so append without writing the header
-        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)    
-    
+        pred.to_csv(classification+run+'RandomForestResults',sep='\t',mode='a',index=False,header=None)
+
     pred.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'RandomForestResults',sep='\t',mode='w',index=False,header=True)
-   
+
 
 #SVMs with rbf Kernels
 def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
-    max_iter=1000    
+    max_iter=1000
     Cvals = np.logspace(-4,2,10)
-    gamma_vals = np.logspace(-3, 2, 10)   
-    
+    gamma_vals = np.logspace(-3, 2, 10)
+
 
     bestc = 0
     bestgamma = 0
     besttrainacc = 0
     besttestacc = 0
-    
-    
-   
+
+
+
     for c in Cvals:
         for gamma in gamma_vals:
 
@@ -188,75 +188,75 @@ def svm(xtrain,ytrain,xtest,ytest,classification,unktest,srrid,run):
                 mod=clf
 
 
-    
+
     #Predict unk
-        
+
     prob= mod.predict_proba(unktest)
     prob= pd.DataFrame(prob, columns = mod.classes_)
 
-    
+
     pred= mod.predict(unktest)
     pred= pd.DataFrame(data=pred.flatten())
     pred.columns =[classification]
-    
+
     pred.insert(len(pred.columns),"TestAcc",[besttestacc],True)
     pred.insert(len(pred.columns),"run_accession",[srrid],True)
-   
-    
+
+
     df = pd.concat([pred, prob], axis=1)
-    
-    
+
+
     if not os.path.isfile(classification+run+'SVMResults'):
-        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True) 
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=True)
     else: # else it exists so append without writing the header
-        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None) 
-    
+        df.to_csv(classification+run+'SVMResults',sep='\t',mode='a',index=False,header=None)
+
     df.to_csv(OutputDir+ "/" + srrid + "/" + classification+run+'SVMResults',sep='\t',mode='w',index=False,header=True)
 
-  
-#N PCs 
+
+#N PCs
 pcs=[]
 for i in range(1,PCs+1):
     pcs.append("PC"+str(i))
-    
+
 
 def PCA(vcf,metadata_path,run,path,srrid,classification):
         #Import metadata and gather sample names for each person in 1KGP.
         metadata=pd.read_csv(metadata_path,sep='\t')
         samples=metadata['Sample name'].copy()
-        
+
         #Randomly suffle samples
         random.shuffle(samples)
-        #Devide samples up into 0.70 train and 0.30 test. 
+        #Devide samples up into 0.70 train and 0.30 test.
         x=len(samples)
         tr=x*0.70
         tr = int(round(tr, 0))
         tst=x-tr
         train=samples[0:tr]
         test=samples[tr:len(samples)]
-        
+
         #Make test into dataframe and add header
         test=test.to_frame()
         test.columns =['Sample name']
-      
+
         #Add unkown to 1KGP samples
         samples=samples.to_frame()
-        samples.loc[len(samples.index)] = ['sample']
+        samples.loc[len(samples.index)] = [srrid]
+
         
-        
-        
-        #Specify all samples for PCA. This is needed for plink.  
+
+        #Specify all samples for PCA. This is needed for plink.
         file = pd.concat([samples, samples,samples], axis=1)
         file.to_csv(path+"samples", sep=" ",header=False,index=False)
-        #Specify samples to train PCA with, all other samples will be projected. 
+        #Specify samples to train PCA with, all other samples will be projected.
         train=train.to_frame()
         train.columns =['Sample name']
         train.to_csv(path+"train", sep=" ",header=False,index=False)
-        
-        
+
+
         #shell("plink --vcf " + vcf + " --pca "+str(PCs)+" --within " + path + "samples --mac 1 --pca-clusters " + path + "train --out " + path + run)
-        #Run PLINK PCA     
-        plink=open(path +"plink.sh", "w")   
+        #Run PLINK PCA
+        plink=open(path +"plink.sh", "w")
         plink.write("#!/bin/bash")
         plink.write('\n')
         plink.write("#SBATCH --time=1:00:00   # walltime limit (HH:MM:SS)")
@@ -269,43 +269,43 @@ def PCA(vcf,metadata_path,run,path,srrid,classification):
         plink.write('\n')
         plink.write("plink --vcf " + vcf + " --pca "+str(PCs)+" --within " + path + "samples --mac 1 --pca-clusters " + path + "train --out " + path + run)
         plink.close()
-        subprocess.run("bash "+path +"plink.sh", shell=True, check=True) 
-        
+        subprocess.run("bash "+path +"plink.sh", shell=True, check=True)
+
         #PCA data from plink
         vardata= pd.read_csv(path + run + '.eigenvec',delimiter=r"\s+",names=['Drop','Sample name']+pcs)
         vardata=vardata.drop(['Drop'], axis=1)
-        
-        
-  
-        
+
+
+
+
         #Merge sample metadata with PCA data
         data=pd.merge(metadata,vardata,on=['Sample name'])
-        
 
-        
+
+
         #Make unkown, training, and test sets for ML methods.
         Train = pd.merge(data,train,on=['Sample name'])
         x_train=Train[pcs]  # Features
         y_train=Train[classification + ' code']  # Labels
-        
+
         Test = pd.merge(data,test,on=['Sample name'])
         x_test=Test[pcs]  # Features
         y_test=Test[classification + ' code']  # Labels
-        
-        
-        
-        unk_test = vardata[vardata['Sample name'] == "sample" ]
+
+
+
+        unk_test = vardata[vardata['Sample name'] == srrid ]
         unk_test=unk_test[pcs]
-      
-    
-            
+
+
+
         svm(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
         neural_network(x_train,y_train,x_test,y_test,classification,unk_test,srrid,run)
-        
+
 #####################
 
-        
+
 #Create output directory
 
 
@@ -332,10 +332,11 @@ rule GATK:
     input:
         "{wd}/{sample}/2ndPass.Aligned.sortedByCoord.out.bam"
     output:
-        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
+       "{wd}/{sample}/Chr{chr}.GATK.vcf.gz.tbi"
     shell:
-        """       
+        """
         samtools view -b {input} {wildcards.chr}  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam
+        
         gatk MarkDuplicates \
             I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.bam \
             O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
@@ -343,41 +344,46 @@ rule GATK:
             METRICS_FILE= {wildcards.wd}/{wildcards.sample}/marked_dup_metrics.{wildcards.chr}.txt \
             VALIDATION_STRINGENCY= SILENT
         rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.bam
+        
         gatk AddOrReplaceReadGroups \
             I= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup.bam \
             O= {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam \
-            RGSM= sample \
+            RGSM= {wildcards.sample} \
             RGLB= lib \
             RGPL= plat \
             RGPU= plat
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.MarkDup*
+        
         gatk SplitNCigarReads \
             -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam  \
-            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
+            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
             -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.Grouped.bam
+        
         gatk --java-options "-Xmx20g" HaplotypeCaller \
-           -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
-           -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+           -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
+           -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz \
            -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
            -L data/Chr{wildcards.chr}_SNPs.bed \
            -ERC GVCF \
            --native-pair-hmm-threads 7
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
-        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
-        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.vcf.gz
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split*
+        
+        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
 
 
         gatk --java-options "-Xmx10g" GenotypeGVCFs \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
-        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.vcf.gz \
-        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz \
         --include-non-variant-sites
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
         
         gatk --java-options "-Xmx10g" VariantFiltration \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
-        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz \
+        -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz \
         -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz \
         --filter-expression "DP < 5.0" \
         --filter-name "filter_DP" \
@@ -391,23 +397,35 @@ rule GATK:
         --filter-name "filter_ReadPosRankSum" \
         --filter-expression "QD < 2.0" \
         --filter-name "filter_QD"
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GenotypeGVCFs.vcf.gz*
+        
         gatk --java-options "-Xmx10g" SelectVariants \
         -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
         -V {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz  \
-        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz \
+        -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.temp.vcf.gz \
         --exclude-filtered true \
         --select-type-to-exclude INDEL
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.filtered.vcf.gz*
-
-
-        gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz
         
+        
+        gunzip -c  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.temp.vcf.gz | grep -v  "\./\." | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.temp.vcf.gz*
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
+               
+        """
+rule Intersect:
+    input: 
+        "{wd}/{sample}/Chr{chr}.GATK.vcf.gz.tbi"
+    output: 
+        "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
+    group:               
+        "Genotype"
+    shell:
+        """    
         #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
-        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
+        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final2.filtered.vcf.gz*
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz*
         #Make an index file of comm_pos.vcf.gz. Handels blank vcfs
         gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list
         #Extract positions from 1KGP
@@ -434,22 +452,17 @@ rule GATK:
         bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz*
-        
-        rm {wildcards.wd}/{wildcards.sample}/*.final.vcf.gz*
-        rm {wildcards.wd}/{wildcards.sample}/*.final2.vcf.gz*
         """
         
 rule concat:
-    input: 
+    input:
         expand("{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi",sample=id,chr=chr_list,wd=OutputDir)
-    output: 
+    output:
         "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
 
     run:
-       
-        
         shell("bcftools concat "+str(input).replace(".tbi", "")+" --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{wildcards.sample}.vcf.gz")
-   
+
 rule SuperPop:
     input: "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
 
@@ -457,12 +470,12 @@ rule SuperPop:
         "{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults"
 
     run:
+
    
-        srrid=str(output).split("/")[1]
-        path=OutputDir + "/"+srrid + "/"
+        path=wildcards.wd + "/"+wildcards.sample + "/"
         vcf=str(input)
-        metadata_path="data/1KGP.metadata.tsv"    
-        
+        metadata_path="data/1KGP.metadata.tsv"
+
         #All is ChrAll,Chr#,ect
-        PCA(vcf,metadata_path,chrPCSpec,path,srrid,"Superpopulation")
-        shell("rm {wildcards.wd}/{wildcards.sample}/plink.sh")
+        PCA(vcf,metadata_path,chrPCSpec,path,wildcards.sample,"Superpopulation")
+
