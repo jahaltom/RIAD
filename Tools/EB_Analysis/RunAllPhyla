@@ -1,6 +1,0 @@
-#files is list of tsv files made by FilterVCFByPhyla
-cat files | while read i;do
-  cp InferAncestry_PhylaStrata.py InferAncestry_PhylaStrata.$i.py
-  sed -i "s/FILE/$i/g" InferAncestry_PhylaStrata.$i.py
-  snakemake -j 300 -k -s InferAncestry_PhylaStrata.$i.py --cluster "sbatch -t 02:00:00  -c 7 -p RM-shared"
-done
