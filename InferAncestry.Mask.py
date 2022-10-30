@@ -458,9 +458,11 @@ rule SuperPop:
 
     run:
 
-        shell("sed 's/OUTPUT/"+wildcards.wd+"/g' masker.sh > "+wildcards.wd + "/" + wildcards.sample + "/masker.sh")
-        shell("sed -i 's/SAMPLE/"+wildcards.sample+"/g'  "+wildcards.wd + "/" + wildcards.sample + "/masker.sh")
-        shell("bash "+wildcards.wd + "/" + wildcards.sample + "/masker.sh")
+        shell("""
+        sed 's/OUTPUT/{wildcards.wd}/g' masker.sh > {wildcards.wd}/{wildcards.sample}/masker.sh
+        sed -i 's/SAMPLE/{wildcards.sample}/g'  {wildcards.wd}/{wildcards.sample}/masker.sh")
+        bash {wildcards.wd}/{wildcards.sample}/masker.sh
+        """)
         
         
         path=wildcards.wd + "/"+wildcards.sample + "/"
