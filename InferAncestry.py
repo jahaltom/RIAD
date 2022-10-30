@@ -418,41 +418,40 @@ rule Intersect:
         "{wd}/{sample}/Chr{chr}.GATK.vcf.gz.tbi"
     output:
         "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
-    group:
-        "Genotype"
-    shell:
-        """
-        #all sites with matching positions. Will result in all 0/0 calls that match and will have 0/1 and 1/1 which also match but some will be the wronf alt allele.
-        tabix -h -T data/Chr{wildcards.chr}_SNPs.bed {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz | bgzip  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz*
-        #Make an index file of comm_pos.vcf.gz. Handels blank vcfs
-        gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list
-        #Extract positions from 1KGP
-        tabix -h -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  data/Chr{wildcards.chr}_SNPs.vcf.gz | bgzip   > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz
-        #Match only on positions that have the same allele.
-        bcftools isec -c none {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 -p {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}
-        #0000.vcf.gz is records private to  comm_pos.vcf.gz.They will be 0/0 calls that are true matches and 1/1 and 0/1 calls with wrong alt allele. Remove 0/0 and same others as an index list.
-        gunzip -c {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr}/0000.vcf.gz | grep -v "0/0" | {{ grep -v "#" || true; }} | awk -F'\t' -v OFS='\t' '{{print $1,$2}}' | cat > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
-        #If List is not empty, then remove unwanted SNPs, else remove nothing.
-        if test -s {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List ; then
-                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
-                bcftools view -T ^{wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
-        else
-                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
-                mv {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
-        fi
-        rm -r  {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.interval_list  {wildcards.wd}/{wildcards.sample}/dir{wildcards.chr} {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}1000.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.comm_pos.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}List
-        #Use List to remove unmatched positions from data comtaining all matches 0/0 1/0 1/1.
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz
-        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz
-        #Combine 1KGP with sample to have ancestry infered
 
-        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz  --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+    run:       
+        shell("""
+        #Extract coordinates for RNA-Seq sample from 1KGP
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz --threads 7 --output-type z data/Chr{wildcards.chr}_SNPs.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz   
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}cords
+               
+        #Remove headers and intersect varients for matching CHROM,POS,REF. ALT in gatk must be . or same as ALT in 1KGP. Outputs list of coordinates to use for filtering.
+        gunzip -c    {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz | grep -v "##" > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vars
+        gunzip -c   {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz | grep -v "##" > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vars
+        """)
+               
+        gatk=pd.read_csv(wildcards.wd+'/'+wildcards.sample+'/Chr'+wildcards.chr+'.GATK.vars',sep='\t')                    
+        KGP=pd.read_csv(wildcards.wd+'/'+wildcards.sample+'/Chr'+wildcards.chr+'.1KGP.vars',sep='\t')
+        cords=gatk[(gatk['#CHROM'] == KGP['#CHROM']) & (gatk['POS'] == KGP['POS']) & (gatk['REF'] == KGP['REF']) &  ((gatk['ALT'] == KGP['ALT']) |  (gatk['ALT'] == '.' ) )][["#CHROM","POS"]] 
+        cords.to_csv(wildcards.wd+'/'+wildcards.sample+'/Chr'+wildcards.chr+'Finalcords',sep='\t',index=False,header=None,mode='w')
+
+        shell("""
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vars {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vars
+        
+        #Filter
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads 7 --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads 7 --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz
+        bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz
+        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
+        
+        #Merge
+        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KG.vcf.gz* {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.unk.vcf.gz*
-        """
+        """)
+ 
+        
+
 
 rule concat:
     input:
