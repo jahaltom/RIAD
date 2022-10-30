@@ -1,4 +1,3 @@
-
 source activate Ancestry
 
 #5% of list
@@ -7,13 +6,13 @@ percentualHead() {
 }
 
 
-#Extract sample from 1KGP-sample vcf
-bcftools view -s sample --threads 7 --output-type z OUTPUT/SAMPLE/ChrAll_.SAMPLE.vcf.gz > OUTPUT/SAMPLE/sample.vcf.gz
+#Extract SAMPLE from 1KGP-SAMPLE vcf
+bcftools view -s SAMPLE --threads 7 --output-type z OUTPUT/SAMPLE/ChrAll_.SAMPLE.vcf.gz > OUTPUT/SAMPLE/SAMPLE.vcf.gz
 
 #Gather coordinates for all HomRef calls and randomly suffel. Take 5% for targets.
-bcftools query -f'[%CHROM:%POS:%REF:%ALT\n]' -i'GT="RR"' OUTPUT/SAMPLE/sample.vcf.gz   > OUTPUT/SAMPLE/HomRef
-#bcftools query -f'%CHROM:%POS:%REF:%ALT\n]' -i'GT="het"' OUTPUT/SAMPLE/sample.vcf.gz  > OUTPUT/SAMPLE/Het
-#bcftools query -f'[%CHROM:%POS:%REF:%ALT\n]' -i'GT="AA"' OUTPUT/SAMPLE/sample.vcf.gz  > OUTPUT/SAMPLE/HomAlt
+bcftools query -f'[%CHROM:%POS:%REF:%ALT\n]' -i'GT="RR"' OUTPUT/SAMPLE/SAMPLE.vcf.gz   > OUTPUT/SAMPLE/HomRef
+#bcftools query -f'%CHROM:%POS:%REF:%ALT\n]' -i'GT="het"' OUTPUT/SAMPLE/SAMPLE.vcf.gz  > OUTPUT/SAMPLE/Het
+#bcftools query -f'[%CHROM:%POS:%REF:%ALT\n]' -i'GT="AA"' OUTPUT/SAMPLE/SAMPLE.vcf.gz  > OUTPUT/SAMPLE/HomAlt
 cat OUTPUT/SAMPLE/HomRef | shuf  > OUTPUT/SAMPLE/cords
 #OUTPUT/SAMPLE/Het OUTPUT/SAMPLE/HomAlt
 rm OUTPUT/SAMPLE/HomRef
@@ -25,13 +24,13 @@ rm OUTPUT/SAMPLE/cords
 #Targets file CHROM POS
 cat  OUTPUT/SAMPLE/targets | sed 's/:/ /g' | awk '{print $1"\t"$2}'  > OUTPUT/SAMPLE/targets_file
 
-#create id in sample vcf
-bcftools annotate --set-id '%CHROM\:%POS\:%REF\:%ALT' --threads 7 OUTPUT/SAMPLE/sample.vcf.gz > OUTPUT/SAMPLE/sample.vcf
-rm OUTPUT/SAMPLE/sample.vcf.gz
+#create id in SAMPLE vcf
+bcftools annotate --set-id '%CHROM\:%POS\:%REF\:%ALT' --threads 7 OUTPUT/SAMPLE/SAMPLE.vcf.gz > OUTPUT/SAMPLE/SAMPLE.vcf
+rm OUTPUT/SAMPLE/SAMPLE.vcf.gz
 
 #Gather targets and non target vcf.
-bcftools view -T OUTPUT/SAMPLE/targets_file OUTPUT/SAMPLE/sample.vcf  > OUTPUT/SAMPLE/targets.vcf
-bcftools view -T ^OUTPUT/SAMPLE/targets_file OUTPUT/SAMPLE/sample.vcf  > OUTPUT/SAMPLE/non-targets.vcf
+bcftools view -T OUTPUT/SAMPLE/targets_file OUTPUT/SAMPLE/SAMPLE.vcf  > OUTPUT/SAMPLE/targets.vcf
+bcftools view -T ^OUTPUT/SAMPLE/targets_file OUTPUT/SAMPLE/SAMPLE.vcf  > OUTPUT/SAMPLE/non-targets.vcf
 
 
 
@@ -58,8 +57,8 @@ bcftools index -t OUTPUT/SAMPLE/ChrAll_Noise.SAMPLE.vcf.gz
 rm OUTPUT/SAMPLE/header OUTPUT/SAMPLE/variants OUTPUT/SAMPLE/targets.vcf  OUTPUT/SAMPLE/non-targets.vcf OUTPUT/SAMPLE/Temp_ChrAll_Noise.SAMPLE.vcf.gz
 
 
-#Remove sample from 1KGP-sample vcf
-bcftools view -s ^sample --threads 7  --output-type z OUTPUT/SAMPLE/ChrAll_.SAMPLE.vcf.gz  > OUTPUT/SAMPLE/ChrAll_.1KGP.SAMPLE.vcf.gz
+#Remove SAMPLE from 1KGP-SAMPLE vcf
+bcftools view -s ^SAMPLE --threads 7  --output-type z OUTPUT/SAMPLE/ChrAll_.SAMPLE.vcf.gz  > OUTPUT/SAMPLE/ChrAll_.1KGP.SAMPLE.vcf.gz
 bcftools index -t OUTPUT/SAMPLE/ChrAll_.1KGP.SAMPLE.vcf.gz
 
 bcftools merge OUTPUT/SAMPLE/ChrAll_.1KGP.SAMPLE.vcf.gz OUTPUT/SAMPLE/ChrAll_Noise.SAMPLE.vcf.gz --output-type z --threads 7 > OUTPUT/SAMPLE/ChrAll.SAMPLE.Noise.vcf.gz
