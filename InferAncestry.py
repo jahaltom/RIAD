@@ -423,7 +423,7 @@ rule Intersect:
         shell("""
         #Extract coordinates for RNA-Seq sample from 1KGP
         bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz --threads 7 --output-type z data/Chr{wildcards.chr}_SNPs.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz   
-        rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}cords
+     
                
         #Remove headers and intersect varients for matching CHROM,POS,REF. ALT in gatk must be . or same as ALT in 1KGP. Outputs list of coordinates to use for filtering.
         gunzip -c    {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz | grep -v "##" > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vars
