@@ -440,8 +440,17 @@ rule concat:
         "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
 
     run:
-        shell("bcftools concat "+str(input).replace(".tbi", "")+" --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{wildcards.sample}.vcf.gz")
 
+        bcf_input=str(list(filter(lambda x: wildcards.sample in x, input))).replace("[", "").replace("]", "").replace(",", "").replace("'", "").replace(".tbi", "")
+        path=wildcards.wd + "/"+wildcards.sample + "/"
+        #shell("bcftools concat "+str(input).replace(".tbi", "")+" --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{wildcards.sample}.vcf.gz")
+        bcftools=open(path +"bcftools.sh", "w")
+        bcftools.write("source activate Ancestry")
+        bcftools.write('\n')
+        bcftools.write("bcftools concat "+bcf_input+" --output-type z --threads 7 > "+ wildcards.wd+"/"+wildcards.sample+"/"+chrPCSpec.replace(".PC"+str(PCs),"_")+"."+wildcards.sample+".vcf.gz")
+        bcftools.close()
+        subprocess.run("bash "+path +"bcftools.sh", shell=True, check=True)
+        
 rule SuperPop:
     input: "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
 
