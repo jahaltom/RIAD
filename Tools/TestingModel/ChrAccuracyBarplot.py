@@ -7,7 +7,7 @@ os.chdir(r"C:\Users\15154\Documents")
 
 
 #Read in results
-results=pd.read_csv("Chr1-22_PC20_DPLT5.tsv",index_col=0,sep="\t")
+results=pd.read_csv("AccuracyTable.tsv",index_col=0,sep="\t")
 
 #List to store dfs
 dfs = []
@@ -64,4 +64,4 @@ for patch in plot.patches :
 
 
 
-plt.savefig("output.png",format='png',dpi=150,bbox_inches='tight')
+plt.savefig("AccuracyByChr.png",format='png',dpi=150,bbox_inches='tight')
