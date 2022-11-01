@@ -120,6 +120,6 @@ ids.loc[-7] = ['SAS OverallAccuracy']
 ids=ids.reset_index(drop=True)
 #Combine results
 results_Chr=pd.concat([ids,results_Chr], axis=1)
-results_Chr.to_csv('Chr1-22_PC20_DPLT5.tsv',sep='\t',mode='w',index=False) 
+results_Chr.to_csv('AccuracyTable.tsv',sep='\t',mode='w',index=False) 
 
     
