@@ -1,16 +1,22 @@
 import pandas as pd
 from pandas import DataFrame
+import glob
 
 
-#Make list 1-22
-chr_num=["All.PC20SVMResults","All.PC20RandomForestResults","All.PC20NeuralNetworkResults","ADMIXTURE"]
+
+
+
+
+#Chr 1-22, other files. 
+files=glob.glob("*SuperpopulationChrAll*")
+files.append("SuperpopulationChrADMIXTURE")
 for x in range(1,23):
-      chr_num.append(str(x)+".PC20SVMResults")
+      files.append("SuperpopulationChr"+str(x)+".PC20SVMResults")
       
       
 
 #Read in metadata and sort by self-reported ethnicity
-metadata=pd.read_csv("metadata",sep="\t")
+metadata=pd.read_csv("metadata.txt",sep="\t")
 metadata=metadata.sort_values(by=['Eth1'])
 
 #Gather BioProj_Population 
@@ -20,10 +26,10 @@ ids_list=ids['BioProj_Population'].tolist()
 #df to store accuracy results for each Chr
 results_Chr = pd.DataFrame()
 
-for c in chr_num:
+for c in files:
  
     #Read in ancestry inference results 
-    results=pd.read_csv("SuperpopulationChr"+c,sep="\t")       
+    results=pd.read_csv(c,sep="\t")       
     
     #Merge metadata with results  
     resultsMeta=pd.merge(results,metadata,on=['run_accession'])               
