@@ -99,7 +99,7 @@ for c in files:
     
     
     #Accuracy results for a Chr
-    temp_results_Chr=DataFrame(acclist,columns=['Chr'+c]) 
+    temp_results_Chr=DataFrame(acclist,columns=[c]) 
     temp_sample_size=DataFrame(sample_size,columns=['Sample Size'])
     #Add to df that will store accuracy results for each Chr
     results_Chr = pd.concat([results_Chr, temp_sample_size, temp_results_Chr], axis=1)
