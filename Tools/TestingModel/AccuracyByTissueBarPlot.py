@@ -41,7 +41,7 @@ merged['OverallAccuracy']=merged['Accuracy']/merged['sample size']*100
 merged[['Study','Tissue','Eth1','Eth2']] = merged.TissueGroup.str.split("#",expand=True)
 
 
-print(merged)
+
 
 plot=sb.barplot(x='Tissue', y='OverallAccuracy', hue="Eth1", data=merged, ci = None)
 plot.set_xticklabels(plot.get_xticklabels(), rotation=90,size = 7)  
