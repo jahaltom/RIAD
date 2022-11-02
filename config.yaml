@@ -1,5 +1,7 @@
 OutputDir: 'output'
 STAR_THREADS: 30
+bcftools_threads: 7
+haplotypeCaller_threads: 7
 ##Specify file type: fastq,fq or SRA.
 FileType: 'SRA'
 ##chromosomes to be genotyped
