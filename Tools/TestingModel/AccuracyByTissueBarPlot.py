@@ -3,14 +3,14 @@ import pandas as pd
 import seaborn as sb
 import os
 
-os.chdir(r"C:\Users\15154\Desktop\RIA")
+os.chdir(r"C:\Users\15154\Documents")
 
 #Read in metadata
-metadata=pd.read_csv("metadata",sep="\t")
+metadata=pd.read_csv("metadata.txt",sep="\t")
 #Read in results
 results=pd.read_csv("SuperpopulationChrAll.PC20SVMResults",sep="\t")
 
-results=results.rename(columns = {'ID':'run_accession'})
+
 
 #Merge on run_accession
 merged=pd.merge(metadata,results,on=['run_accession'])
@@ -41,6 +41,9 @@ merged['OverallAccuracy']=merged['Accuracy']/merged['sample size']*100
 merged[['Study','Tissue','Eth1','Eth2']] = merged.TissueGroup.str.split("#",expand=True)
 
 
+#Sort by self-reported ethnicity and study. 
+merged=merged.sort_values(by=['Eth1',"Study"])
+
 
 
 plot=sb.barplot(x='Tissue', y='OverallAccuracy', hue="Eth1", data=merged, ci = None)
@@ -50,8 +53,8 @@ plot.set_xticklabels(plot.get_xticklabels(), rotation=90,size = 7)
 
 plt.legend(bbox_to_anchor=(1.01, 1),borderaxespad=0)
 plt.xlabel("Tissue")
-plt.ylabel("Accuracy")
-plt.title("Ancestry Inference Accuracy by Tissue")
+plt.ylabel("Accuracy %")
+
 #Keeps stuff being cropped
 
 
@@ -64,7 +67,7 @@ for patch in plot.patches :
 
     # we recenter the bar
     patch.set_x(patch.get_x() + diff *.5)
-    print(patch)
+
 
 
 
