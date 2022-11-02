@@ -355,7 +355,7 @@ rule GATK:
            -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
            -L data/Chr{wildcards.chr}_SNPs.bed \
            -ERC GVCF \
-           --native-pair-hmm-threads 7
+           --native-pair-hmm-threads {config['haplotypeCaller_threads']}
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split*
         gunzip -c {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz |  grep -v "0/0:0:0:0:0,0,0" | bgzip > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.HaplotypeCaller.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/*Chr{wildcards.chr}.HaplotypeCaller.temp.vcf.gz
