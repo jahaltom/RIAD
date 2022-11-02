@@ -20,7 +20,8 @@ configfile: "config.yaml"
 Interval = config['Interval']
 PCs=config['PCs']
 OutputDir=config['OutputDir']
-
+haplotypeCaller_threads=config['haplotypeCaller_threads']
+bcftools_threads=config['bcftools_threads']
 #ML methods##############
 
 def neural_network(xtrain,ytrain,xtest,ytest,classification,unktest,sample_id,run):
