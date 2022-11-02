@@ -23,8 +23,8 @@ metadata=metadata.sort_values(by=['Eth1'])
 ids=metadata[['BioProj_Population']].drop_duplicates()
 #Make list
 ids_list=ids['BioProj_Population'].tolist() 
-#df to store accuracy results for each Chr
-results_Chr = pd.DataFrame()
+#df to store accuracy results for each file
+acc_table = pd.DataFrame()
 
 for c in files:
  
@@ -101,8 +101,8 @@ for c in files:
     #Accuracy results for a Chr
     temp_results_Chr=DataFrame(acclist,columns=[c]) 
     temp_sample_size=DataFrame(sample_size,columns=['Sample Size'])
-    #Add to df that will store accuracy results for each Chr
-    results_Chr = pd.concat([results_Chr, temp_sample_size, temp_results_Chr], axis=1)
+    #Add to df that will store accuracy results for each file
+    acc_table = pd.concat([acc_table, temp_sample_size, temp_results_Chr], axis=1)
     
 
 
@@ -119,7 +119,5 @@ ids.loc[-7] = ['SAS OverallAccuracy']
 
 ids=ids.reset_index(drop=True)
 #Combine results
-results_Chr=pd.concat([ids,results_Chr], axis=1)
-results_Chr.to_csv('AccuracyTable.tsv',sep='\t',mode='w',index=False) 
-
-    
+acc_table=pd.concat([ids,acc_table], axis=1)
+acc_table.to_csv('AccuracyTable.tsv',sep='\t',mode='w',index=False) 
