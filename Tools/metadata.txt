@@ -1,0 +1,923 @@
+run_accession	BioProject ID	B&A Study goal	B&A Total average reads (millions)	B&A_Tissue	B&A Final set of SNPs [after LD filtering]	library_layout	source_name	Individual	Ethnicity	Tissue	Eth1	Eth2	BioProj_Population	Num of SNPs	Num of Unique Mapped Reads
+SRR6369987	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40006	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	575724	57406434
+SRR6369988	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40009	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	607385	35930992
+SRR6369986	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40005	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	710262	47167693
+SRR6369989	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40013	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	971825	58557526
+SRR6369985	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40003	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	509646	61335852
+SRR6369990	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40014	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	651319	43824041
+SRR6369954	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40018	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1015631	62610460
+SRR6369984	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40002	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	495078	48031032
+SRR6369991	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40015	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	634390	46592221
+SRR6369949	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40017	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	341078	47257608
+SRR6369983	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40001	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	669264	44759104
+SRR6369967	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40023	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	606110	48212596
+SRR6369960	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40020	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	602310	52415774
+SRR6369966	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40022	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	500451	50452754
+SRR6369955	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40019	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	899339	52771201
+SRR6369961	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_Active_TB	40021	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	515721	50764229
+SRR6369977	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50060	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	524605	48643424
+SRR6369945	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50002	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	669226	39461288
+SRR6369980	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50063	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	494796	39547386
+SRR6369978	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50061	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	831641	46971228
+SRR6369976	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50058	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	837377	45470127
+SRR6369979	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50062	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	955754	45345376
+SRR6369975	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50055	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	873258	48469369
+SRR6369982	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50069	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	651200	30948770
+SRR6369981	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50067	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	585007	73160861
+SRR6369974	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50052	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1138445	49371664
+SRR6369946	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50013	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	567307	39896722
+SRR6369950	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50021	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	607436	44560849
+SRR6369947	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50015	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	646651	48049759
+SRR6369958	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50033	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1030656	55149612
+SRR6369957	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50032	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	475731	44931022
+SRR6369952	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50024	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	816250	45761572
+SRR6369959	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50036	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1014130	63466853
+SRR6369951	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50022	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1114832	48629067
+SRR6369964	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50040	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	593994	47667360
+SRR6369948	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50020	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	906255	56663118
+SRR6369973	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50049	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	796578	41369352
+SRR6369972	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50047	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	918774	49414575
+SRR6369969	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50044	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	925382	46528490
+SRR6369970	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50045	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1122012	56363297
+SRR6369968	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50043	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	608435	37687341
+SRR6369971	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50046	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1191649	54178048
+SRR6369965	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50042	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	867041	51125684
+SRR6369963	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50039	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	838849	49536680
+SRR6369956	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50031	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	888269	50447001
+SRR6369962	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50037	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	1309943	53945260
+SRR6369953	PRJNA422129	response to tb infection	28.7	Blood	51763	PAIRED	Berry_SouthAfrica_Validation_set_LTBI	50029	South Africa	Whole blood	AFR	AFR	PRJNA422129_South Africa	849244	53273494
+SRR2049608	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	285501	6403305
+SRR2049609	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	347874	6633830
+SRR2049610	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	300217	7400257
+SRR2049607	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	291896	6397189
+SRR2049613	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	133817	6939619
+SRR2049615	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	219116	5795138
+SRR2049616	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	335944	6723729
+SRR2049611	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	308590	6689068
+SRR2049612	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	344169	6792754
+SRR2049614	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	135328	4875700
+SRR2049618	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	280186	5907345
+SRR2049617	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	270386	6483093
+SRR2049620	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	304987	6494210
+SRR2049621	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	299270	7161611
+SRR2049619	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	484102	9754485
+SRR2049624	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	298105	5905686
+SRR2049623	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	286664	5839247
+SRR2049625	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	318162	6519041
+SRR2049622	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	423562	9991172
+SRR2049628	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	307173	6815253
+SRR2049627	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	284993	6763198
+SRR2049626	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	336825	6698622
+SRR2049629	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_DAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	257113	6052781
+SRR2049644	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	344396	7081790
+SRR2049642	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	253522	7119950
+SRR2049643	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	291273	6060120
+SRR2049641	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	348202	6998545
+SRR2049640	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	254456	5567530
+SRR2049634	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337302	6689733
+SRR2049648	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	286727	6299664
+SRR2049647	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	311726	6665383
+SRR2049645	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	299624	5692595
+SRR2049639	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	2408	853182
+SRR2049646	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	276704	6494113
+SRR2049638	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	265903	6135853
+SRR2049637	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	317312	7030364
+SRR2049636	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	300537	7376161
+SRR2049633	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	316112	7016568
+SRR2049635	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	315263	6515526
+SRR2049632	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	315839	6999051
+SRR2049631	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	256015	6153716
+SRR2049630	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EAEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	310745	6844498
+SRR2049661	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	331622	7140217
+SRR2049660	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	278173	5520686
+SRR2049651	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	689	57596
+SRR2049652	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	266800	5609365
+SRR2049657	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	326264	7063150
+SRR2049656	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	351727	7090706
+SRR2049658	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	316621	6591488
+SRR2049659	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	258637	5898606
+SRR2049653	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	272519	6483946
+SRR2049654	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	346401	6585849
+SRR2049655	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	119771	3351980
+SRR2049650	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	322646	7052740
+SRR2049649	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_EPEC		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	352744	7034489
+SRR2049680	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	297652	6189751
+SRR2049682	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	323467	6460372
+SRR2049681	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	241614	5184078
+SRR2049685	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	278606	6577696
+SRR2049664	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	345833	6605173
+SRR2049683	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	266260	7153681
+SRR2049663	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	333225	6551330
+SRR2049662	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337239	6967248
+SRR2049716	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	329375	6704608
+SRR2049690	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	407139	8047753
+SRR2049711	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	230926	6492588
+SRR2049713	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	335266	6437216
+SRR2049714	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	252626	6189917
+SRR2049710	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	290276	6595846
+SRR2049715	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	229554	6552489
+SRR2049712	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	331697	7025008
+SRR2049686	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	301168	5779991
+SRR2049684	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	332571	6748448
+SRR2049687	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	262155	6617852
+SRR2049693	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	348003	8103523
+SRR2049688	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	278534	5405357
+SRR2049689	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	237819	6692706
+SRR2049692	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	311463	6726245
+SRR2049691	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	305209	6292950
+SRR2049694	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	309692	6675027
+SRR2049697	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	292313	7120921
+SRR2049665	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	296164	6648943
+SRR2049696	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	297569	6141873
+SRR2049668	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	69858	1633193
+SRR2049666	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	346635	7368397
+SRR2049695	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	252156	7068187
+SRR2049703	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	341775	6667447
+SRR2049667	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	355132	7358595
+SRR2049673	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	314123	6458137
+SRR2049698	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	296486	6448857
+SRR2049709	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	353049	6992874
+SRR2049677	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	249238	5813547
+SRR2049708	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	401330	7877498
+SRR2049675	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	355988	7248328
+SRR2049674	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	363425	7132727
+SRR2049704	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	364328	6994504
+SRR2049678	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	302089	7047328
+SRR2049701	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	287817	6209578
+SRR2049671	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	284674	7377057
+SRR2049700	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337299	7441078
+SRR2049702	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	261111	6756328
+SRR2049670	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	256613	7069457
+SRR2049672	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	293934	7884506
+SRR2049679	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	244560	6119225
+SRR2049706	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	389306	7475282
+SRR2049699	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	339198	6980909
+SRR2049676	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	277371	6450022
+SRR2049705	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	408863	7908617
+SRR2049707	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	295140	7228088
+SRR2049669	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Rotavirus		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	297343	6635501
+SRR2049751	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	271711	6523457
+SRR2049750	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	278169	6304089
+SRR2049752	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	322091	6807268
+SRR2049724	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	318432	6062360
+SRR2049748	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	289442	6567426
+SRR2049723	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	393999	7518389
+SRR2049722	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	328667	6414458
+SRR2049721	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	380299	7199803
+SRR2049718	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	265184	6150712
+SRR2049720	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	340665	7201815
+SRR2049719	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	350110	7501491
+SRR2049717	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	336543	7585644
+SRR2049747	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	341604	6587930
+SRR2049749	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	302744	7328053
+SRR2049746	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	321757	6554520
+SRR2049745	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	345472	6478239
+SRR2049743	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	238157	5846901
+SRR2049742	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	285840	5564588
+SRR2049744	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	295734	5961086
+SRR2049741	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	325031	6747232
+SRR2049740	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	306989	6839186
+SRR2049733	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	319818	7146416
+SRR2049737	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	324671	6780551
+SRR2049736	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	308400	6380197
+SRR2049734	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	282618	6273748
+SRR2049729	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	230970	5259819
+SRR2049731	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	271296	6145862
+SRR2049728	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337172	6492099
+SRR2049739	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	304263	7074560
+SRR2049726	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	302385	7154440
+SRR2049725	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	300164	7238063
+SRR2049735	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	303192	6778455
+SRR2049738	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	275776	6816960
+SRR2049730	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	251483	6203630
+SRR2049727	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	327682	6453695
+SRR2049732	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Salmonella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	374317	7861879
+SRR2049779	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	320593	7061910
+SRR2049753	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	321116	7118362
+SRR2049754	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	354490	7068792
+SRR2049778	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	324359	7085144
+SRR2049776	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	323811	6570524
+SRR2049775	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	245569	5426109
+SRR2049777	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	298149	6646024
+SRR2049769	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	261789	6328971
+SRR2049784	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	340349	6685022
+SRR2049783	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	277435	6323313
+SRR2049782	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	277343	6937646
+SRR2049785	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	297014	7213920
+SRR2049781	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	298603	6626927
+SRR2049786	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	213544	5512983
+SRR2049755	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	281127	6278448
+SRR2049756	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	326359	6622698
+SRR2049780	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	314045	6787494
+SRR2049774	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	271079	5239009
+SRR2049787	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	317606	7807316
+SRR2049757	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	325854	7380723
+SRR2049760	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	356047	7640418
+SRR2049789	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	236287	6437870
+SRR2049758	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	368011	7759679
+SRR2049788	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	304267	6925378
+SRR2049762	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	137588	7534167
+SRR2049759	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	325362	7595223
+SRR2049763	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	257949	6771460
+SRR2049761	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	267912	7092988
+SRR2049773	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	278702	6137712
+SRR2049772	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	350137	7037497
+SRR2049768	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	286696	6744018
+SRR2049771	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	265152	6304426
+SRR2049770	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	287064	6149675
+SRR2049767	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	298887	6293586
+SRR2049765	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	267659	6955312
+SRR2049764	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	257498	6806767
+SRR2049766	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	children with diarrhea_Shigella		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337951	7287842
+SRR5787176	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS lesion	p83	Zambia	Tumor KS	AFR	AFR	PRJNA392660_Zambia	429976	13403971
+SRR5787177	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS lesion	p23	Zambia	Tumor KS	AFR	AFR	PRJNA392660_Zambia	401902	10039017
+SRR5787173	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS lesion	p32	Zambia	Tumor KS	AFR	AFR	PRJNA392660_Zambia	536318	13107360
+SRR5787174	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS lesion	p22	Zambia	Tumor KS	AFR	AFR	PRJNA392660_Zambia	518451	13189116
+SRR5787170	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS patient	p83	Zambia	Normal KS	AFR	AFR	PRJNA392660_Zambia	451526	11560524
+SRR5787168	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS patient	p32	Zambia	Normal KS	AFR	AFR	PRJNA392660_Zambia	424700	11086379
+SRR5787172	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS patient	p23	Zambia	Normal KS	AFR	AFR	PRJNA392660_Zambia	455742	11472756
+SRR5787169	PRJNA392660	Sarcoma kaposi	14.52	Tissue	18536	SINGLE	control tissue from KS patient	p22	Zambia	Normal KS	AFR	AFR	PRJNA392660_Zambia	450913	11269788
+SRR5873158	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	6722	5168669
+SRR5873161	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	57657	6125987
+SRR5873172	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	88043	5605709
+SRR5873152	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	75750	5726535
+SRR5873160	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	103124	5058659
+SRR5873169	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	129961	8042482
+SRR5873182	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	87747	6593539
+SRR5873170	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	13022	4399531
+SRR5873168	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	3630	3388085
+SRR5873171	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	150251	7722239
+SRR5873150	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	125431	7084533
+SRR5873167	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	2604	2078144
+SRR5873179	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	49360	4763954
+SRR5873159	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	5349	2488080
+SRR5873180	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	115961	8670291
+SRR5873156	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	27199	5921130
+SRR5873178	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	11849	4479160
+SRR5873154	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	9264	3702281
+SRR5873163	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	13806	5882446
+SRR5873148	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	5842	3833244
+SRR5873149	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	155738	7064182
+SRR5873144	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	95378	4993274
+SRR5873164	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	1424	2436239
+SRR5873162	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	1431	3411791
+SRR5873165	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	32506	5622582
+SRR5873166	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	665	1597379
+SRR5873142	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	13831	6733530
+SRR5873157	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	9265	3237722
+SRR5873155	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	7322	3368700
+SRR5873151	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	7269	5385118
+SRR5873153	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	5414	2926544
+SRR5873181	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	27683	5451686
+SRR5873176	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	12007	5452990
+SRR5873177	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	9532	3686538
+SRR5873147	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	2760	4466648
+SRR5873146	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	25311	6628010
+SRR5873145	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	17013	4458580
+SRR5873173	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	23039	3130607
+SRR5873174	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	4305	4428024
+SRR5873143	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	34445	6174174
+SRR5873175	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	61067	6647654
+SRR5873141	PRJNA395937	Breast cancer	6.32	Tumor	229	SINGLE	FFPE breast tumor		Colombia	Tumor Breast	AMR	AMR	PRJNA395937_Colombia	20021	6747136
+SRR2049586	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	309225	6591365
+SRR2049587	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	310231	6171359
+SRR2049606	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	402465	8290541
+SRR2049585	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	374420	7377263
+SRR2049605	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	297778	6062183
+SRR2049583	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	336202	6731679
+SRR2049584	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	373611	7707748
+SRR2049604	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	257007	5063282
+SRR2049603	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	362343	7867836
+SRR2049602	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	308884	6506841
+SRR2049601	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	319875	6706296
+SRR2049600	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children with bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	366334	7439714
+SRR2049589	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	329778	6249961
+SRR2049588	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	419915	8383750
+SRR2049590	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	319945	5958738
+SRR2049594	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	258263	5210792
+SRR2049591	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	400226	7845130
+SRR2049595	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	323167	6683659
+SRR2049593	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	307882	6477645
+SRR2049592	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	450646	9695583
+SRR2049596	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	333892	6829129
+SRR2049598	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	293430	5988188
+SRR2049597	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	357148	7179282
+SRR2049599	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	healthy children without bacterial colonization		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	309544	6319206
+SRR2219873	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	151905	3702298
+SRR2219871	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	339887	8691199
+SRR2219867	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	325090	8717700
+SRR2219870	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	350226	8885140
+SRR2219893	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	284420	6015562
+SRR2219869	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	352546	8962306
+SRR2219872	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	336128	8635428
+SRR2219877	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	365046	8966759
+SRR2219876	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	368643	9037214
+SRR2219892	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	278438	5884852
+SRR2219908	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	256170	5305729
+SRR2219905	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	235348	5235953
+SRR2219868	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	322654	8639318
+SRR2219874	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	384647	9959342
+SRR2219875	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	382466	9881587
+SRR2219903	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	195151	4963986
+SRR2219902	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	155089	3772704
+SRR2219907	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	251221	5191941
+SRR2219890	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	165916	4115672
+SRR2219910	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	258761	5765460
+SRR2219912	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	159251	4433538
+SRR2219906	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	239964	5333074
+SRR2219904	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	196654	5039022
+SRR2219901	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	199184	4753622
+SRR2219900	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	195565	4663842
+SRR2219909	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	254985	5642040
+SRR2219911	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	155901	4348428
+SRR2219899	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	330262	9375291
+SRR2219898	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	332427	9461080
+SRR2219891	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	164469	4077067
+SRR2219896	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	337101	9080061
+SRR2219878	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	179466	4568950
+SRR2219879	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	183146	4665630
+SRR2219881	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	140823	3393925
+SRR2219888	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	222050	5596260
+SRR2219897	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	334499	9007308
+SRR2219884	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	202172	4822995
+SRR2219886	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	212141	5074665
+SRR2219887	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	215493	5150638
+SRR2219882	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	266641	5465438
+SRR2219894	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	350825	9130089
+SRR2219883	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	271745	5571511
+SRR2219885	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	206396	4916535
+SRR2219880	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	139535	3345378
+SRR2219889	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	226219	5707520
+SRR2219895	PRJNA294293	Neck cancer	9.01	Tumor	10210	SINGLE	HNSCC		United Kingdom	Tumor HNSCC	EUR	EUR	PRJNA294293_United Kingdom	348692	9043682
+SRR6080233	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	1687012	29600399
+SRR6080227	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	1867663	27974412
+SRR6080221	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	1849546	28757538
+SRR6080229	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	1893401	30796562
+SRR6080217	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	2253177	35457081
+SRR6080219	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	2528736	28917885
+SRR6080215	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	2031116	31815291
+SRR6080225	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Normal Liver	EAS	EAS	PRJNA412314_China	2606205	36227656
+SRR6080218	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	1985027	32192393
+SRR6080222	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2274348	29344967
+SRR6080220	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2308747	28403313
+SRR6080226	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	1862898	25453606
+SRR6080228	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2639705	33700751
+SRR6080224	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2313612	31078308
+SRR6080234	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	1558513	34300650
+SRR6080223	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2802186	32144832
+SRR6080232	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	1690186	26215500
+SRR6080216	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2451236	31799587
+SRR6080231	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	2106943	28749811
+SRR6080230	PRJNA412314	Hepatocellular carcinoma	69.88	Tumor	39198	PAIRED	Liver		China	Tumor Liver	EAS	EAS	PRJNA412314_China	1940415	28011727
+SRR074983	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A31	China	Tumor Liver	EAS	EAS	PRJNA134241_China	264333	11294954
+SRR074985	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A35	China	Tumor Liver	EAS	EAS	PRJNA134241_China	283039	13134924
+SRR074979	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A05	China	Tumor Liver	EAS	EAS	PRJNA134241_China	174825	10160461
+SRR075001	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A39	China	Tumor Liver	EAS	EAS	PRJNA134241_China	245195	10053870
+SRR074996	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A13	China	Tumor Liver	EAS	EAS	PRJNA134241_China	135944	8859607
+SRR075000	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A39	China	Tumor Liver	EAS	EAS	PRJNA134241_China	243936	9992347
+SRR074995	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A13	China	Tumor Liver	EAS	EAS	PRJNA134241_China	171915	9855475
+SRR074981	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A19	China	Tumor Liver	EAS	EAS	PRJNA134241_China	227584	10646833
+SRR074993	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A82	China	Tumor Liver	EAS	EAS	PRJNA134241_China	173805	8700825
+SRR074999	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A39	China	Tumor Liver	EAS	EAS	PRJNA134241_China	267425	10857750
+SRR074987	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A57	China	Tumor Liver	EAS	EAS	PRJNA134241_China	192629	9426955
+SRR074991	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A63	China	Tumor Liver	EAS	EAS	PRJNA134241_China	269731	11627064
+SRR074989	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Cancer"	A60	China	Tumor Liver	EAS	EAS	PRJNA134241_China	279876	14057538
+SRR075002	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A39	China	Normal Liver	EAS	EAS	PRJNA134241_China	196381	10545145
+SRR075003	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A39	China	Normal Liver	EAS	EAS	PRJNA134241_China	197725	10775489
+SRR075004	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A39	China	Normal Liver	EAS	EAS	PRJNA134241_China	188321	10340895
+SRR074980	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A05	China	Normal Liver	EAS	EAS	PRJNA134241_China	241676	13037891
+SRR074998	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A13	China	Normal Liver	EAS	EAS	PRJNA134241_China	212148	8475104
+SRR074997	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A13	China	Normal Liver	EAS	EAS	PRJNA134241_China	272999	10545601
+SRR074982	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A19	China	Normal Liver	EAS	EAS	PRJNA134241_China	147922	8945372
+SRR074994	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A82	China	Normal Liver	EAS	EAS	PRJNA134241_China	155150	10572944
+SRR074986	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A35	China	Normal Liver	EAS	EAS	PRJNA134241_China	134313	9877642
+SRR074984	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A31	China	Normal Liver	EAS	EAS	PRJNA134241_China	224465	10524770
+SRR074990	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A60	China	Normal Liver	EAS	EAS	PRJNA134241_China	226803	13314028
+SRR074992	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A63	China	Normal Liver	EAS	EAS	PRJNA134241_China	146849	8831152
+SRR074988	PRJNA134241	Hepatocellular carcinoma	18.7	Tumor	5591	SINGLE	"Liver tissues, Non-cancerous adjacent"	A57	China	Normal Liver	EAS	EAS	PRJNA134241_China	319927	14264433
+SRR6370222	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_070	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	653746	21983805
+SRR6370289	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_207	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	846898	18919734
+SRR6370290	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_209	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	958055	22499675
+SRR6370175	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_024	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	861523	28937512
+SRR6370291	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_209	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	946126	30773604
+SRR6370173	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_024	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	905956	26175264
+SRR6370292	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_209	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	775651	26768641
+SRR6370174	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_024	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	838183	26666559
+SRR6370223	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_070	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	740471	19013125
+SRR6370177	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_031	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	773316	22890835
+SRR6370176	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_024	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	792448	23145104
+SRR6370178	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_031	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	668927	18786472
+SRR6370179	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_031	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	770375	18397836
+SRR6370239	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	834320	19159946
+SRR6370241	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	606932	31247010
+SRR6370180	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_031	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	813888	28859773
+SRR6370250	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_134	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	906101	23519436
+SRR6370181	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_033	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	775481	24384440
+SRR6370206	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_041	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	375184	24495645
+SRR6370240	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	786866	17277283
+SRR6370182	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_033	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	681610	22227057
+SRR6370287	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_207	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	763415	18758563
+SRR6370251	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_134	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	780577	22702897
+SRR6370288	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_207	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	923393	23594387
+SRR6370183	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_033	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	591788	19263031
+SRR6370243	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	631125	17388885
+SRR6370286	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_207	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	753112	24637826
+SRR6370252	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_134	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	776653	18175423
+SRR6370193	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	666097	16438219
+SRR6370225	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_070	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	759834	23660503
+SRR6370242	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	679970	29179929
+SRR6370224	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_070	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	764607	16635500
+SRR6370218	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	707306	15390008
+SRR6370194	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	917119	19561954
+SRR6370221	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_070	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	731103	22986125
+SRR6370217	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	677315	16608380
+SRR6370216	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	673994	17217659
+SRR6370256	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_135	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	562781	12740247
+SRR6370197	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	742756	18850782
+SRR6370215	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	675734	20813968
+SRR6370214	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	841046	24966477
+SRR6370192	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	313443	2690353
+SRR6370255	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_135	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	781793	17245583
+SRR6370195	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	1031921	24618035
+SRR6370207	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_041	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	709826	22891492
+SRR6370196	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_039	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	1141734	32529816
+SRR6370254	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_135	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	867001	22518382
+SRR6370204	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_041	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	939156	24396338
+SRR6370244	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_103	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	872136	23660746
+SRR6370184	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_033	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	800745	20844013
+SRR6370257	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_135	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	800979	18844567
+SRR6370253	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_134	British_Indian	Whole blood	SAS	SAS	PRJNA422130_British_Indian	694854	24030030
+SRR6370205	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_041	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	672243	26361302
+SRR6370213	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_047	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	633387	26566374
+SRR6370208	PRJNA422130					PAIRED	Longitudnal_Leicester_Control_Non_progressor	Patient_041	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	731539	22859657
+SRR6370234	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_096	East_Africa_Tanzania	Whole blood	AFR	AFR	PRJNA422130_East_Africa_Tanzania	280385	14873167
+SRR6370294	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_237	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	454621	18217686
+SRR6370267	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_178	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	593021	15765614
+SRR6370272	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_185	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	645220	21878979
+SRR6370270	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_185	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	760497	17244002
+SRR6370273	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_185	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	678018	15762037
+SRR6370271	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_185	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	772421	19091760
+SRR6370293	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_237	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	461522	19046157
+SRR6370235	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_096	East_Africa_Tanzania	Whole blood	AFR	AFR	PRJNA422130_East_Africa_Tanzania	694888	18972504
+SRR6370269	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_178	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	743529	21405663
+SRR6370268	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_178	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	674571	27515761
+SRR6370266	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_178	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	754670	21798070
+SRR6370280	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_196	East_African_Sudan	Whole blood	AFR	AFR	PRJNA422130_East_African_Sudan	694852	16193199
+SRR6370220	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_049	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	664842	28911479
+SRR6370278	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_196	East_African_Sudan	Whole blood	AFR	AFR	PRJNA422130_East_African_Sudan	504589	24249486
+SRR6370282	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_199	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	694919	20392387
+SRR6370236	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_096	East_Africa_Tanzania	Whole blood	AFR	AFR	PRJNA422130_East_Africa_Tanzania	461789	11522767
+SRR6370295	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_237	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	863116	21173378
+SRR6370296	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_237	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	789539	20571629
+SRR6370265	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_170	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	634900	20636909
+SRR6370264	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_170	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	601320	21836980
+SRR6370279	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_196	East_African_Sudan	Whole blood	AFR	AFR	PRJNA422130_East_African_Sudan	614613	16481384
+SRR6370297	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_238	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	749816	22552951
+SRR6370237	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_096	East_Africa_Tanzania	Whole blood	AFR	AFR	PRJNA422130_East_Africa_Tanzania	630290	13682958
+SRR6370238	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_096	East_Africa_Tanzania	Whole blood	AFR	AFR	PRJNA422130_East_Africa_Tanzania	822209	17953232
+SRR6370219	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_049	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	713264	26732736
+SRR6370299	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_238	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	935501	27726941
+SRR6370263	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_170	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	927465	24227588
+SRR6370283	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_199	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	879861	19746357
+SRR6370262	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_166	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	640117	20907137
+SRR6370261	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_166	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	952209	25653317
+SRR6370260	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_166	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	684545	22278610
+SRR6370300	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_238	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	724875	28822045
+SRR6370259	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_166	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	892927	29706577
+SRR6370298	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_238	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	900396	22178510
+SRR6370302	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_239	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	819145	26636843
+SRR6370301	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_239	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	500194	25525928
+SRR6370303	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_239	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	703615	14874914
+SRR6370285	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_199	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	913679	28262543
+SRR6370209	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_045	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	446655	18097261
+SRR6370284	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_199	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	731513	20106692
+SRR6370277	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_196	East_African_Sudan	Whole blood	AFR	AFR	PRJNA422130_East_African_Sudan	521970	19182305
+SRR6370281	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_199	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	801287	20317352
+SRR6370211	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_045	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	532204	13986634
+SRR6370274	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_189	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	671304	16844260
+SRR6370276	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_189	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	818795	23014186
+SRR6370304	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_239	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	854231	26661278
+SRR6370275	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_189	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	867567	17402725
+SRR6370210	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_045	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	556769	18763080
+SRR6370190	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	655248	15054279
+SRR6370203	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	714150	23279452
+SRR6370248	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_132	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	874774	26024182
+SRR6370189	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	834236	26207432
+SRR6370198	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	873392	36552316
+SRR6370202	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	797070	21402735
+SRR6370258	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_166	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	785811	21186101
+SRR6370247	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_132	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	834151	24777162
+SRR6370200	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	866414	25899003
+SRR6370187	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	960184	21199180
+SRR6370186	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	945301	19482042
+SRR6370199	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	939982	38500880
+SRR6370185	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	1014258	26630476
+SRR6370212	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_045	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	587031	26716738
+SRR6370246	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_132	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	781536	24109494
+SRR6370201	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_040	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	765597	21985703
+SRR6370245	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_132	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	663471	21451333
+SRR6370249	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_132	South_Asia_ISC	Whole blood	SAS	SAS	PRJNA422130_South_Asia_ISC	514972	21986414
+SRR6370191	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	787458	19927129
+SRR6370188	PRJNA422130					PAIRED	Longitudnal_Leicester_LTBI_Non_progressor	Patient_035	Central_Asia_Afganistan	Whole blood	SAS	SAS	PRJNA422130_Central_Asia_Afganistan	907776	25250106
+SRR6032719	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	154413	3523920
+SRR2444100	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	154413	3523920
+SRR6032720	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	355680	8694210
+SRR2444099	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	214444	5824643
+SRR6032716	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	191698	4872213
+SRR6032721	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	327419	7428908
+SRR2444101	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	218807	6609724
+SRR6032722	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	360616	7344510
+SRR2444102	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	328264	7966371
+SRR2444103	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	247149	6435905
+SRR6032723	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	334210	7649097
+SRR6032718	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	316259	7802534
+SRR2444097	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	140178	6023713
+SRR2444104	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	191698	4872213
+SRR6032717	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	218807	6609724
+SRR6032724	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	309821	6688403
+SRR2444098	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	334210	7649097
+SRR6032715	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	291953	7108711
+SRR6032713	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	344386	8338537
+SRR2444096	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	291953	7108711
+SRR6032714	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	328264	7966371
+SRR2444093	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	338535	8503399
+SRR2444094	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	247331	7353475
+SRR2444095	PRJNA296108	Pneumonia	9.99	Blood	7807	SINGLE	lung		China	Normal Lung	EAS	EAS	PRJNA296108_China	327419	7428908
+SRR975599	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1112862	21537759
+SRR975602	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1247844	20155784
+SRR975600	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1383947	22559688
+SRR975598	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1365035	23310889
+SRR975595	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1404879	19690437
+SRR975597	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1428408	21132329
+SRR975596	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1288766	22162932
+SRR975601	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1454181	24783158
+SRR975594	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1043321	19534186
+SRR975593	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1746631	31742330
+SRR975592	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1288588	19333180
+SRR975591	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1527912	27032078
+SRR975590	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1495250	22151994
+SRR975588	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1493317	29510497
+SRR975589	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1585396	29635752
+SRR975604	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1516894	32114705
+SRR975603	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1635923	34064987
+SRR975587	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	metastasized cancer		South Korea	Colon metastasized to Liver	EAS	EAS	PRJNA218851_South Korea	1625855	28079169
+SRR493963	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	3	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1374	7938670
+SRR493953	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	6	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1406576	23656727
+SRR493950	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	5	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1642268	27661443
+SRR493957	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	8	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1624739	27285856
+SRR493958	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	8	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1609489	26665032
+SRR493942	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	3	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1800829	31216784
+SRR493941	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	3	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1818930	31555106
+SRR493967	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	5	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1428	6902756
+SRR493971	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	8	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1354	9355730
+SRR493969	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	6	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1278	6977397
+SRR493945	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	4	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1855678	32326116
+SRR493949	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	5	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1732007	30795043
+SRR493965	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	4	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1527	5860704
+SRR493954	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	6	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1394490	23106378
+SRR493961	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	1	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	3838	8037983
+SRR493946	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	4	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	1847133	32006084
+SRR493938	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	1	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	2014198	33567399
+SRR493937	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	1	South Korea	Normal Lung	EAS	EAS	PRJNA163279_South Korea	2016631	33667228
+SRR493972	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	8	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	12349	13456708
+SRR493968	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	5	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1918	12606496
+SRR493943	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	3	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1910218	34087253
+SRR493944	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	3	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1922541	34654473
+SRR493952	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	5	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1604102	24472369
+SRR493951	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	5	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1582178	24022847
+SRR493959	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	8	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1729610	27236349
+SRR493960	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	8	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1730874	27172289
+SRR493970	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	6	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1676	7857341
+SRR493966	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	4	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1662	10131250
+SRR493964	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	3	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1482	9425871
+SRR493956	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	6	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1685718	26006505
+SRR493955	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	6	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1679633	25782953
+SRR493948	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	4	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1792720	29575865
+SRR493962	PRJNA163279	Lung Cancer	72.69	Tumor	7	SINGLE	"Non-smoker female, NSCLC"	1	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1748	12303453
+SRR493940	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	1	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	2094435	29678122
+SRR493947	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	4	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	1739152	28855675
+SRR493939	PRJNA163279	Lung Cancer	72.69	Tumor	7	PAIRED	"Non-smoker female, NSCLC"	1	South Korea	Tumor Lung	EAS	EAS	PRJNA163279_South Korea	2092130	29626961
+SRR975581	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1290523	18327302
+SRR975576	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1559040	26094840
+SRR975577	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1440745	25313563
+SRR975580	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1393623	26119369
+SRR975578	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1158918	17279706
+SRR975579	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1192584	15335709
+SRR975582	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1427916	25005350
+SRR975583	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1312761	19682404
+SRR975584	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1276728	18331820
+SRR975586	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1363390	24169290
+SRR975585	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1423077	26485509
+SRR975569	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1571424	27587894
+SRR975570	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1050100	11552151
+SRR975573	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1328772	19387613
+SRR975574	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1466300	25288184
+SRR975571	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1722346	32810390
+SRR975572	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1571290	25094654
+SRR975575	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	normal colon		South Korea	Normal Colon	EAS	EAS	PRJNA218851_South Korea	1587789	28791616
+SRR4167529	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	178645	6921466
+SRR4167517	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	158016	3429027
+SRR4167514	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	171729	9195407
+SRR4167524	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	39262	11793817
+SRR4167526	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	302208	6099197
+SRR4167525	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	421373	10518093
+SRR4167516	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	665984	12733794
+SRR4167522	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	681219	12330374
+SRR4167528	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	637104	13044907
+SRR4167523	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	790064	14431760
+SRR4167515	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	794778	12730606
+SRR4167520	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	353863	7264447
+SRR4167518	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	284115	7919414
+SRR4167521	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	315857	8125672
+SRR4167519	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	417197	9053122
+SRR4167527	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	574784	12591390
+SRR4167513	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	84996	4577641
+SRR4167511	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	525303	10518374
+SRR4167512	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	551545	10546233
+SRR4167509	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	549648	13604129
+SRR4167510	PRJNA341854					SINGLE	normal-weight child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	808138	15722904
+SRR4167549	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	6415	3280275
+SRR4167537	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	787094	15605289
+SRR4167548	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	586067	13836212
+SRR4167533	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	19132	12458623
+SRR4167540	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	152781	5811373
+SRR4167541	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	176741	4376017
+SRR4167532	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	11339	7925267
+SRR4167550	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	699457	12464386
+SRR4167543	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	507659	10370866
+SRR4167531	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		African American	CD4+ T cells	AFR	AFR	PRJNA341854_African American	208789	5275438
+SRR4167534	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	488170	10604694
+SRR4167536	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	402353	8380933
+SRR4167535	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	76448	65334746
+SRR4167538	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	551516	10293246
+SRR4167530	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	631923	14099454
+SRR4167539	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	698575	14126846
+SRR4167545	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	4579	5664988
+SRR4167547	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	420059	13333076
+SRR4167546	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	522508	11090330
+SRR4167544	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	467316	10128571
+SRR4167542	PRJNA341854					SINGLE	obese child with asthma_CD4+ T cells		Hispanic	CD4+ T cells	AMR	AMR	PRJNA341854_Hispanic	1094419	15081588
+SRR1168839	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	183187	1029338
+SRR1168838	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	582766	3720702
+SRR1168854	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	297930	1625021
+SRR1168856	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	336623	1844413
+SRR1168855	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	605337	3690698
+SRR1168857	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	607061	3696475
+SRR1168858	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	353710	1945916
+SRR1168847	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	303554	1899523
+SRR1168846	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	516772	3659801
+SRR1168837	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	247438	1383020
+SRR1168848	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	517169	3657773
+SRR1168841	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	446526	7154754
+SRR1168851	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	427220	2846566
+SRR1168850	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	517790	3666312
+SRR1168849	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	339916	2158976
+SRR1168842	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	522916	6996308
+SRR1168874	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	523728	3656227
+SRR1168840	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1179333	10053478
+SRR1168845	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1231884	15978046
+SRR1168877	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	397158	2497708
+SRR1168873	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1199767	15908678
+SRR1168878	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	523410	3662429
+SRR1168875	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	366853	2259987
+SRR1168879	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	363523	2214807
+SRR1168876	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	522495	3653427
+SRR1168844	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	34297	246806
+SRR1168843	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	613165	3722949
+SRR1168834	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	581066	3719683
+SRR1168866	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1217999	14176445
+SRR1168835	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	213489	1197622
+SRR1168836	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	579979	3716770
+SRR1168865	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	409554	2182663
+SRR1168853	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	606124	3693231
+SRR1168864	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	626719	3737054
+SRR1168852	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1474569	14669654
+SRR1168859	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	1568326	17397124
+SRR1168870	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	315506	1793419
+SRR1168869	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	560386	3716021
+SRR1168868	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	284670	1599547
+SRR1168872	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	222296	1229928
+SRR1168861	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	508348	2826148
+SRR1168871	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	561166	3722783
+SRR1168862	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	627180	3728180
+SRR1168860	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	629254	3733176
+SRR1168863	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	541989	3058094
+SRR1168867	PRJNA238241	Obesity	48	Adipose tissue	39576	PAIRED	Omental adipose tissue		Malaysia	Adipose Tissue	EAS	SAS	PRJNA238241_Malaysia	562065	3718922
+SRR3111582	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	120320	1806685
+SRR3111585	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	25142	359398
+SRR3111603	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0444-312	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	53671	1898135
+SRR3111584	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	19328	286484
+SRR3111586	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	518666	5727712
+SRR3111583	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	42708	834683
+SRR3111602	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0444-312	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	29767	1994502
+SRR3111587	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0450-318	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	8473	624974
+SRR3111604	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0500-355neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	1408	237531
+SRR3111607	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0292-xxxneg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	188345	5235202
+SRR3111605	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0500-355neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	146276	3670474
+SRR3111619	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0560-420neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	3768	334546
+SRR3111617	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0518-370neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	439593	5913634
+SRR3111618	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0518-370neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	1576	154675
+SRR3111588	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	709985	22844297
+SRR3111610	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0218-162neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	180530	3501388
+SRR3111593	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	278046	8507518
+SRR3111606	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0292-xxxneg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	32035	1884017
+SRR3111621	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0575-419neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	145251	3065174
+SRR3111592	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	760895	16468178
+SRR3111611	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0218-162neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	180079	3118422
+SRR3111620	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0560-420neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	178666	4292753
+SRR3111609	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0394-274	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	3266	402529
+SRR3111616	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0440-307neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	110671	3762215
+SRR3111594	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	53518	943846
+SRR3111622	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0575-419neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	51403	1106275
+SRR3111595	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	289849	3150536
+SRR3111608	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0394-274	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	164732	5186526
+SRR3111590	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	292832	13831184
+SRR3111591	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	401184	11028403
+SRR3111612	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0311-217HIVneg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	26213	640037
+SRR3111589	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0387-272	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	422658	12651616
+SRR3111614	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0440-307neg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	151747	4285367
+SRR3111600	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0444-312	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	311858	4913077
+SRR3111598	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	226683	2377046
+SRR3111596	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	284426	4489339
+SRR3111613	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0311-217HIVneg	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	17804	1777714
+SRR3111599	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	372197	4714354
+SRR3111601	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0444-312	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	53593	2612149
+SRR3111597	PRJNA309415	Response to HIV	11.3		181	PAIRED	Peripheral Blood	0629-453	South Africa	Innate Lymphoid Cell	AFR	AFR	PRJNA309415_South Africa	192739	2289613
+SRR1925795	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	42289	354766
+SRR1925791	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	78347	582367
+SRR1925796	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	187373	1453627
+SRR1925793	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	281448	2339712
+SRR1925789	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	239029	1835572
+SRR1925784	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	275192	2064394
+SRR1925803	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	94741	767122
+SRR1925799	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	50023	452080
+SRR1925798	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	91944	861707
+SRR1925797	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	30781	313726
+SRR1925783	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	64935	620940
+SRR1925781	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	65591	535551
+SRR1925804	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	390280	3211264
+SRR1925785	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	142364	1139290
+SRR1925787	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	99134	782431
+SRR1925786	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	371021	2786186
+SRR1925790	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	61300	550415
+SRR1925788	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	131638	1156267
+SRR1925792	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	315236	2554397
+SRR1925782	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	195801	1546263
+SRR1925794	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	309426	2628844
+SRR1925802	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	204478	2147836
+SRR1925800	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	213818	1690764
+SRR1925801	PRJNA279199	Malaria	0.7	Blood	4214	PAIRED	Peripheral blood mononuclear cells (PBMCs)		Colombia	Peripheral blood mononuclear cells	AMR	AMR	PRJNA279199_Colombia	272385	2185418
+SRR5761568	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	54	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1496644	22278153
+SRR5761523	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	7	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1610321	18255215
+SRR5761561	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	57	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1200440	13082318
+SRR5761559	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	51	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	858720	17812969
+SRR5761527	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	33	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1340709	16778270
+SRR5761569	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	54	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1513112	22870943
+SRR5761558	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	51	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	858044	17650283
+SRR5761522	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	7	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1599328	18066741
+SRR5761533	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	24	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1214345	16246395
+SRR5761532	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	24	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1209285	16087473
+SRR5761567	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	53	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1095196	12927188
+SRR5761524	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	8	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1131467	13366315
+SRR5761566	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	53	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1088870	12746413
+SRR5761560	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	57	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1190748	12906646
+SRR5761525	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	8	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1143148	13625121
+SRR5761562	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	60	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1199830	14425919
+SRR5761563	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	60	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1208863	14595825
+SRR5761555	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	43	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1382002	11881623
+SRR5761554	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	43	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1368216	11712380
+SRR5761534	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	39	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1121872	11940477
+SRR5761535	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	39	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1127531	12062279
+SRR5761526	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	33	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1332608	16626129
+SRR5761528	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	35	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1306325	11951246
+SRR5761520	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	2	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1197329	15274945
+SRR5761531	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	5	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1263649	13879347
+SRR5761556	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	49	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1449109	16284208
+SRR5761521	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	2	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1207249	15448073
+SRR5761565	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	47	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1519845	17329590
+SRR5761564	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	47	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1510266	17173868
+SRR5761529	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	35	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1320601	12121714
+SRR5761557	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	49	Fulani	CD14- lymphocytes	AFR	AFR	PRJNA392116_Fulani	1473623	16714578
+SRR5761530	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	5	Mossi	CD14- lymphocytes	AFR	AFR	PRJNA392116_Mossi	1256497	13692201
+SRR5761516	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	24	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1147213	11931060
+SRR5761552	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	54	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1177736	13745475
+SRR5761549	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	60	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1094616	11101174
+SRR5761551	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	53	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1134443	12947231
+SRR5761513	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	28	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1327583	14902598
+SRR5761512	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	28	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1309404	14529983
+SRR5761548	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	60	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1086861	10973228
+SRR5761553	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	54	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1185319	13844370
+SRR5761517	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	24	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1157800	12092545
+SRR5761509	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	7	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1155488	12090594
+SRR5761537	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	20	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1067056	12847268
+SRR5761536	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	20	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1051024	12526119
+SRR5761542	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	51	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1322710	16359385
+SRR5761543	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	51	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1341051	16667052
+SRR5761507	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	2	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1411267	13568253
+SRR5761506	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	2	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1402820	13441573
+SRR5761510	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	8	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1294793	14109951
+SRR5761519	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	39	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1312709	14236477
+SRR5761550	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	53	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1125056	12822465
+SRR5761511	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	8	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1312277	14383427
+SRR5761518	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	39	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1304139	14102747
+SRR5761545	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	57	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1151457	12784996
+SRR5761508	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	7	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1141355	11881386
+SRR5761544	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	57	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1138432	12570832
+SRR5761546	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	59	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1073515	11350222
+SRR5761547	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	59	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1079976	11497691
+SRR5761514	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	5	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1277374	13567117
+SRR5761540	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	49	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1110051	10965037
+SRR5761541	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	49	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1137462	11323253
+SRR5761539	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	43	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1371710	14921519
+SRR5761538	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	43	Fulani	CD14+ monocyte	AFR	AFR	PRJNA392116_Fulani	1351092	14552525
+SRR5761515	PRJNA392116	Response to Malaria	29.69	Blood	58841	PAIRED	Peripheral blood mononuclear cells from 18ml venous whole blood	5	Mossi	CD14+ monocyte	AFR	AFR	PRJNA392116_Mossi	1288243	13709255
+SRR975552	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1567197	27576143
+SRR975551	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1658337	32423833
+SRR975554	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1618230	28339179
+SRR975553	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1341642	21332405
+SRR975556	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1487136	24064198
+SRR975555	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1553291	28957503
+SRR975563	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1604995	33289650
+SRR975557	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1399128	21597375
+SRR975566	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1266090	18798461
+SRR975564	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1309374	26396572
+SRR975562	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1278999	22905122
+SRR975560	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1387814	24767990
+SRR975561	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1213582	18099321
+SRR975565	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1465992	20788463
+SRR975559	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1407535	23185706
+SRR975558	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1614000	28411990
+SRR975568	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1396795	22155263
+SRR975567	PRJNA218851	Colon cancer	56.53	Tumor	44063	PAIRED	primary colorectal cancer		South Korea	Tumor Colon	EAS	EAS	PRJNA218851_South Korea	1552956	24557680
+SRR3930348	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	342630	7344684
+SRR3930325	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	400702	8045574
+SRR3930314	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	403546	7044045
+SRR3930349	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	300181	6869910
+SRR3930350	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	378388	8134370
+SRR3930347	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	403825	7423276
+SRR3930315	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	412893	7169753
+SRR3930328	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	315212	6820786
+SRR3930329	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	280439	6989477
+SRR3930326	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	383103	8273843
+SRR3930327	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	355506	6933447
+SRR3930330	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	373580	8054265
+SRR3930332	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	379581	7783809
+SRR3930331	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	443983	8014280
+SRR3930351	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	318458	7709774
+SRR3930333	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	399347	7848251
+SRR3930316	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	407077	7044192
+SRR3930341	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	339998	7604726
+SRR3930334	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	390923	7172830
+SRR3930335	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	391726	7639849
+SRR3930337	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	366149	7439830
+SRR3930338	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	392514	7260384
+SRR3930340	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	380131	8380248
+SRR3930303	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	282749	6568904
+SRR3930305	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	342171	6205085
+SRR3930304	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	389908	7518065
+SRR3930318	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	283650	6946874
+SRR3930317	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	423480	7822846
+SRR3930319	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	370758	7318963
+SRR3930309	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	307542	6421964
+SRR3930324	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	337677	6991871
+SRR3930308	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	350021	6992215
+SRR3930310	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	308112	7948980
+SRR3930313	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	326590	6504060
+SRR3930339	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	383859	7558250
+SRR3930345	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	388520	7398975
+SRR3930307	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	407058	7300056
+SRR3930342	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	429524	7656060
+SRR3930344	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	375844	7270057
+SRR3930311	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	423616	7035688
+SRR3930306	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	333874	6457970
+SRR3930312	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	333003	6590639
+SRR3930343	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	414977	7662702
+SRR3930322	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	358798	7291903
+SRR3930323	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	312795	6466009
+SRR3930320	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	439275	7587113
+SRR3930346	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	366713	6837089
+SRR3930321	PRJNA285798	Response to infectious diarrhea	8.04	Blood	18180	SINGLE	Whole blood		Mexico	Whole blood	AMR	AMR	PRJNA285798_Mexico	469020	8252546
+SRR5038628	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	760738	9075607
+SRR5038630	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	737887	7935383
+SRR5038623	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	664787	7953633
+SRR5038626	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	1007445	13156617
+SRR5038627	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	851016	11013977
+SRR5038629	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	926861	9344807
+SRR5038620	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	753974	9770516
+SRR5038621	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	960512	11939389
+SRR5038624	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	824099	9082888
+SRR5038625	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	788643	9644075
+SRR5038622	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	824553	12112089
+SRR5038631	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	871855	12050583
+SRR5038636	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	788996	11492020
+SRR5038635	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	863817	10648330
+SRR5038617	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	977682	13024132
+SRR5038637	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	642611	7049590
+SRR5038619	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	934343	9718909
+SRR5038614	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	951819	12444229
+SRR5038634	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	667084	6462272
+SRR5038616	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	1240704	15957670
+SRR5038633	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	836634	10823695
+SRR5038615	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	1246820	15330662
+SRR5038632	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	1283063	19052044
+SRR5038618	PRJNA354367	Rheumatoid arthritis	42.51	Blood	27703	PAIRED	Whole blood cells (PAX)		Sweden	Whole blood	EUR	EUR	PRJNA354367_Sweden	1284159	15370439
