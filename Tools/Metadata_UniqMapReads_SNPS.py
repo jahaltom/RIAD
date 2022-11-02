@@ -9,14 +9,12 @@ os.chdir(r"C:\Users\15154\Documents")
 
 ################
 Ancestry_Results_File='SuperpopulationChrAll.PC20SVMResults'
-os.chdir(r"C:\Users\15154\Documents")
 outfilePrefix="RIA"
-totalSNPs_plot_title="RIA Accurate at Low SNP #"
-uniqMapRead_plot_title='RIA is Accurate at Low # of Unique Mapped Reads'
+
 #################
 
 #Read in metadata
-metadata=pd.read_csv("Metadata.txt",sep="\t")
+metadata=pd.read_csv("metadata.txt",sep="\t")
 
 #Read in ancestry inference results 
 results=pd.read_csv(Ancestry_Results_File,sep="\t")       
@@ -41,7 +39,7 @@ plot=sb.scatterplot(resultsMeta["Num of SNPs"],resultsMeta["Accurate_Eth"], hue=
 plt.margins(y=0.1)
 plt.xlabel("Total SNPs/Sample")
 plt.ylabel("Ancestry Correctly Inferred")
-plt.title(totalSNPs_plot_title)
+
 plt.legend(title='Superpopulation')
 plt.grid(True, axis='x')
 plt.savefig(outfilePrefix+"AccuracyBySNP#.png",format='png',dpi=150,bbox_inches='tight')
@@ -58,7 +56,7 @@ plot=sb.scatterplot(resultsMeta["Num of Unique Mapped Reads"],resultsMeta["Accur
 plt.margins(y=0.1)
 plt.xlabel("# of Unique Mapped Reads/Sample")
 plt.ylabel("Ancestry Correctly Inferred")
-plt.title(uniqMapRead_plot_title)
+
 plt.legend(title='Superpopulation')
 plt.grid(True, axis='x')
 plt.savefig(outfilePrefix+"AccuracyBy#UniqMappedReads.png",format='png',dpi=150,bbox_inches='tight')
