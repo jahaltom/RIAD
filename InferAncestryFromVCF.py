@@ -329,8 +329,8 @@ rule Intersect:
     output:
         "{wd}/{sample}/Chr{chr}.{sample}.vcf.gz.tbi"
 
-    shell:
-        """
+    run:
+        shell("""
         bcftools view -r {wildcards.chr} --threads {config['bcftools_threads']} --output-type z  {input} > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.vcf.gz
         
@@ -366,7 +366,7 @@ rule Intersect:
  
     
  
-        """
+  
 
 rule concat:
     input:
@@ -378,11 +378,10 @@ rule concat:
 
         bcf_input=str(list(filter(lambda x: wildcards.sample in x, input))).replace("[", "").replace("]", "").replace(",", "").replace("'", "").replace(".tbi", "")
         path=wildcards.wd + "/"+wildcards.sample + "/"
-        #shell("bcftools concat "+str(input).replace(".tbi", "")+" --output-type z --threads {config['bcftools_threads']} > {wildcards.wd}/{wildcards.sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{wildcards.sample}.vcf.gz")
         bcftools=open(path +"bcftools.sh", "w")
         bcftools.write("source activate Ancestry")
         bcftools.write('\n')
-        bcftools.write("bcftools concat "+bcf_input+" --output-type z --threads {config['bcftools_threads']} > "+ wildcards.wd+"/"+wildcards.sample+"/"+chrPCSpec.replace(".PC"+str(PCs),"_")+"."+wildcards.sample+".vcf.gz")
+        bcftools.write("bcftools concat "+bcf_input+" --output-type z --threads "+bcftools_threads+" > "+ wildcards.wd+"/"+wildcards.sample+"/"+chrPCSpec.replace(".PC"+str(PCs),"_")+"."+wildcards.sample+".vcf.gz")
         bcftools.close()
         subprocess.run("bash "+path +"bcftools.sh", shell=True, check=True)
         
