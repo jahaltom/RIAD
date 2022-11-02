@@ -403,7 +403,7 @@ rule Intersect:
     run:       
         shell("""
         #Extract coordinates for RNA-Seq sample from 1KGP
-        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz --threads 7 --output-type z data/Chr{wildcards.chr}_SNPs.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz   
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz --threads {config['bcftools_threads']} --output-type z data/Chr{wildcards.chr}_SNPs.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz   
      
                
         #Remove headers and intersect varients for matching CHROM,POS,REF. ALT in gatk must be . or same as ALT in 1KGP. Outputs list of coordinates to use for filtering.
@@ -420,14 +420,14 @@ rule Intersect:
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vars {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vars
         
         #Filter
-        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads 7 --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads {config['bcftools_threads']} --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz
-        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads 7 --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz
+        bcftools view -R {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}Finalcords --threads {config['bcftools_threads']} --output-type z {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz  > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.vcf.gz
         
         #Merge
-        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
+        bcftools merge {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.1KGP.filtered.vcf.gz {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.GATK.filtered.vcf.gz --output-type z --threads {config['bcftools_threads']} > {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         bcftools index -t {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.{wildcards.sample}.vcf.gz
         """)
  
@@ -444,11 +444,10 @@ rule concat:
 
         bcf_input=str(list(filter(lambda x: wildcards.sample in x, input))).replace("[", "").replace("]", "").replace(",", "").replace("'", "").replace(".tbi", "")
         path=wildcards.wd + "/"+wildcards.sample + "/"
-        #shell("bcftools concat "+str(input).replace(".tbi", "")+" --output-type z --threads 7 > {wildcards.wd}/{wildcards.sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{wildcards.sample}.vcf.gz")
         bcftools=open(path +"bcftools.sh", "w")
         bcftools.write("source activate Ancestry")
         bcftools.write('\n')
-        bcftools.write("bcftools concat "+bcf_input+" --output-type z --threads 7 > "+ wildcards.wd+"/"+wildcards.sample+"/"+chrPCSpec.replace(".PC"+str(PCs),"_")+"."+wildcards.sample+".vcf.gz")
+        bcftools.write("bcftools concat "+bcf_input+" --output-type z --threads "+bcftools_threads+" > "+ wildcards.wd+"/"+wildcards.sample+"/"+chrPCSpec.replace(".PC"+str(PCs),"_")+"."+wildcards.sample+".vcf.gz")
         bcftools.close()
         subprocess.run("bash "+path +"bcftools.sh", shell=True, check=True)
         
@@ -463,6 +462,7 @@ rule SuperPop:
         shell("""
         sed 's/OUTPUT/{wildcards.wd}/g' masker.sh > {wildcards.wd}/{wildcards.sample}/masker.sh
         sed -i 's/SAMPLE/{wildcards.sample}/g'  {wildcards.wd}/{wildcards.sample}/masker.sh
+        sed -i 's/THREADS/{config['bcftools_threads']}/g'  {wildcards.wd}/{wildcards.sample}/masker.sh
         bash {wildcards.wd}/{wildcards.sample}/masker.sh
         """)
         
