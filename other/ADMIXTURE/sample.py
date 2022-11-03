@@ -16,4 +16,4 @@ df.columns =["run_accession","Inferred Superpopulation"]
 df=pd.concat([df, qfile], axis=1)
   ##############################################################################################################################Change header order match RIA       
 df.to_csv('ADMIXTURE_Results.tsv',sep='\t',mode='w',index=False)     
-df.to_csv('/work/LAS/xgu-lab/RIA/ADMIXTURE_Results.tsv',sep='\t',mode='a',index=False,header=None) 
+df.to_csv('/ocean/projects/bio210061p/jahaltom/RIA/ADMIXTURE_Results.tsv',sep='\t',mode='a',index=False,header=None) 
