@@ -294,8 +294,8 @@ def PCA(vcf,metadata_path,run,path,sample_id,classification):
 
 
         svm(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
-        RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
-        neural_network(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
+        #RandomForest_Classifier(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
+        #neural_network(x_train,y_train,x_test,y_test,classification,unk_test,sample_id,run)
 
 #####################
 
