@@ -1,36 +1,3 @@
-
-
-
-
-cat RAids.txt | while read i;do
-	cat admix.sh | sed "s/SAMPLE/$i/g" > output/$i/$i.sh
-	cat sample.py | sed "s/SAMPLE/$i/g" > output/$i/$i.py
-	sbatch output/$i/$i.sh
-done
-
-
-
-###admix.sh
-#!/bin/bash
-
-#SBATCH --time=4:00:00   # walltime limit (HH:MM:SS)   
-#SBATCH -p RM-shared
-#SBATCH -c 20
-
-source activate Ancestry
-
-cp 1KGP.pop output/SAMPLE/
-cd output/SAMPLE/
-plink --vcf All.SAMPLE.vcf.gz --make-bed --out 1KGP       
-/work/LAS/xgu-lab/RIA/dist/admixture_linux-1.3.0/admixture 1KGP.bed 5 --supervised -j4
-tail -1 1KGP.5.Q > SAMPLE.prop
-
-python  SAMPLE.py
-        
-        
-
-
-###sample.py
 import pandas as pd
 from pandas import DataFrame
 
