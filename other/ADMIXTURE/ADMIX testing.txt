@@ -1,5 +1,0 @@
-awk -F "\t" 'OFS="\t" {print $2,$2,$1,$7,$5,$4,$3,$6}' ADMIXTURE_Results.tsv > bot
-more SuperpopulationChrAll.PC20SVMResults | head -1 > head
-cat head bot  > test
-rm bot head
-mv test SuperpopulationChrADMIXTURE
