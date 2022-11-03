@@ -9,7 +9,7 @@ import glob
 
 #Chr 1-22, other files. 
 files=glob.glob("*SuperpopulationChrAll*")
-files.append("SuperpopulationChrADMIXTURE")
+files.append("*SuperpopulationChrADMIXTURE*")
 for x in range(1,23):
       files.append("SuperpopulationChr"+str(x)+".PC20SVMResults")
       
