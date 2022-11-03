@@ -2,7 +2,7 @@
 
 #SBATCH --time=4:00:00   # walltime limit (HH:MM:SS)
 #SBATCH -p RM-shared
-#SBATCH -c 20
+#SBATCH -c 4
 
 source activate Ancestry
 
