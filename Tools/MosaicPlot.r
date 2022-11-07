@@ -36,10 +36,10 @@ df$Self.Reported=gsub('AFR', 'African', df$Self.Reported)
 ggplot(df, aes(x=run_accession, y=p, fill=Super.Population)) +
   geom_bar(stat="identity", position="stack",width = 1)   + xlab("RNA-Seq Samples") + ylab("RIA Ancestry Probability") + facet_grid(.~  Self.Reported, scales="free_x", space = "free_x") +
   theme(plot.title = element_text(hjust = 0.5))+
-  scale_fill_manual(values=c("red",
+  scale_fill_manual(values=c("blue",
+                             "orange",
                              "green",
-                             "blue",
-                             "purple","orange"))
+                             "red","purple"))
 
 ggsave("ADMIXTURE.png")
 
