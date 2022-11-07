@@ -72,4 +72,4 @@ for patch in plot.patches :
 
 
 
-plt.savefig("output.png",format='png',dpi=150,bbox_inches='tight')
+plt.savefig("AccuracyByTissueEth.png",format='png',dpi=150,bbox_inches='tight')
