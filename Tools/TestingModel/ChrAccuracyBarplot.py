@@ -16,13 +16,14 @@ col_list=['All']
 for c in range(1,23): 
     col_list.append(c)
     
-    
+
 #Loop through chrs 
 for i in col_list:   
     #Extract single chr column 
-    chrCol=[col for col in results.columns if 'Chr'+str(i)+".PC20SVMResults" in col]
+    chrCol=[col for col in results.columns if col.endswith('Chr'+str(i)+".PC20SVMResults")]
+     
     #Extract accuracies 
-    df=results[chrCol].tail(7)
+    df=results[chrCol].tail(6)
     #Add column for Chr num 
     df['Chr']=i
     #Rownames to column
@@ -35,6 +36,7 @@ for i in col_list:
   
     dfs.append(df)
 
+
 dfs = pd.concat(dfs)
 dfs.columns =['Ethnicity', 'Accuracy', 'Chromosome']
 
@@ -46,7 +48,7 @@ plot.set_xticklabels(plot.get_xticklabels(), rotation=90,size = 7)
 
 plt.legend(bbox_to_anchor=(1.01, 1),borderaxespad=0)
 plt.xlabel("Chromosome")
-plt.ylabel("Accuracy")
+plt.ylabel("Accuracy %")
 
 #Keeps stuff being cropped
 
