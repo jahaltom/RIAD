@@ -32,7 +32,7 @@ for i in col_list:
     #Remove header
     df.columns = range(df.shape[1])
     #Drop Malaysian study
-    df=df.drop([3, 3])
+    df=df.drop([2, 2])
   
     dfs.append(df)
 
