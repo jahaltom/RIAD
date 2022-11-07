@@ -63,7 +63,7 @@ for patch in plot.patches :
     diff = current_width - .1
 
     # we change the bar width
-    patch.set_width(.1)
+    patch.set_width(.2)
 
     # we recenter the bar
     patch.set_x(patch.get_x() + diff *.5)
