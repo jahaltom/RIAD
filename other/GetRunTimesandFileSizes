@@ -1,0 +1,58 @@
+#RAids for ADMIXTURE
+cat slurm-* | grep " --vcf Chr" | sed 's/\./ /g' | awk '{print $3}' > ids
+
+
+Merge with time script
+#List all jobids 
+ls -lhs | grep "slurm"  | awk '{print $NF}' | sed 's/-/ /g' | sed 's/\./ /g' | awk '{print $2}' > list
+
+#Gather total time for each job in hours. 
+cat list | while read p; do
+  seff $p | grep "Job Wall-clock time" | awk '{print $NF}' | sed 's/:/ /g' | awk '{print $1+$2/60+$3/60/60}'   >> times
+done 
+rm list
+
+
+
+paste ids times > NoNoiseADMIX.tsv
+
+
+
+
+
+
+
+
+
+#RAids for RIA
+cat slurm-* | grep "input:"  | sed 's/\// /g' | awk '{print $3}' > ids
+
+
+Merge with time script
+#List all jobids 
+ls -lhs | grep "slurm"  | awk '{print $NF}' | sed 's/-/ /g' | sed 's/\./ /g' | awk '{print $2}' > list
+
+#Gather total time for each job in hours. 
+cat list | while read p; do
+  seff $p | grep "Job Wall-clock time" | awk '{print $NF}' | sed 's/:/ /g' | awk '{print $1+$2/60+$3/60/60}'   >> times
+done 
+rm list
+
+
+
+paste ids times > NoNoiseRIA.tsv
+
+
+
+
+
+
+
+#SRR size
+cat ids.txt | while read i;do
+	wc -c output/$i/ChrAll_.$i.vcf.gz | awk '{print $1/1000000}' >> sizes
+done
+
+
+paste ids.txt sizes > sizes.tsv
+rm sizes
