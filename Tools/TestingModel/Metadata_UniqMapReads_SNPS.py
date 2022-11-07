@@ -52,7 +52,7 @@ plt.show()
 #Add in dummy row to sperate accurate from non.  
 resultsMeta = pd.concat([resultsMeta[resultsMeta.Accurate == 'No'], pd.DataFrame({'Num of Unique Mapped Reads': [0,0,0], 'Accurate_Eth': [""," ","  "], 'Eth1':["","",""]}), resultsMeta[resultsMeta.Accurate == 'Yes']])
 #Plot
-plot=sb.scatterplot(resultsMeta["Num of Unique Mapped Reads"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","red","green","blue","purple","orange"])
+plot=sb.scatterplot(resultsMeta["Num of Unique Mapped Reads"],resultsMeta["Accurate_Eth"], hue=resultsMeta['Eth1'], data=resultsMeta,hue_order=["","AFR","AMR","EAS","EUR","SAS"],palette=["white","blue","orange","green","red","purple"])
 plt.margins(y=0.1)
 plt.xlabel("# of Unique Mapped Reads/Sample")
 plt.ylabel("Ancestry Correctly Inferred")
