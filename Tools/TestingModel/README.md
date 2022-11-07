@@ -6,3 +6,5 @@
 **AccuracyByTissueBarPlot.py:** Takes in RIA output and using metadata with self reported ethnicity generates a tissue/etnicity vs accuracy barplot.
 
 **Metadata_UniqMapReads_SNPS.py:** Takes output from TotalSNPsByRun and TotalUniqMapReadsByRun, along with RIA output and using metadata with self reported ethnicity generates a scatterplot of # of UniqMapReads/sample vs (yes,no)accuracy. Seperated by ethnicity. Does the same for Total SNPs/sample. 
+
+**AccuracyByPC.py:** Takes output from AccuracyTable.py and makes a PC vs accuracy barplot.
