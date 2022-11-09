@@ -26,7 +26,7 @@ rule all:
         input:  expand("output/{sample}/done",sample=d["POP"])
                 
 rule quant:
-        input:  expand("output/{sample}/Chr22.{sample}.vcf.gz.tbi",sample=d["POP"])
+        input:  expand("output/{sample}/Chr"+str(vars[var][0])+".{sample}.vcf.gz.tbi",sample=d["POP"])
        
         output:
             "output/{sample}/done"
