@@ -3,8 +3,9 @@ import pandas as pd
 
 
 
-#APOL1
+#Input dict
 vars={
+        #VariantID, Chr, Position, Ref, Alt.
         "rs1990760":	[2, 162267541 ,'C','T'],
         "rs73885319":	[22, 36265860,'A','G'],
         "rs60910145":	[22, 36265988,'T','G']
@@ -12,8 +13,8 @@ vars={
 }
 
 
-metadata=pd.read_csv("metadata",sep="\t")[["run_accession","Eth1"]]
-##Create dict that has Condition as key.
+metadata=pd.read_csv("metadata.txt",sep="\t")[["run_accession","Eth1"]]
+##Create dict that has self-reported ethnicity as key.
 d = metadata.groupby('Eth1')['run_accession'].apply(list).to_dict()
 
 
