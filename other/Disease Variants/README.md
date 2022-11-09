@@ -2,6 +2,7 @@
 Searches an dreports by self-reported ethnicity. Also needs metadata.txt containing self-reported ethnicities.
 
 rs73885319 and rs60910145 https://clinvarminer.genetics.utah.edu/variants-by-gene/APOL1/significance/risk%20factor
+
 rs1990760:  https://www.ncbi.nlm.nih.gov/snp/rs1990760
 
 
