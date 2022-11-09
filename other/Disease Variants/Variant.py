@@ -1,15 +1,7 @@
 import pandas as pd
 
 
-# cat POP | while read i;do
-# 	sed "s/POP/$i/g" snakefile  > snakefile$i 
-# 	snakemake -j 300 -k -s snakefile$i --cluster "sbatch -t 01:00:00 -c 10 -p RM-shared"
-# done
 
-
-
-#https://clinvarminer.genetics.utah.edu/variants-by-gene/APOL1/significance/risk%20factor
-# rs1990760  https://www.mdpi.com/2227-9059/10/3/549/htm https://elifesciences.org/articles/73012  https://www.ncbi.nlm.nih.gov/snp/rs1990760
 
 #APOL1
 vars={
