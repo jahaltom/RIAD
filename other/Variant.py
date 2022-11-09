@@ -9,15 +9,11 @@ import pandas as pd
 
 
 #https://clinvarminer.genetics.utah.edu/variants-by-gene/APOL1/significance/risk%20factor
-#https://www.ebi.ac.uk/gwas/variants/rs6102095  https://www.nature.com/articles/s41431-019-0483-5
-#NM_000518.5(HBB):c.20A>T (p.Glu7Val) https://www.ncbi.nlm.nih.gov/clinvar/variation/15333/?new_evidence=false
 # rs1990760  https://www.mdpi.com/2227-9059/10/3/549/htm https://elifesciences.org/articles/73012  https://www.ncbi.nlm.nih.gov/snp/rs1990760
 
 #APOL1
 vars={
-      #  "NM_000518.5(HBB):c.20A>T (p.Glu7Val)": [11, 5227002 , 'A', 'T'],
         "rs1990760":	[2, 162267541 ,'C','T'],
-     #   "rs6102095": [20, 40692111, 'G','A'],
         "rs73885319":	[22, 36265860,'A','G'],
         "rs60910145":	[22, 36265988,'T','G']
       
