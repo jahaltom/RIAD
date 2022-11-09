@@ -30,7 +30,8 @@ To run use the folowing:
 
 ```
 cat POP | while read i;do
- 	sed "s/POP/$i/g" snakefile  > snakefile$i 
-  snakemake -j 300 -k -s snakefile$i --cluster "sbatch -t 01:00:00 -c 10 -p RM-shared"
+ 	sed "s/POP/$i/g" Variant.py  > $iVariant.py
+        snakemake -j 300 -k -s $iVariant.py --cluster "sbatch -t 01:00:00 -c 10 -p RM-shared"
+        rm $iVariant.py
 done
 ```
