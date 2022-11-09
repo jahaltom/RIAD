@@ -330,10 +330,10 @@ rule SuperPop:
     run:
 
         shell("""
-        sed 's/OUTPUT/{wildcards.wd}/g' masker.sh > {wildcards.wd}/{wildcards.sample}/masker.sh
-        sed -i 's/SAMPLE/{wildcards.sample}/g'  {wildcards.wd}/{wildcards.sample}/masker.sh
-        sed -i 's/THREADS/{config['bcftools_threads']}/g'  {wildcards.wd}/{wildcards.sample}/masker.sh
-        bash {wildcards.wd}/{wildcards.sample}/masker.sh
+        sed 's/OUTPUT/{wildcards.wd}/g' noise.sh > {wildcards.wd}/{wildcards.sample}/noise.sh
+        sed -i 's/SAMPLE/{wildcards.sample}/g'  {wildcards.wd}/{wildcards.sample}/noise.sh
+        sed -i 's/THREADS/{config['bcftools_threads']}/g'  {wildcards.wd}/{wildcards.sample}/noise.sh
+        bash {wildcards.wd}/{wildcards.sample}/noise.sh
         """)
         
         
