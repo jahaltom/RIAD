@@ -75,7 +75,7 @@ rule var_call:
            -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final.bam \
            -O {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.gvcf.gz \
            -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
-           -L {wildcards.chr} \
+           -L chr{wildcards.chr} \
            -ERC GVCF \
            --native-pair-hmm-threads 7
         rm {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.final*
