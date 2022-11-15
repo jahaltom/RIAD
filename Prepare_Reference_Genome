@@ -33,3 +33,6 @@ wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.
 gunzip variant_summary.txt.gz
 cat variant_summary.txt | grep -v "GRCh37" > ClinVarSummaryGRCh38.txt
 rm variant_summary.txt
+
+#Get Gnomad germline-resource for GATK
+wget https://www.bcgsc.ca/downloads/morinlab/reference/af-only-gnomad.hg38.vcf.gz
