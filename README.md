@@ -116,8 +116,8 @@ done
 ## Infer Ancestry
 Performs GATK best practices workflow for RNAseq short variant discovery. Intersects input varient data with varaint data from the 1000 Genomes Project to gather common ancestry informative loci. Performs PCA on variant data via PLINK and SVM model is implemented for ancestry inference. 
 
-* In the config.yaml file, specify the number of PCs to be used for the machine learning step (Default 20) and chromosomes to be genotyped (Default Chr1-22). 
-Optional: set bcftools_threads and/or haplotypeCaller_threads (default is 7)
+* In the config.yaml file, specify the number of PCs to be used for the machine learning step (Default 20) and chromosomes to be genotyped (Default chr1-chr22). 
+Optional: set bcftools_threads and/or haplotypeCaller_threads (Default 7).
 
 * For SRA/fastq mode, simply continue to execution.
 
