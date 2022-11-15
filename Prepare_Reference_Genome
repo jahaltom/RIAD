@@ -35,4 +35,5 @@ cat variant_summary.txt | grep -v "GRCh37" > ClinVarSummaryGRCh38.txt
 rm variant_summary.txt
 
 #Get Gnomad germline-resource for GATK
-wget https://www.bcgsc.ca/downloads/morinlab/reference/af-only-gnomad.hg38.vcf.gz
+wget -m ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/Mutect2
+mv ftp.broadinstitute.org/bundle/Mutect2/af-only-gnomad.hg38.vcf.gz .
