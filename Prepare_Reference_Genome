@@ -23,16 +23,29 @@ samtools faidx GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna
 STAR --runMode genomeGenerate --genomeDir star_index_Human --sjdbGTFfile GCA_000001405.15_GRCh38_full_analysis_set.refseq_annotation.gtf --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna --runThreadN 30
 
 
-# #The ClinVar database (https://www.ncbi.nlm.nih.gov/clinvar/) contains information on the medical relevance of genetic variations(Landrum et al. 2018).   
-# #Get GRCh38 VCFs  
+##The ClinVar database (https://www.ncbi.nlm.nih.gov/clinvar/) contains information on the medical relevance of genetic variations.   
+#Get GRCh38 VCF 
 wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
+#Change chr notation
+for var in {1..22}
+do
+   echo "$var chr$var" >> chr.txt
+done
+echo "X chrX" >> chr.txt
+echo "Y chrY" >> chr.txt
+echo "MT chrM" >> chr.txt
 wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz.tbi
-# #Get variant summary file and remove GRCh37 data fromn it. 
+bcftools annotate --rename-chrs chr.txt  clinvar.vcf.gz --output-type z -o clinvar.temp.vcf.gz
+rm clinvar.vcf.gz.tbi
+rm chr.txt
+mv clinvar.temp.vcf.gz clinvar.vcf.gz
+bcftools index -t clinvar.vcf.gz
+#Get variant summary file and remove GRCh37 data fromn it. 
 wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
 gunzip variant_summary.txt.gz
 cat variant_summary.txt | grep -v "GRCh37" > ClinVarSummaryGRCh38.txt
 rm variant_summary.txt
 
-#Get Gnomad germline-resource for GATK
+##Get Gnomad germline-resource for GATK
 wget -m ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/Mutect2
 mv ftp.broadinstitute.org/bundle/Mutect2/af-only-gnomad.hg38.vcf.gz .
