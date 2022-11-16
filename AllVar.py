@@ -60,7 +60,7 @@ rule var_call:
         gatk BaseRecalibrator \
             -I {wildcards.wd}/{wildcards.sample}/Chr{wildcards.chr}.split.bam \
             -R data/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna \
-            --known-sites data/Chr{wildcards.chr}_SNPs.vcf.gz \
+            --known-sites data/af-only-gnomad.hg38.vcf.gz \
             -O {wildcards.wd}/{wildcards.sample}/recal_data.table
             
         gatk ApplyBQSR \
