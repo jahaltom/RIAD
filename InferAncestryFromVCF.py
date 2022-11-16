@@ -311,7 +311,8 @@ with open ("ids.txt") as f:
 chrPCSpec="Chr"+str(Interval).replace("[", "").replace("]", "").replace(",", "_").replace(" ", "")+".PC"+str(PCs)
 
 if Interval == "All":
-    chr_list=list(range(1, 23))
+    for i in range(1, 23):
+        chr_list.append(str(i))
 else:
     chr_list=Interval
     
