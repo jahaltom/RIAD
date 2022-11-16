@@ -5,9 +5,11 @@ haplotypeCaller_threads: 7
 ##Specify file type: fastq,fq or SRA.
 FileType: 'SRA'
 ##chromosomes to be genotyped
-#Specify individual chromosome: [5]
-#Specify individual chromosomes: [5,6]
+#Specify individual chromosome: ['5']
+#Specify individual chromosomes: ['5','6']
 #Specify all chromosomes 1-22: 'All' 
+#Specify X,Y,M chromosomes in AllVar or Somatatic mode: ['X','Y','M']
+#Specify all chromosomes including X,Y,M: 'AllMYX'
 Interval: 'All'
 ##Specify number of PCs for machine learning step
 PCs: 20
