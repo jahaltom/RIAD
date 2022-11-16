@@ -13,8 +13,15 @@ with open ("RAids.txt") as f:
 if Interval == "All":
     for i in range(1, 23):
         chr_list.append(str(i))
+elif Interval == "AllMYX":
+    for i in range(1, 23):
+        chr_list.append(str(i))
+    chr_list.append("M")
+    chr_list.append("Y")
+    chr_list.append("X")     
 else:
     chr_list=Interval
+    
     
     
 
