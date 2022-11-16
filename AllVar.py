@@ -10,6 +10,7 @@ with open ("RAids.txt") as f:
     ra=f.read().splitlines()
 
 
+chr_list=[]
 if Interval == "All":
     for i in range(1, 23):
         chr_list.append(str(i))
