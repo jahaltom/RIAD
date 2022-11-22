@@ -346,6 +346,8 @@ rule SuperPop:
         
         #Make region file for final_strata
         regions=tx_metadata[tx_metadata["final_strata"]=="FINAL_STRATA"][["chr","start","end"]]
+        #Remove chr from chr#
+        regions['chr'] = regions['chr'].str[3:]
         regions.to_csv(path+"FINAL_STRATA.tsv",sep='\t',index=False,mode='w',header=None)
 
         #Use region file to subset vcf for RIA. Also 1KGP
