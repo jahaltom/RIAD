@@ -1,0 +1,31 @@
+Homo sapiens
+Euteleostomi
+Simiiformes
+Hominidae
+Catarrhini
+Eumetazoa
+Homininae
+Chordata
+Eukaryota
+Bilateria
+Amniota
+Boreoeutheria
+Theria
+Haplorrhini
+Primates
+Tetrapoda
+Vertebrata
+Euarchontoglires
+Hylobatidae
+Hominoidea
+Eutheria
+Deuterostomia
+Cercopithecinae
+cellular organisms
+Gnathostomata
+Mammalia
+Metazoa
+Opisthokonta
+Sarcopterygii
+Bovinae
+Rattus
