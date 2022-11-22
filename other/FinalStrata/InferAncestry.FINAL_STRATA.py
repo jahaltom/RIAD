@@ -307,7 +307,7 @@ def PCA(vcf,metadata_path,run,path,sample_id,classification):
 with open ("ids.txt") as f:
     id=f.read().splitlines()
 
-chrPCSpec="Chr"+str(Interval).replace("[", "").replace("]", "").replace(",", "_").replace(" ", "")+".PC"+str(PCs)
+chrPCSpec="Chr"+str(Interval).replace("[", "").replace("]", "").replace(",", "_").replace(" ", "")+".PC"+str(PCs)+"FINAL_STRATA"
 
 if Interval == "All":
     chr_list=[]
@@ -321,16 +321,16 @@ else:
 
 
 rule all:
-    input: expand("{wd}/{sample}/SuperpopulationFINAL_STRATA{chrPCSpec}SVMResults",sample=id,wd=OutputDir,chrPCSpec=chrPCSpec)
+    input: expand("{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults",sample=id,wd=OutputDir,chrPCSpec=chrPCSpec)
 
 
 
         
 rule SuperPop:
-    input: "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
+    input: "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs)+"FINAL_STRATA","_")+".{sample}.vcf.gz"
 
     output:
-        "{wd}/{sample}/SuperpopulationFINAL_STRATA{chrPCSpec}SVMResults"
+        "{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults"
 
     run:
         path=wildcards.wd + "/"+wildcards.sample + "/"
@@ -367,4 +367,4 @@ rule SuperPop:
         metadata_path="data/1KGP.metadata.tsv"
 
         #All is ChrAll,Chr#,ect
-        PCA(vcf,metadata_path,chrPCSpec,path,wildcards.sample,"SuperpopulationFINAL_STRATA")
+        PCA(vcf,metadata_path,chrPCSpec,path,wildcards.sample,"Superpopulation")
