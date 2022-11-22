@@ -321,7 +321,7 @@ else:
 
 
 rule all:
-    input: expand("{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults",sample=id,wd=OutputDir,chrPCSpec=chrPCSpec)
+    input: expand("{wd}/{sample}/SuperpopulationFINAL_STRATA{chrPCSpec}SVMResults",sample=id,wd=OutputDir,chrPCSpec=chrPCSpec)
 
 
 
@@ -330,7 +330,7 @@ rule SuperPop:
     input: "{wd}/{sample}/"+chrPCSpec.replace(".PC"+str(PCs),"_")+".{sample}.vcf.gz"
 
     output:
-        "{wd}/{sample}/Superpopulation{chrPCSpec}SVMResults"
+        "{wd}/{sample}/SuperpopulationFINAL_STRATA{chrPCSpec}SVMResults"
 
     run:
         path=wildcards.wd + "/"+wildcards.sample + "/"
@@ -355,7 +355,9 @@ rule SuperPop:
         bcftools=open(path+"FINAL_STRATA_bcftools.sh", "w")
         bcftools.write("source activate Ancestry")
         bcftools.write('\n')
-        bcftools.write("bcftools view -R "+path+"FINAL_STRATA.tsv --threads "+config['bcftools_threads'] + " --output-type z " + str(input) +" > " + path + "FINAL_STRATA.vcf")
+        bcftools.write("bcftools index -t " + str(input))
+        bcftools.write('\n')
+        bcftools.write("bcftools view -R "+path+"FINAL_STRATA.tsv --threads 7 --output-type z " + str(input) +" > " + path + "FINAL_STRATA.vcf")
         bcftools.close()
         subprocess.run("bash "+path +"FINAL_STRATA_bcftools.sh", shell=True, check=True)
         
