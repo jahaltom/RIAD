@@ -354,7 +354,7 @@ rule SuperPop:
         bcftools=open(path+"FINAL_STRATA_bcftools.sh", "w")
         bcftools.write("source activate Ancestry")
         bcftools.write('\n')
-        bcftools.write("bcftools view -R "+path+"FINAL_STRATA.tsv --threads "+config['bcftools_threads'] + " --output-type z " + str(input) +" > " path + "FINAL_STRATA.vcf")
+        bcftools.write("bcftools view -R "+path+"FINAL_STRATA.tsv --threads "+config['bcftools_threads'] + " --output-type z " + str(input) +" > " + path + "FINAL_STRATA.vcf")
         bcftools.close()
         subprocess.run("bash "+path +"FINAL_STRATA_bcftools.sh", shell=True, check=True)
         
